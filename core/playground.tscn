@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://csx3owk01my5x"]
+[gd_scene load_steps=4 format=3 uid="uid://csx3owk01my5x"]
 
 [ext_resource type="PackedScene" uid="uid://dsq368wv1wotj" path="res://sword/sword.tscn" id="1_qfrr3"]
 [ext_resource type="Script" uid="uid://83ew0hqw78vm" path="res://core/ui_manager.gd" id="2_we4n0"]
+[ext_resource type="PackedScene" uid="uid://4hf7dgvsytss" path="res://chickens/chicken.tscn" id="3_6i40u"]
 
 [node name="Playground" type="Node2D"]
+
+[node name="Chickens" type="Node2D" parent="."]
+
+[node name="Chicken2" parent="Chickens" instance=ExtResource("3_6i40u")]
+position = Vector2(222, 83)
+
+[node name="Chicken" parent="Chickens" instance=ExtResource("3_6i40u")]
+position = Vector2(84, 115)
 
 [node name="Sword" parent="." instance=ExtResource("1_qfrr3")]
 
