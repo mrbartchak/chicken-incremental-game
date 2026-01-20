@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="chicken-incremental-game"
+run/main_scene="uid://csx3owk01my5x"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
 [display]
 
 window/size/viewport_width=320
 window/size/viewport_height=180
+window/size/mode=2
 window/size/window_width_override=1440
 window/size/window_height_override=1080
 window/stretch/mode="viewport"

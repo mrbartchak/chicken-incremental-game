@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsq368wv1wotj"]
+
+[ext_resource type="Script" uid="uid://cng07upnavh84" path="res://sword/sword.gd" id="1_8ykyu"]
+[ext_resource type="Texture2D" uid="uid://c7d8eb7fj1r2e" path="res://sword/sword.png" id="1_b3h16"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ghqvi"]
+
+[node name="Sword" type="Area2D"]
+script = ExtResource("1_8ykyu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_b3h16")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ghqvi")
