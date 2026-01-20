@@ -14,6 +14,12 @@ position = Vector2(222, 83)
 [node name="Chicken" parent="Chickens" instance=ExtResource("3_6i40u")]
 position = Vector2(84, 115)
 
+[node name="Chicken3" parent="Chickens" instance=ExtResource("3_6i40u")]
+position = Vector2(86, 35)
+
+[node name="Chicken4" parent="Chickens" instance=ExtResource("3_6i40u")]
+position = Vector2(180, 145)
+
 [node name="Sword" parent="." instance=ExtResource("1_qfrr3")]
 
 [node name="UI" type="Control" parent="."]
@@ -28,5 +34,13 @@ layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 text = "quit"
+
+[node name="WingLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 4.0
+offset_right = 317.0
+offset_bottom = 27.0
+text = "0"
 
 [connection signal="pressed" from="UI/QuitButton" to="UI" method="_on_quit_button_pressed"]

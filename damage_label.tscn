@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b1oc1ma540w40"]
+
+[node name="DamageLabel" type="Label"]
+z_index = 100
+offset_right = 36.0
+offset_bottom = 24.0
+scale = Vector2(0.4, 0.4)
+pivot_offset = Vector2(18, 12)
+text = "999"
+horizontal_alignment = 1
+vertical_alignment = 1

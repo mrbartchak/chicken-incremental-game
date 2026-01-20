@@ -12,16 +12,23 @@ func _ready() -> void:
 func _process(delta):
 	var target := get_global_mouse_position()
 	global_position = global_position.lerp(target, follow_speed * delta)
+	collect_wings()
 
 func _on_attack_timer_timeout() -> void:
 	attack()
 	play_swing()
 
 func attack() -> void:
-	var bodies: Array[Area2D] = get_overlapping_areas()
-	for area: Area2D in bodies:
+	var areas: Array[Area2D] = get_overlapping_areas()
+	for area: Area2D in areas:
 		if area.has_method("take_damage"):
 			area.take_damage(1)
+
+func collect_wings() -> void:
+	var areas: Array[Area2D] = get_overlapping_areas()
+	for area: Area2D in areas:
+		if area.has_method("collect"):
+			area.collect()
 
 func play_swing() -> void:
 	$SwingSound.pitch_scale = randf_range(0.6, 1.4)
