@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bw8s4nkfelrju"
-path="res://.godot/imported/feather.png-5727342421b45d750438d982f5e487de.ctex"
+path="res://.godot/imported/feather.png-bdcd9dedb1f0ba91f1838ffb37d175fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://chickens/assets/feather.png"
-dest_files=["res://.godot/imported/feather.png-5727342421b45d750438d982f5e487de.ctex"]
+source_file="res://entities/chickens/assets/feather.png"
+dest_files=["res://.godot/imported/feather.png-bdcd9dedb1f0ba91f1838ffb37d175fa.ctex"]
 
 [params]
 

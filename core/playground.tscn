@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://csx3owk01my5x"]
+[gd_scene load_steps=5 format=3 uid="uid://csx3owk01my5x"]
 
 [ext_resource type="PackedScene" uid="uid://dsq368wv1wotj" path="res://sword/sword.tscn" id="1_qfrr3"]
 [ext_resource type="Script" uid="uid://83ew0hqw78vm" path="res://core/ui_manager.gd" id="2_we4n0"]
-[ext_resource type="PackedScene" uid="uid://4hf7dgvsytss" path="res://chickens/chicken.tscn" id="3_6i40u"]
+[ext_resource type="PackedScene" uid="uid://4hf7dgvsytss" path="res://entities/chickens/chicken.tscn" id="3_6i40u"]
+[ext_resource type="Texture2D" uid="uid://bb4bho6tgxfv5" path="res://grass_background.png" id="4_nmn22"]
 
 [node name="Playground" type="Node2D"]
 
@@ -20,6 +21,9 @@ position = Vector2(86, 35)
 [node name="Chicken4" parent="Chickens" instance=ExtResource("3_6i40u")]
 position = Vector2(180, 145)
 
+[node name="Chicken6" parent="Chickens" instance=ExtResource("3_6i40u")]
+position = Vector2(39, 77)
+
 [node name="Sword" parent="." instance=ExtResource("1_qfrr3")]
 
 [node name="UI" type="Control" parent="."]
@@ -28,6 +32,13 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_we4n0")
+
+[node name="Background" type="TextureRect" parent="UI"]
+z_index = -4096
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("4_nmn22")
 
 [node name="QuitButton" type="Button" parent="UI"]
 layout_mode = 0
