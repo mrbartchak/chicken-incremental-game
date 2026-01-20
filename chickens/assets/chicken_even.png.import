@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7d8eb7fj1r2e"
-path="res://.godot/imported/sword.png-3101e55fc385d4a7406ec5dd2b529f3a.ctex"
+uid="uid://btm6w43e47xo5"
+path="res://.godot/imported/chicken_even.png-f3defb1e2121421b66ecb50324c46ca5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sword/sword.png"
-dest_files=["res://.godot/imported/sword.png-3101e55fc385d4a7406ec5dd2b529f3a.ctex"]
+source_file="res://chickens/assets/chicken_even.png"
+dest_files=["res://.godot/imported/chicken_even.png-f3defb1e2121421b66ecb50324c46ca5.ctex"]
 
 [params]
 

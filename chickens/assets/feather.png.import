@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwmtnmwi8m35g"
-path="res://.godot/imported/sword_10x10.png-fc69cd53d80aeb396a6bddb0eeaf0213.ctex"
+uid="uid://bw8s4nkfelrju"
+path="res://.godot/imported/feather.png-5727342421b45d750438d982f5e487de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sword/sword_10x10.png"
-dest_files=["res://.godot/imported/sword_10x10.png-fc69cd53d80aeb396a6bddb0eeaf0213.ctex"]
+source_file="res://chickens/assets/feather.png"
+dest_files=["res://.godot/imported/feather.png-5727342421b45d750438d982f5e487de.ctex"]
 
 [params]
 

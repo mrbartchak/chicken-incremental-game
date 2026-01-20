@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btm6w43e47xo5"
-path="res://.godot/imported/chicken_even.png-f4f7971823a4b19d42edd69d3b875cbd.ctex"
+uid="uid://ctxgv3qramxgc"
+path="res://.godot/imported/wing_outline.png-4e4d9fda215c2215167f09946caa812e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://chickens/chicken_even.png"
-dest_files=["res://.godot/imported/chicken_even.png-f4f7971823a4b19d42edd69d3b875cbd.ctex"]
+source_file="res://drops/wing_outline.png"
+dest_files=["res://.godot/imported/wing_outline.png-4e4d9fda215c2215167f09946caa812e.ctex"]
 
 [params]
 
