@@ -1,10 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://4hf7dgvsytss"]
+[gd_scene load_steps=8 format=3 uid="uid://4hf7dgvsytss"]
 
 [ext_resource type="Script" uid="uid://i5bufqdi8vt6" path="res://chickens/chicken.gd" id="1_scr0v"]
 [ext_resource type="Texture2D" uid="uid://btm6w43e47xo5" path="res://chickens/assets/chicken_even.png" id="2_scr0v"]
+[ext_resource type="Texture2D" uid="uid://bw8s4nkfelrju" path="res://chickens/assets/feather.png" id="3_ji1vg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ji1vg"]
 radius = 5.0
+
+[sub_resource type="Curve" id="Curve_hdls3"]
+_data = [Vector2(0.6506024, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5egjd"]
+curve = SubResource("Curve_hdls3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ce5f1"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 60, 0)
+alpha_curve = SubResource("CurveTexture_5egjd")
 
 [node name="Chicken" type="Area2D"]
 script = ExtResource("1_scr0v")
@@ -14,3 +30,11 @@ texture = ExtResource("2_scr0v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ji1vg")
+
+[node name="HitParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 3
+texture = ExtResource("3_ji1vg")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ce5f1")

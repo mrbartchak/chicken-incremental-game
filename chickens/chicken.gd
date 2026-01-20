@@ -26,6 +26,7 @@ func pick_new_target():
 func take_damage(amount: int) -> void:
 	health -= amount
 	flash()
+	$HitParticles.restart()
 	if health <= 0:
 		die()
 
