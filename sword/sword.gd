@@ -33,11 +33,11 @@ func collect_wings() -> void:
 func play_swing() -> void:
 	$SwingSound.pitch_scale = randf_range(0.6, 1.4)
 	$SwingSound.play()
-	var swing_scale: Vector2 = Vector2(1.5, 1.5)
-	var swing_time: float = 0.08
+	var swing_scale: Vector2 = Vector2(2.0, 2.0)
+	var swing_time: float = 0.1
 	var swing_rotation: float = deg_to_rad(-90)
 	$Sprite2D.scale = swing_scale
-	sprite.rotation = swing_rotation
+	#sprite.rotation = swing_rotation
 	await get_tree().create_timer(swing_time).timeout
 	$Sprite2D.scale = Vector2.ONE
-	sprite.rotation = 0.0
+	#sprite.rotation = 0.0

@@ -4,9 +4,10 @@ extends Node
 @export var initial_state: State
 var current_state: State
 
-func init(parent: Node2D) -> void:
+func init(parent: Node2D, animations: AnimatedSprite2D) -> void:
 	for child: State in get_children():
-		child.parent = parent
+		child.entity = parent
+		child.animations = animations
 	change_state(initial_state)
 
 func change_state(new_state: State) -> void:

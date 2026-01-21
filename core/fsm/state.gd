@@ -1,7 +1,8 @@
 class_name State
 extends Node
 
-var parent: Node2D
+var entity: Node2D
+var animations: AnimatedSprite2D
 
 func enter() -> void:
 	pass

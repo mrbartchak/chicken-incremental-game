@@ -2,14 +2,19 @@ class_name Chicken
 extends Area2D
 
 @export var wing_scene: PackedScene
+
 var max_health: int = 2
 var health: int
 var dead: bool = false
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
 @onready var state_machine: StateMachine = $StateMachine
+@onready var sprite: AnimatedSprite2D = $Sprite
+@onready var hit_particles: GPUParticles2D = $HitParticles
+@onready var walk_particles: GPUParticles2D = $WalkParticles
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
 func _ready() -> void:
-	state_machine.init(self)
+	state_machine.init(self, sprite)
 	health = max_health
 
 #func _unhandled_input(event: InputEvent) -> void:
@@ -25,15 +30,17 @@ func _process(delta: float) -> void:
 #       Damage
 # ===================
 func take_damage(amount: int) -> void:
+	if dead:
+		return
 	health -= amount
 	flash()
-	$HitParticles.restart()
+	hit_particles.restart()
 	if health <= 0:
 		die()
 
 func flash() -> void:
-	var flash_time: float = 0.08
-	sprite.modulate = Color(20, 20, 20)
+	var flash_time: float = 0.05
+	sprite.modulate = Color.ORANGE_RED
 	await get_tree().create_timer(flash_time).timeout
 	sprite.modulate = Color(1, 1, 1)
 
@@ -42,9 +49,12 @@ func die() -> void:
 		return
 	dead = true
 	sprite.visible = false
+	monitorable = false
+	death_sound.pitch_scale = randf_range(0.8, 1.2)
+	death_sound.play()
 	drop_wing()
-	$HitParticles.restart()
-	await get_tree().create_timer($HitParticles.lifetime).timeout
+	hit_particles.restart()
+	await get_tree().create_timer(hit_particles.lifetime).timeout
 	queue_free()
 
 # ===================

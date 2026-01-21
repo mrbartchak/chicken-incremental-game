@@ -1,31 +1,97 @@
-[gd_scene load_steps=17 format=3 uid="uid://4hf7dgvsytss"]
+[gd_scene load_steps=33 format=3 uid="uid://4hf7dgvsytss"]
 
 [ext_resource type="Script" uid="uid://i5bufqdi8vt6" path="res://entities/chickens/chicken.gd" id="1_scr0v"]
 [ext_resource type="PackedScene" uid="uid://bvj685b08ne5i" path="res://drops/wing.tscn" id="2_5egjd"]
 [ext_resource type="Texture2D" uid="uid://db3djmeyrrxuf" path="res://entities/chickens/assets/chicken_sheet.png" id="2_hdls3"]
-[ext_resource type="Texture2D" uid="uid://btm6w43e47xo5" path="res://entities/chickens/assets/chicken_even.png" id="2_scr0v"]
 [ext_resource type="Texture2D" uid="uid://bw8s4nkfelrju" path="res://entities/chickens/assets/feather.png" id="3_ji1vg"]
+[ext_resource type="Texture2D" uid="uid://ccqpvif5jiuoy" path="res://entities/chickens/assets/leaf.png" id="3_kpgen"]
 [ext_resource type="Script" uid="uid://c3o1i4wv3scxd" path="res://core/fsm/state_machine.gd" id="6_gfhuf"]
+[ext_resource type="AudioStream" uid="uid://c2018aajt4at4" path="res://entities/chickens/assets/pop.ogg" id="6_kpgen"]
 [ext_resource type="Script" uid="uid://bxuu6xyklmgms" path="res://entities/chickens/states/chicken_idle.gd" id="7_cgl0l"]
 [ext_resource type="Script" uid="uid://cwlhrwa10vodw" path="res://entities/chickens/states/chicken_roaming.gd" id="8_kpgen"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5egjd"]
-atlas = ExtResource("2_hdls3")
-region = Rect2(0, 0, 10, 10)
+[sub_resource type="Curve" id="Curve_kpgen"]
+_data = [Vector2(0.5040916, 0.9999999), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ji1vg"]
-atlas = ExtResource("2_scr0v")
-region = Rect2(0, 0, 10, 10)
+[sub_resource type="CurveTexture" id="CurveTexture_qxmy2"]
+curve = SubResource("Curve_kpgen")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ce5f1"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cgl0l"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 720.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_qxmy2")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpgen"]
 atlas = ExtResource("2_hdls3")
-region = Rect2(10, 0, 10, 10)
+region = Rect2(0, 23, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgl0l"]
+atlas = ExtResource("2_hdls3")
+region = Rect2(0, 56, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxmy2"]
+atlas = ExtResource("2_hdls3")
+region = Rect2(10, 56, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d21jh"]
+atlas = ExtResource("2_hdls3")
+region = Rect2(0, 23, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aab7k"]
+atlas = ExtResource("2_hdls3")
+region = Rect2(10, 23, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bflf"]
+atlas = ExtResource("2_hdls3")
+region = Rect2(0, 45, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7m6h"]
+atlas = ExtResource("2_hdls3")
+region = Rect2(10, 45, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkwpe"]
+atlas = ExtResource("2_hdls3")
+region = Rect2(20, 45, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2081p"]
+atlas = ExtResource("2_hdls3")
+region = Rect2(0, 12, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyq2y"]
+atlas = ExtResource("2_hdls3")
+region = Rect2(10, 12, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls7nv"]
+atlas = ExtResource("2_hdls3")
+region = Rect2(20, 12, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg6h0"]
+atlas = ExtResource("2_hdls3")
+region = Rect2(0, 34, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i56c"]
+atlas = ExtResource("2_hdls3")
+region = Rect2(10, 34, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h17b7"]
+atlas = ExtResource("2_hdls3")
+region = Rect2(0, 1, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dd82"]
+atlas = ExtResource("2_hdls3")
+region = Rect2(10, 1, 10, 10)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hdls3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5egjd")
+"texture": SubResource("AtlasTexture_kpgen")
 }],
 "loop": true,
 "name": &"default",
@@ -33,23 +99,79 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ji1vg")
+"texture": SubResource("AtlasTexture_cgl0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxmy2")
 }],
 "loop": true,
-"name": &"walk right",
-"speed": 5.0
+"name": &"idle_left",
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ce5f1")
+"texture": SubResource("AtlasTexture_d21jh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aab7k")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bflf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7m6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkwpe")
+}],
+"loop": false,
+"name": &"sit_left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2081p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyq2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ls7nv")
+}],
+"loop": false,
+"name": &"sit_right",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg6h0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i56c")
 }],
 "loop": true,
 "name": &"walk_left",
-"speed": 5.0
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h17b7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dd82")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 12.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ji1vg"]
-radius = 5.0
+radius = 6.5
 
 [sub_resource type="Curve" id="Curve_hdls3"]
 _data = [Vector2(0.6506024, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -60,6 +182,8 @@ curve = SubResource("Curve_hdls3")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ce5f1"]
 particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 90.000015
 direction = Vector3(0, -1, 0)
 initial_velocity_min = 40.0
 initial_velocity_max = 60.0
@@ -70,15 +194,26 @@ alpha_curve = SubResource("CurveTexture_5egjd")
 script = ExtResource("1_scr0v")
 wing_scene = ExtResource("2_5egjd")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_hdls3")
+[node name="WalkParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, 3)
+emitting = false
+amount = 2
+texture = ExtResource("3_kpgen")
+process_material = SubResource("ParticleProcessMaterial_cgl0l")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("2_scr0v")
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hdls3")
+animation = &"walk_right"
+autoplay = "default"
+frame_progress = 0.9143499
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0.5, 0)
 shape = SubResource("CircleShape2D_ji1vg")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_kpgen")
 
 [node name="HitParticles" type="GPUParticles2D" parent="."]
 emitting = false

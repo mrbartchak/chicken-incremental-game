@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://csx3owk01my5x"]
+[gd_scene load_steps=6 format=3 uid="uid://csx3owk01my5x"]
 
 [ext_resource type="PackedScene" uid="uid://dsq368wv1wotj" path="res://sword/sword.tscn" id="1_qfrr3"]
 [ext_resource type="Script" uid="uid://83ew0hqw78vm" path="res://core/ui_manager.gd" id="2_we4n0"]
 [ext_resource type="PackedScene" uid="uid://4hf7dgvsytss" path="res://entities/chickens/chicken.tscn" id="3_6i40u"]
 [ext_resource type="Texture2D" uid="uid://bb4bho6tgxfv5" path="res://grass_background.png" id="4_nmn22"]
+[ext_resource type="Texture2D" uid="uid://ctxgv3qramxgc" path="res://drops/wing_outline.png" id="5_kdhv1"]
 
 [node name="Playground" type="Node2D"]
 
@@ -41,17 +42,30 @@ offset_bottom = 180.0
 texture = ExtResource("4_nmn22")
 
 [node name="QuitButton" type="Button" parent="UI"]
+custom_minimum_size = Vector2(15, 15)
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
-text = "quit"
+theme_override_font_sizes/font_size = 4
+text = "x"
 
 [node name="WingLabel" type="Label" parent="UI"]
 layout_mode = 0
-offset_left = 277.0
+offset_left = 254.0
 offset_top = 4.0
-offset_right = 317.0
-offset_bottom = 27.0
+offset_right = 305.0
+offset_bottom = 16.0
+theme_override_font_sizes/font_size = 8
 text = "0"
+horizontal_alignment = 2
+
+[node name="WingIcon" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 5.0
+offset_right = 314.0
+offset_bottom = 13.0
+texture = ExtResource("5_kdhv1")
+stretch_mode = 2
 
 [connection signal="pressed" from="UI/QuitButton" to="UI" method="_on_quit_button_pressed"]
