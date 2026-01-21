@@ -7,12 +7,18 @@ var follow_speed: float = 32.0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	attack_timer.timeout.connect(_on_attack_timer_timeout)
+	#attack_timer.timeout.connect(_on_attack_timer_timeout)
 
 func _process(delta):
 	var target := get_global_mouse_position()
 	global_position = global_position.lerp(target, follow_speed * delta)
 	collect_wings()
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			attack()
+			play_swing()
 
 func _on_attack_timer_timeout() -> void:
 	attack()
@@ -33,11 +39,16 @@ func collect_wings() -> void:
 func play_swing() -> void:
 	$SwingSound.pitch_scale = randf_range(0.6, 1.4)
 	$SwingSound.play()
-	var swing_scale: Vector2 = Vector2(2.0, 2.0)
-	var swing_time: float = 0.1
-	var swing_rotation: float = deg_to_rad(-90)
-	$Sprite2D.scale = swing_scale
+	var tween := create_tween()
+	tween.tween_property(sprite, "scale", Vector2(2.0, 2.0), 0.1)
+	tween.parallel().tween_property(sprite, "rotation_degrees", -30.0, 0.1)
+	tween.tween_property(sprite, "scale", Vector2.ONE, 0.1)
+	tween.parallel().tween_property(sprite, "rotation_degrees", 0.0, 0.1)
+	#var swing_scale: Vector2 = Vector2(2.0, 2.0)
+	#var swing_time: float = 0.1
+	#var swing_rotation: float = deg_to_rad(-90)
+	#$Sprite2D.scale = swing_scale
 	#sprite.rotation = swing_rotation
-	await get_tree().create_timer(swing_time).timeout
-	$Sprite2D.scale = Vector2.ONE
+	#await get_tree().create_timer(swing_time).timeout
+	#$Sprite2D.scale = Vector2.ONE
 	#sprite.rotation = 0.0
