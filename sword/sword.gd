@@ -44,11 +44,3 @@ func play_swing() -> void:
 	tween.parallel().tween_property(sprite, "rotation_degrees", -30.0, 0.1)
 	tween.tween_property(sprite, "scale", Vector2.ONE, 0.1)
 	tween.parallel().tween_property(sprite, "rotation_degrees", 0.0, 0.1)
-	#var swing_scale: Vector2 = Vector2(2.0, 2.0)
-	#var swing_time: float = 0.1
-	#var swing_rotation: float = deg_to_rad(-90)
-	#$Sprite2D.scale = swing_scale
-	#sprite.rotation = swing_rotation
-	#await get_tree().create_timer(swing_time).timeout
-	#$Sprite2D.scale = Vector2.ONE
-	#sprite.rotation = 0.0
