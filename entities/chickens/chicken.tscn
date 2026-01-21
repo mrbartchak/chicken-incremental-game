@@ -1,12 +1,12 @@
-[gd_scene load_steps=33 format=3 uid="uid://4hf7dgvsytss"]
+[gd_scene load_steps=34 format=3 uid="uid://4hf7dgvsytss"]
 
 [ext_resource type="Script" uid="uid://i5bufqdi8vt6" path="res://entities/chickens/chicken.gd" id="1_scr0v"]
 [ext_resource type="PackedScene" uid="uid://bvj685b08ne5i" path="res://drops/wing.tscn" id="2_5egjd"]
 [ext_resource type="Texture2D" uid="uid://db3djmeyrrxuf" path="res://entities/chickens/assets/chicken_sheet.png" id="2_hdls3"]
 [ext_resource type="Texture2D" uid="uid://bw8s4nkfelrju" path="res://entities/chickens/assets/feather.png" id="3_ji1vg"]
 [ext_resource type="Texture2D" uid="uid://b7kwqf0e5nw3y" path="res://entities/chickens/assets/grass_particle.png" id="3_kpgen"]
+[ext_resource type="AudioStream" uid="uid://csuv52b532lgs" path="res://entities/chickens/assets/bok_bok.wav" id="5_kpgen"]
 [ext_resource type="Script" uid="uid://c3o1i4wv3scxd" path="res://core/fsm/state_machine.gd" id="6_gfhuf"]
-[ext_resource type="AudioStream" uid="uid://c2018aajt4at4" path="res://entities/chickens/assets/pop.ogg" id="6_kpgen"]
 [ext_resource type="Script" uid="uid://bxuu6xyklmgms" path="res://entities/chickens/states/chicken_idle.gd" id="7_cgl0l"]
 [ext_resource type="Script" uid="uid://cwlhrwa10vodw" path="res://entities/chickens/states/chicken_roaming.gd" id="8_kpgen"]
 
@@ -190,6 +190,17 @@ initial_velocity_max = 60.0
 gravity = Vector3(0, 98, 0)
 alpha_curve = SubResource("CurveTexture_5egjd")
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kpgen"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 90.000015
+direction = Vector3(0, -1, 0)
+spread = 60.0
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 98, 0)
+alpha_curve = SubResource("CurveTexture_5egjd")
+
 [node name="Chicken" type="Area2D"]
 script = ExtResource("1_scr0v")
 wing_scene = ExtResource("2_5egjd")
@@ -199,13 +210,15 @@ position = Vector2(0, 3)
 emitting = false
 amount = 6
 texture = ExtResource("3_kpgen")
+trail_enabled = true
+trail_sections = 4
 process_material = SubResource("ParticleProcessMaterial_cgl0l")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hdls3")
 animation = &"walk_right"
 autoplay = "default"
-frame_progress = 0.82344687
+frame_progress = 0.2798891
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -213,15 +226,24 @@ position = Vector2(0.5, 0)
 shape = SubResource("CircleShape2D_ji1vg")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_kpgen")
+stream = ExtResource("5_kpgen")
+volume_db = -5.0
 
 [node name="HitParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 2
+texture = ExtResource("3_ji1vg")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ce5f1")
+
+[node name="DeathParticles" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 4
 texture = ExtResource("3_ji1vg")
 one_shot = true
 explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_ce5f1")
+process_material = SubResource("ParticleProcessMaterial_kpgen")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("6_gfhuf")

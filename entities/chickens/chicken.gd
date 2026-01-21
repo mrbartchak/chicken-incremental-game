@@ -11,6 +11,7 @@ var dead: bool = false
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var hit_particles: GPUParticles2D = $HitParticles
 @onready var walk_particles: GPUParticles2D = $WalkParticles
+@onready var death_particles: GPUParticles2D = $DeathParticles
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
 func _ready() -> void:
@@ -33,10 +34,11 @@ func take_damage(amount: int) -> void:
 	if dead:
 		return
 	health -= amount
-	flash()
-	hit_particles.restart()
 	if health <= 0:
 		die()
+		return
+	flash()
+	hit_particles.restart()
 
 func flash() -> void:
 	var flash_time: float = 0.05
@@ -50,11 +52,11 @@ func die() -> void:
 	dead = true
 	sprite.visible = false
 	monitorable = false
-	death_sound.pitch_scale = randf_range(0.8, 1.2)
+	death_sound.pitch_scale = randf_range(0.9, 1.2)
 	death_sound.play()
 	drop_wing()
-	hit_particles.restart()
-	await get_tree().create_timer(hit_particles.lifetime).timeout
+	death_particles.restart()
+	await get_tree().create_timer(death_particles.lifetime).timeout
 	queue_free()
 
 # ===================
