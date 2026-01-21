@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bvj685b08ne5i" path="res://drops/wing.tscn" id="2_5egjd"]
 [ext_resource type="Texture2D" uid="uid://db3djmeyrrxuf" path="res://entities/chickens/assets/chicken_sheet.png" id="2_hdls3"]
 [ext_resource type="Texture2D" uid="uid://bw8s4nkfelrju" path="res://entities/chickens/assets/feather.png" id="3_ji1vg"]
-[ext_resource type="Texture2D" uid="uid://ccqpvif5jiuoy" path="res://entities/chickens/assets/leaf.png" id="3_kpgen"]
+[ext_resource type="Texture2D" uid="uid://b7kwqf0e5nw3y" path="res://entities/chickens/assets/grass_particle.png" id="3_kpgen"]
 [ext_resource type="Script" uid="uid://c3o1i4wv3scxd" path="res://core/fsm/state_machine.gd" id="6_gfhuf"]
 [ext_resource type="AudioStream" uid="uid://c2018aajt4at4" path="res://entities/chickens/assets/pop.ogg" id="6_kpgen"]
 [ext_resource type="Script" uid="uid://bxuu6xyklmgms" path="res://entities/chickens/states/chicken_idle.gd" id="7_cgl0l"]
@@ -23,7 +23,7 @@ angle_min = 1.0728835e-05
 angle_max = 720.0
 direction = Vector3(0, -1, 0)
 initial_velocity_min = 1.0
-initial_velocity_max = 5.0
+initial_velocity_max = 10.0
 gravity = Vector3(0, 0, 0)
 alpha_curve = SubResource("CurveTexture_qxmy2")
 
@@ -197,7 +197,7 @@ wing_scene = ExtResource("2_5egjd")
 [node name="WalkParticles" type="GPUParticles2D" parent="."]
 position = Vector2(0, 3)
 emitting = false
-amount = 2
+amount = 6
 texture = ExtResource("3_kpgen")
 process_material = SubResource("ParticleProcessMaterial_cgl0l")
 
@@ -205,7 +205,7 @@ process_material = SubResource("ParticleProcessMaterial_cgl0l")
 sprite_frames = SubResource("SpriteFrames_hdls3")
 animation = &"walk_right"
 autoplay = "default"
-frame_progress = 0.9143499
+frame_progress = 0.82344687
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

@@ -2,12 +2,13 @@ class_name Sword
 extends Area2D
 
 var follow_speed: float = 32.0
+var can_attack: bool = true
+var attack_cooldown: float = 1.0
+
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var attack_timer: Timer = $AttackTimer
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	#attack_timer.timeout.connect(_on_attack_timer_timeout)
 
 func _process(delta):
 	var target := get_global_mouse_position()
@@ -17,18 +18,22 @@ func _process(delta):
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			attack()
-			play_swing()
+			try_attack()
 
-func _on_attack_timer_timeout() -> void:
+func try_attack() -> void:
+	if !can_attack:
+		return
 	attack()
-	play_swing()
 
 func attack() -> void:
+	can_attack = false
 	var areas: Array[Area2D] = get_overlapping_areas()
 	for area: Area2D in areas:
 		if area.has_method("take_damage"):
 			area.take_damage(1)
+	play_swing()
+	await get_tree().create_timer(attack_cooldown).timeout
+	can_attack = true
 
 func collect_wings() -> void:
 	var areas: Array[Area2D] = get_overlapping_areas()

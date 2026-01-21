@@ -63,9 +63,6 @@ texture = ExtResource("3_hhjym")
 position = Vector2(-0.5, -0.5)
 shape = SubResource("CircleShape2D_ghqvi")
 
-[node name="AttackTimer" type="Timer" parent="."]
-autostart = true
-
 [node name="SwingSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ss345")
 volume_db = -10.0
