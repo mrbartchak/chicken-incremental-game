@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsq368wv1wotj"]
+[gd_scene load_steps=12 format=3 uid="uid://dsq368wv1wotj"]
 
 [ext_resource type="Script" uid="uid://cng07upnavh84" path="res://sword/sword.gd" id="1_8ykyu"]
 [ext_resource type="Texture2D" uid="uid://djtmievptxb28" path="res://sword/assets/sword_swing_sheet.png" id="2_hhjym"]
@@ -42,6 +42,22 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ghqvi"]
 radius = 7.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6js7"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.17254902, 0.19215687, 0.3019608, 1)
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhjym"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 1)
+corner_detail = 6
+
 [node name="Sword" type="Area2D"]
 z_index = 4096
 script = ExtResource("1_8ykyu")
@@ -60,9 +76,22 @@ position = Vector2(-1, -1)
 texture = ExtResource("3_hhjym")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-0.5, -0.5)
 shape = SubResource("CircleShape2D_ghqvi")
 
 [node name="SwingSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ss345")
 volume_db = -10.0
+
+[node name="CooldownBar" type="ProgressBar" parent="."]
+offset_left = -3.0
+offset_top = 4.0
+offset_right = 37.0
+offset_bottom = 10.666667
+scale = Vector2(0.15, 0.15)
+theme_override_styles/background = SubResource("StyleBoxFlat_h6js7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hhjym")
+max_value = 1.0
+value = 0.5
+show_percentage = false

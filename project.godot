@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 
 [autoload]
 
-GameState="*res://core/game_state.gd"
+GameManager="*res://core/game_manager.gd"
 
 [display]
 
@@ -31,5 +31,5 @@ window/stretch/scale_mode="integer"
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.3882353, 0.78039217, 0.3019608, 1)
+environment/defaults/default_clear_color=Color(0.24313726, 0.5372549, 0.28235295, 1)
 2d/snap/snap_2d_vertices_to_pixel=true

@@ -25,13 +25,14 @@ func stop_after_delay() -> void:
 	await get_tree().create_timer(stop_time).timeout
 	drop_gravity = 0.0
 	velocity = Vector2.ZERO
+	await get_tree().create_timer(0.1).timeout
 	collectable = true
 
 func collect() -> void:
 	if !collectable or collected:
 		return
 	collected = true
-	GameState.add_wings(value)
+	GameManager.add_wings(1)
 	$Sprite2D.visible = false
 	$CollectSound.play()
 	await $CollectSound.finished

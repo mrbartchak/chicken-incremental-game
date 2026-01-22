@@ -25,6 +25,7 @@ func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
 
 func _process(delta: float) -> void:
+	$Sprite/HealthBar.value = health / float(max_health)
 	state_machine.process_frame(delta)
 
 # ===================

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://4hf7dgvsytss"]
+[gd_scene load_steps=36 format=3 uid="uid://4hf7dgvsytss"]
 
 [ext_resource type="Script" uid="uid://i5bufqdi8vt6" path="res://entities/chickens/chicken.gd" id="1_scr0v"]
 [ext_resource type="PackedScene" uid="uid://bvj685b08ne5i" path="res://drops/wing.tscn" id="2_5egjd"]
@@ -170,6 +170,22 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpgen"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 0.5137255)
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxmy2"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.9647059, 0.45882353, 0.47843137, 1)
+corner_detail = 6
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ji1vg"]
 radius = 6.5
 
@@ -218,7 +234,19 @@ process_material = SubResource("ParticleProcessMaterial_cgl0l")
 sprite_frames = SubResource("SpriteFrames_hdls3")
 animation = &"walk_right"
 autoplay = "default"
-frame_progress = 0.2798891
+frame_progress = 0.40818757
+
+[node name="HealthBar" type="ProgressBar" parent="Sprite"]
+offset_left = -3.0
+offset_top = 6.0
+offset_right = 66.99999
+offset_bottom = 16.000004
+scale = Vector2(0.1, 0.1)
+theme_override_styles/background = SubResource("StyleBoxFlat_kpgen")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qxmy2")
+max_value = 1.0
+value = 0.5
+show_percentage = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
