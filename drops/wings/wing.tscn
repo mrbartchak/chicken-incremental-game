@@ -1,27 +1,27 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvj685b08ne5i"]
 
-[ext_resource type="Script" uid="uid://datalukcqxxej" path="res://drops/wing.gd" id="1_byjcj"]
-[ext_resource type="Texture2D" uid="uid://ctxgv3qramxgc" path="res://drops/wing_outline.png" id="1_u6xyo"]
-[ext_resource type="AudioStream" uid="uid://c2018aajt4at4" path="res://entities/chickens/assets/pop.ogg" id="3_1kwb7"]
+[ext_resource type="Script" uid="uid://datalukcqxxej" path="res://drops/wings/wing.gd" id="1_kdif2"]
+[ext_resource type="Texture2D" uid="uid://ctxgv3qramxgc" path="res://drops/wings/assets/wing_outline.png" id="2_cxd1u"]
+[ext_resource type="AudioStream" uid="uid://c2018aajt4at4" path="res://entities/chickens/assets/pop.ogg" id="3_raa7o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_byjcj"]
 radius = 6.0
 
 [node name="Wing" type="Area2D"]
-script = ExtResource("1_byjcj")
+script = ExtResource("1_kdif2")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 visible = false
 self_modulate = Color(0, 0, 0, 0.40392157)
 position = Vector2(0, 0.99999994)
 scale = Vector2(1.2, 1)
-texture = ExtResource("1_u6xyo")
+texture = ExtResource("2_cxd1u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_u6xyo")
+texture = ExtResource("2_cxd1u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_byjcj")
 
 [node name="CollectSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_1kwb7")
+stream = ExtResource("3_raa7o")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=36 format=3 uid="uid://4hf7dgvsytss"]
 
 [ext_resource type="Script" uid="uid://i5bufqdi8vt6" path="res://entities/chickens/chicken.gd" id="1_scr0v"]
-[ext_resource type="PackedScene" uid="uid://bvj685b08ne5i" path="res://drops/wing.tscn" id="2_5egjd"]
+[ext_resource type="PackedScene" uid="uid://bvj685b08ne5i" path="res://drops/wings/wing.tscn" id="2_5egjd"]
 [ext_resource type="Texture2D" uid="uid://db3djmeyrrxuf" path="res://entities/chickens/assets/chicken_sheet.png" id="2_hdls3"]
 [ext_resource type="Texture2D" uid="uid://bw8s4nkfelrju" path="res://entities/chickens/assets/feather.png" id="3_ji1vg"]
 [ext_resource type="Texture2D" uid="uid://b7kwqf0e5nw3y" path="res://entities/chickens/assets/grass_particle.png" id="3_kpgen"]

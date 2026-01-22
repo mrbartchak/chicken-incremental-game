@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpjey80rlfnr"
-path="res://.godot/imported/wing.png-bddfd44cffd896651eda3d226e4b2cfa.ctex"
+path="res://.godot/imported/wing.png-4961a4035a3b2efb9e853d1b170815fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://drops/wing.png"
-dest_files=["res://.godot/imported/wing.png-bddfd44cffd896651eda3d226e4b2cfa.ctex"]
+source_file="res://drops/wings/assets/wing.png"
+dest_files=["res://.godot/imported/wing.png-4961a4035a3b2efb9e853d1b170815fa.ctex"]
 
 [params]
 
