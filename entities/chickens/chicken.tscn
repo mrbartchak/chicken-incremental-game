@@ -237,6 +237,7 @@ autoplay = "default"
 frame_progress = 0.40818757
 
 [node name="HealthBar" type="ProgressBar" parent="Sprite"]
+visible = false
 offset_left = -3.0
 offset_top = 6.0
 offset_right = 66.99999
