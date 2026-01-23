@@ -32,7 +32,7 @@ func collect() -> void:
 	if !collectable or collected:
 		return
 	collected = true
-	GameManager.add_wings(1)
+	GameState.add_wings(1)
 	$Sprite2D.visible = false
 	$CollectSound.play()
 	await $CollectSound.finished

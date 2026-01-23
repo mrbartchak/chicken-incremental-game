@@ -1,6 +1,8 @@
 extends Node
 
 signal wings_changed(amount: int)
+
+
 var wings: int = 0:
 	set(value):
 		wings = value
