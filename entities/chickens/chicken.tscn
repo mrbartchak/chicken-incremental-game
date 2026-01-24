@@ -249,7 +249,7 @@ max_value = 1.0
 value = 0.5
 show_percentage = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(0.5, 0)
 shape = SubResource("CircleShape2D_ji1vg")

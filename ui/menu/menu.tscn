@@ -1,4 +1,11 @@
-[gd_scene format=3 uid="uid://73d71fc5ulh"]
+[gd_scene load_steps=4 format=3 uid="uid://73d71fc5ulh"]
+
+[ext_resource type="Shader" uid="uid://c5bskyqsddk1g" path="res://shaders/background_scroll.gdshader" id="1_77h3e"]
+[ext_resource type="Texture2D" uid="uid://dpfrldt35mvju" path="res://ui/assets/blue_tile_pattern.png" id="2_w0ybq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_trkij"]
+shader = ExtResource("1_77h3e")
+shader_parameter/speed = 0.5
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -7,6 +14,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ScrollingBackground" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_trkij")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_w0ybq")
+stretch_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

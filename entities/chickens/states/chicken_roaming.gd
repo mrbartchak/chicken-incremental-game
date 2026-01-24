@@ -8,8 +8,8 @@ var speed := 20.0
 var target_position: Vector2
 
 func enter() -> void:
-	#var chicken: Chicken = entity as Chicken
-	#chicken.walk_particles.emitting = true
+	var chicken: Chicken = entity as Chicken
+	chicken.walk_particles.emitting = true
 	
 	var center := entity.global_position
 	var angle := randf() * TAU
