@@ -1,18 +1,21 @@
 class_name Sword
 extends Area2D
 
-var attack_damage: int = 2
+var attack_damage: int = 1
+var attack_radius: int = 28
 var follow_speed: float = 32.0
 var can_attack: bool = true
-var attack_cooldown: float = 1.0
+var attack_cooldown: float = 0.25
 var cooldown_timer: float = 0.0
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var cooldown_bar: ProgressBar = $CooldownBar
+@onready var attack_hitbox: CollisionShape2D = $AttackHitbox
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	cooldown_bar.value = 1.0
+	attack_hitbox.shape.radius = attack_radius
 
 func _process(delta):
 	var target := get_global_mouse_position()

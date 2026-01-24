@@ -8,8 +8,8 @@ var speed := 20.0
 var target_position: Vector2
 
 func enter() -> void:
-	var chicken: Chicken = entity as Chicken
-	chicken.walk_particles.emitting = true
+	#var chicken: Chicken = entity as Chicken
+	#chicken.walk_particles.emitting = true
 	
 	var center := entity.global_position
 	var angle := randf() * TAU
@@ -18,6 +18,7 @@ func enter() -> void:
 		cos(angle),
 		sin(angle)
 	) * radius
+	target_position = clamp_to_screen(target_position)
 	#warning: this is bad
 	var dir = target_position - entity.global_position
 	if dir.x > 0:
@@ -40,3 +41,10 @@ func process_physics(delta: float) -> State:
 func exit() -> void:
 	var chicken: Chicken = entity as Chicken
 	chicken.walk_particles.emitting = false
+
+func clamp_to_screen(pos: Vector2) -> Vector2:
+	var margin: float = 8.0
+	var viewport_rect = entity.get_viewport_rect()
+	pos.x = clamp(pos.x, margin, viewport_rect.size.x - margin)
+	pos.y = clamp(pos.y, margin, viewport_rect.size.y - margin)
+	return pos

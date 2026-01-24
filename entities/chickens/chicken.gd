@@ -17,6 +17,8 @@ var dead: bool = false
 func _ready() -> void:
 	state_machine.init(self, sprite)
 	health = max_health
+	play_spawn_animation()
+	GameState.add_chickens(1)
 
 #func _unhandled_input(event: InputEvent) -> void:
 	#state_machine.process_input(event)
@@ -41,11 +43,6 @@ func take_damage(amount: int) -> void:
 	flash()
 	hit_particles.restart()
 
-func flash() -> void:
-	var flash_time: float = 0.05
-	sprite.modulate = Color.ORANGE_RED
-	await get_tree().create_timer(flash_time).timeout
-	sprite.modulate = Color(1, 1, 1)
 
 func die() -> void:
 	if dead:
@@ -67,3 +64,16 @@ func drop_wing() -> void:
 	var wing: Area2D = wing_scene.instantiate()
 	wing.global_position = global_position
 	get_parent().add_child(wing)
+
+# ===================
+#      Visuals
+# ===================
+func play_spawn_animation() -> void:
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(self, "scale", Vector2(1, 1), 0.4).from(Vector2(0, 0))
+
+func flash() -> void:
+	var flash_time: float = 0.05
+	sprite.modulate = Color.ORANGE_RED
+	await get_tree().create_timer(flash_time).timeout
+	sprite.modulate = Color(1, 1, 1)
