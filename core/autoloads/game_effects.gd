@@ -16,9 +16,3 @@ func frame_freeze(timescale: float, duration: float) -> void:
 # ================
 #   Screen Shake
 # ================
-var shake_intensity: float = 0.0
-var active_shake_time: float = 0.0
-var shake_decay: float = 5.0
-var shake_time: float = 0.0
-var shake_time_speed: float = 20.0
-var noise = FastNoiseLite.new()
