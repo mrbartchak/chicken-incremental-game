@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 [autoload]
 
 GameState="*res://core/autoloads/gamestate.gd"
+GameEffects="*res://core/autoloads/game_effects.gd"
 
 [display]
 
@@ -27,6 +28,10 @@ window/size/window_width_override=1440
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
+
+[gui]
+
+theme/custom_font="uid://r6bebwqfqoxw"
 
 [rendering]
 

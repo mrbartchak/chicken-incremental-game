@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb4bho6tgxfv5"
-path="res://.godot/imported/grass_background.png-c319eb9590c6fdb2a8afa89a7582e73b.ctex"
+uid="uid://7n216m334cyb"
+path="res://.godot/imported/menu_button_hover.png-cc03c4ac4eefdc3f46528b39a258e8e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/assets/grass_background.png"
-dest_files=["res://.godot/imported/grass_background.png-c319eb9590c6fdb2a8afa89a7582e73b.ctex"]
+source_file="res://ui/menu/assets/buttons/menu_button_hover.png"
+dest_files=["res://.godot/imported/menu_button_hover.png-cc03c4ac4eefdc3f46528b39a258e8e7.ctex"]
 
 [params]
 

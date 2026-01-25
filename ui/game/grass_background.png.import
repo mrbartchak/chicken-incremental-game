@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpfrldt35mvju"
-path="res://.godot/imported/blue_tile_pattern.png-2e7bf748e631faab41e8b8ec5c9a367e.ctex"
+uid="uid://bb4bho6tgxfv5"
+path="res://.godot/imported/grass_background.png-9c6905133fbfe87491f78cf887795a54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/assets/blue_tile_pattern.png"
-dest_files=["res://.godot/imported/blue_tile_pattern.png-2e7bf748e631faab41e8b8ec5c9a367e.ctex"]
+source_file="res://ui/game/grass_background.png"
+dest_files=["res://.godot/imported/grass_background.png-9c6905133fbfe87491f78cf887795a54.ctex"]
 
 [params]
 

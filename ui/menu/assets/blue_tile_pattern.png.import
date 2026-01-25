@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7n216m334cyb"
-path="res://.godot/imported/menu_button_hover.png-0dfa9c3e4add466be3239deab8d4ee77.ctex"
+uid="uid://dpfrldt35mvju"
+path="res://.godot/imported/blue_tile_pattern.png-c0d9f01b3ff039940f0c0aa702ff83df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/assets/buttons/menu_button_hover.png"
-dest_files=["res://.godot/imported/menu_button_hover.png-0dfa9c3e4add466be3239deab8d4ee77.ctex"]
+source_file="res://ui/menu/assets/blue_tile_pattern.png"
+dest_files=["res://.godot/imported/blue_tile_pattern.png-c0d9f01b3ff039940f0c0aa702ff83df.ctex"]
 
 [params]
 
