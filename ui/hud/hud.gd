@@ -1,6 +1,6 @@
 extends Control
 
-@onready var wing_count_label: Label = $MarginContainer/HSplitContainer/HBoxContainer/WingCountLabel
+@onready var wing_count_label: Label = $MarginContainer/HBoxContainer/WingCount/WingCountLabel
 
 func _ready() -> void:
 	connect_signals()
