@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://blfrx5arorllp"]
+[gd_scene load_steps=15 format=3 uid="uid://blfrx5arorllp"]
 
 [ext_resource type="Texture2D" uid="uid://bb4bho6tgxfv5" path="res://ui/game/grass_background.png" id="1_d3un6"]
 [ext_resource type="PackedScene" uid="uid://dfti5fcwt8h23" path="res://core/camera/custom_camera.tscn" id="2_5sg27"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b5gosdqun7tnj" path="res://ui/hud/wing_count_logo_outlined.png" id="5_vhpdd"]
 [ext_resource type="Texture2D" uid="uid://h4s3cmuvmsoj" path="res://ui/hud/shop_icon.png" id="7_gcgb4"]
 [ext_resource type="Texture2D" uid="uid://bcomh5ilvduxg" path="res://ui/hud/shop_icon_outlined.png" id="8_8bifg"]
+[ext_resource type="PackedScene" uid="uid://bs3h83ewc4e0q" path="res://ui/shop/shop_menu.tscn" id="13_8bifg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cjuek"]
 font = ExtResource("4_vhpdd")
@@ -46,23 +47,23 @@ script = ExtResource("4_fgh25")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 18.0
+offset_bottom = 16.0
 grow_horizontal = 2
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer"]
+[node name="TopBar" type="HBoxContainer" parent="HUD/MarginContainer"]
 layout_mode = 2
 
-[node name="Buttons" type="HBoxContainer" parent="HUD/MarginContainer/HBoxContainer"]
+[node name="LeftGroup" type="HBoxContainer" parent="HUD/MarginContainer/TopBar"]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="HUD/MarginContainer/HBoxContainer/Buttons"]
+[node name="CenterContainer" type="CenterContainer" parent="HUD/MarginContainer/TopBar/LeftGroup"]
 layout_mode = 2
 
-[node name="SettingsButton" type="TextureButton" parent="HUD/MarginContainer/HBoxContainer/Buttons/CenterContainer"]
+[node name="SettingsButton" type="TextureButton" parent="HUD/MarginContainer/TopBar/LeftGroup/CenterContainer"]
 custom_minimum_size = Vector2(14, 14)
 layout_mode = 2
 texture_normal = ExtResource("4_4cdhi")
@@ -70,40 +71,48 @@ texture_pressed = ExtResource("4_4cdhi")
 texture_hover = ExtResource("5_fgh25")
 texture_focused = ExtResource("4_4cdhi")
 
-[node name="CenterContainer2" type="CenterContainer" parent="HUD/MarginContainer/HBoxContainer/Buttons"]
+[node name="CenterContainer2" type="CenterContainer" parent="HUD/MarginContainer/TopBar/LeftGroup"]
 layout_mode = 2
 
-[node name="ShopButton" type="TextureButton" parent="HUD/MarginContainer/HBoxContainer/Buttons/CenterContainer2"]
+[node name="ShopButton" type="TextureButton" parent="HUD/MarginContainer/TopBar/LeftGroup/CenterContainer2"]
 layout_mode = 2
 texture_normal = ExtResource("7_gcgb4")
 texture_pressed = ExtResource("7_gcgb4")
 texture_hover = ExtResource("8_8bifg")
 texture_focused = ExtResource("7_gcgb4")
 
-[node name="Spacer" type="Control" parent="HUD/MarginContainer/HBoxContainer"]
+[node name="Spacer" type="Control" parent="HUD/MarginContainer/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="WingCount" type="HBoxContainer" parent="HUD/MarginContainer/HBoxContainer"]
+[node name="RightGroup" type="HBoxContainer" parent="HUD/MarginContainer/TopBar"]
 layout_mode = 2
-theme_override_constants/separation = 2
-alignment = 2
+theme_override_constants/separation = 1
+alignment = 1
 
-[node name="WingCountLabel" type="Label" parent="HUD/MarginContainer/HBoxContainer/WingCount"]
-layout_mode = 2
-text = "0"
-label_settings = SubResource("LabelSettings_cjuek")
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="HUD/MarginContainer/HBoxContainer/WingCount"]
+[node name="CenterContainer" type="CenterContainer" parent="HUD/MarginContainer/TopBar/RightGroup"]
 layout_mode = 2
 
-[node name="WingIcon" type="TextureRect" parent="HUD/MarginContainer/HBoxContainer/WingCount/CenterContainer"]
+[node name="WingIcon" type="TextureRect" parent="HUD/MarginContainer/TopBar/RightGroup/CenterContainer"]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 texture = ExtResource("5_vhpdd")
 stretch_mode = 2
+
+[node name="Spacer" type="Control" parent="HUD/MarginContainer/TopBar/RightGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WingCount" type="Label" parent="HUD/MarginContainer/TopBar/RightGroup"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_cjuek")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="ShopMenu" parent="HUD" instance=ExtResource("13_8bifg")]
+visible = false
+layout_mode = 1
 
 [node name="ChickenSpawner" type="Node" parent="." node_paths=PackedStringArray("entity_container")]
 script = ExtResource("4_sjcnv")
@@ -111,4 +120,5 @@ entity_scene = ExtResource("5_cjuek")
 entity_container = NodePath("../GameWorld/ChickenContainer")
 spawn_interval = 1.0
 
-[connection signal="pressed" from="HUD/MarginContainer/HBoxContainer/Buttons/CenterContainer/SettingsButton" to="HUD" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="HUD/MarginContainer/TopBar/LeftGroup/CenterContainer/SettingsButton" to="HUD" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="HUD/MarginContainer/TopBar/LeftGroup/CenterContainer2/ShopButton" to="HUD" method="_on_shop_button_pressed"]

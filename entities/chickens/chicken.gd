@@ -37,6 +37,8 @@ func take_damage(amount: int) -> void:
 	if dead:
 		return
 	health -= amount
+	GameEffects.shake_screen(1, 0.1)
+	GameEffects.frame_freeze(0.1, .05)
 	if health <= 0:
 		die()
 		return

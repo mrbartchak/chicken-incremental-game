@@ -1,0 +1,185 @@
+[gd_scene load_steps=10 format=3 uid="uid://bs3h83ewc4e0q"]
+
+[ext_resource type="Script" uid="uid://gvn4jlwnuoxq" path="res://ui/shop/shop_menu.gd" id="1_6id7x"]
+[ext_resource type="Texture2D" uid="uid://b66dhjodgqlb5" path="res://ui/shop/shop_menu_panel.png" id="1_t376w"]
+[ext_resource type="Texture2D" uid="uid://b5gosdqun7tnj" path="res://ui/hud/wing_count_logo_outlined.png" id="2_wy7hk"]
+[ext_resource type="FontFile" uid="uid://bpdjfi3ehn2gs" path="res://ui/fonts/Alkhemikal.ttf" id="3_6cl0q"]
+[ext_resource type="Texture2D" uid="uid://c8q7cea1hh357" path="res://ui/hud/menu_button.png" id="3_i7so1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t376w"]
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_6id7x"]
+font = ExtResource("3_6cl0q")
+
+[sub_resource type="LabelSettings" id="LabelSettings_6cl0q"]
+line_spacing = 0.0
+font_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cl0q"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.6)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.05882353, 0.05882353, 0.047058824, 1)
+corner_detail = 5
+
+[node name="ShopMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6id7x")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09411765, 0.078431375, 0.14509805, 0.78431374)
+
+[node name="MainPanel" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -63.5
+offset_right = 98.0
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_t376w")
+
+[node name="ShopMenuMargin" type="MarginContainer" parent="ColorRect/MainPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ShopMenuStack" type="VBoxContainer" parent="ColorRect/MainPanel/ShopMenuMargin"]
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack"]
+layout_mode = 2
+
+[node name="WingCount" type="HBoxContainer" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="WingLogo" type="TextureRect" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/TopBar/WingCount"]
+layout_mode = 2
+texture = ExtResource("2_wy7hk")
+stretch_mode = 2
+
+[node name="WingLabel" type="Label" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/TopBar/WingCount"]
+layout_mode = 2
+text = "113,000"
+label_settings = SubResource("LabelSettings_t376w")
+
+[node name="ShopLabel" type="Label" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "~TheWingShop~"
+label_settings = SubResource("LabelSettings_6id7x")
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/TopBar"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ExitButton" type="TextureButton" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/TopBar"]
+layout_mode = 2
+texture_normal = ExtResource("3_i7so1")
+texture_pressed = ExtResource("3_i7so1")
+texture_hover = ExtResource("3_i7so1")
+texture_focused = ExtResource("3_i7so1")
+
+[node name="ScrollArea" type="ScrollContainer" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShopItems" type="VBoxContainer" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems"]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
+color = Color(1, 0.2784314, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems"]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
+color = Color(1, 0.2784314, 1, 1)
+
+[node name="ShopItem2" type="HBoxContainer" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems"]
+layout_mode = 2
+
+[node name="ItemLogo" type="ColorRect" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems/ShopItem2"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="Text" type="Label" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems/ShopItem2"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+text = "Example bullshit
+this is some bs."
+label_settings = SubResource("LabelSettings_6cl0q")
+
+[node name="Spacer" type="Control" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems/ShopItem2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems/ShopItem2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.16470589, 0.13333334, 0.14117648, 1)
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_6cl0q")
+text = "Buy"
+
+[node name="ShopItem" type="HBoxContainer" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems"]
+layout_mode = 2
+
+[node name="ItemLogo" type="ColorRect" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems/ShopItem"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="Text" type="Label" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems/ShopItem"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+text = "Example bullshit
+this is some bs."
+label_settings = SubResource("LabelSettings_6cl0q")
+
+[node name="Spacer" type="Control" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems/ShopItem"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems/ShopItem"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.16470589, 0.13333334, 0.14117648, 1)
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_6cl0q")
+text = "Buy"
+
+[connection signal="pressed" from="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/TopBar/ExitButton" to="." method="_on_exit_button_pressed"]
