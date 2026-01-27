@@ -1,6 +1,7 @@
 extends Node
 
-var camera: Camera2D
+var camera: CustomCamera
+var damage_number_scene := preload("res://ui/game/damage_label.tscn")
 
 func _ready() -> void:
 	Engine.time_scale = 1.0
@@ -16,3 +17,12 @@ func frame_freeze(timescale: float, duration: float) -> void:
 # ================
 #   Screen Shake
 # ================
+func shake_screen(intensity: int, time: float) -> void:
+	if camera:
+		camera.screen_shake(intensity, time)
+
+# ================
+#   Damage Nums
+# ================
+func show_damage_at(amount: int, pos: Vector2) -> void:
+	pass

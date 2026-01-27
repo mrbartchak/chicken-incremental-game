@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c45nlbkvcabkd" path="res://ui/menu/menu.gd" id="1_1brpx"]
 [ext_resource type="Shader" uid="uid://c5bskyqsddk1g" path="res://ui/shaders/background_scroll.gdshader" id="1_77h3e"]
-[ext_resource type="Texture2D" uid="uid://dpfrldt35mvju" path="res://ui/menu/assets/blue_tile_pattern.png" id="2_w0ybq"]
+[ext_resource type="Texture2D" uid="uid://dlhdf232wrjdt" path="res://ui/menu/assets/green_tile_pattern.png" id="3_pjjyy"]
 [ext_resource type="Texture2D" uid="uid://bir1m82ky4crj" path="res://ui/menu/assets/buttons/menu_button_normal.png" id="3_trkij"]
 [ext_resource type="Texture2D" uid="uid://ctxgv3qramxgc" path="res://drops/wings/assets/wing_outline.png" id="3_vlit4"]
 [ext_resource type="Texture2D" uid="uid://7n216m334cyb" path="res://ui/menu/assets/buttons/menu_button_hover.png" id="4_vlit4"]
@@ -10,7 +10,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_trkij"]
 shader = ExtResource("1_77h3e")
-shader_parameter/speed = 0.1
+shader_parameter/x_speed = 0.1
+shader_parameter/y_speed = 0.15
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vlit4"]
 particle_flag_disable_z = true
@@ -19,10 +20,11 @@ emission_box_extents = Vector3(160, 10, 1)
 angle_min = 1.0728835e-05
 angle_max = 1.0728835e-05
 direction = Vector3(0, 1, 0)
+spread = 0.0
 initial_velocity_min = 30.0
 initial_velocity_max = 40.0
-angular_velocity_min = -45.000015
-angular_velocity_max = 44.999985
+angular_velocity_min = -20.000015
+angular_velocity_max = 19.999983
 gravity = Vector3(0, 0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vlit4"]
@@ -54,12 +56,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_w0ybq")
+texture = ExtResource("3_pjjyy")
 stretch_mode = 1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(160, -18)
-amount = 250
+amount = 300
 texture = ExtResource("3_vlit4")
 lifetime = 7.0
 fixed_fps = 60
@@ -75,6 +77,7 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
+theme_override_constants/separation = 12
 alignment = 1
 
 [node name="TitleLogo" type="TextureRect" parent="CenterContainer/VBoxContainer"]
@@ -104,7 +107,9 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="MenuButtons" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(98, 0)
 layout_mode = 2
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="NewGameButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons"]
@@ -116,10 +121,11 @@ texture_focused = ExtResource("3_trkij")
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/NewGameButton"]
 layout_mode = 0
-offset_top = 1.0
-offset_right = 96.0
-offset_bottom = 16.0
-text = "New Game"
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 97.0
+offset_bottom = 13.0
+text = "NEW GAME"
 label_settings = SubResource("LabelSettings_trkij")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -133,10 +139,11 @@ texture_focused = ExtResource("3_trkij")
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/SettingsButton"]
 layout_mode = 0
-offset_top = 2.0
-offset_right = 96.0
-offset_bottom = 15.0
-text = "Settings"
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 97.0
+offset_bottom = 13.0
+text = "SETTINGS"
 label_settings = SubResource("LabelSettings_1brpx")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -150,12 +157,14 @@ texture_focused = ExtResource("3_trkij")
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ExitButton"]
 layout_mode = 0
-offset_top = 1.0
-offset_right = 96.0
-offset_bottom = 16.0
-text = "Exit"
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 97.0
+offset_bottom = 13.0
+text = "EXIT"
 label_settings = SubResource("LabelSettings_pjjyy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ExitButton" to="." method="_on_exit_button_pressed"]

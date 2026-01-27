@@ -1,3 +1,4 @@
+class_name CustomCamera
 extends Camera2D
 
 var shake_intensity: float = 0.0
@@ -9,6 +10,9 @@ var shake_time: float = 0.0
 var shake_time_speed: float = 20.0
 
 var noise = FastNoiseLite.new()
+
+func _ready() -> void:
+	GameEffects.camera = self
 
 func _physics_process(delta: float) -> void:
 	if active_shake_time > 0:
@@ -22,8 +26,7 @@ func _physics_process(delta: float) -> void:
 		
 		shake_intensity = max(shake_intensity - shake_decay * delta, 0)
 	else:
-		pass
-		#offset = lerp(offset)
+		offset = lerp(offset, Vector2.ZERO, 10.5 * delta)
 
 func screen_shake(intensity: int, time: float) -> void:
 	randomize()

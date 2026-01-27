@@ -1,9 +1,90 @@
-[gd_scene format=3 uid="uid://blfrx5arorllp"]
+[gd_scene load_steps=12 format=3 uid="uid://blfrx5arorllp"]
+
+[ext_resource type="Texture2D" uid="uid://bb4bho6tgxfv5" path="res://ui/game/grass_background.png" id="1_d3un6"]
+[ext_resource type="PackedScene" uid="uid://dfti5fcwt8h23" path="res://core/camera/custom_camera.tscn" id="2_5sg27"]
+[ext_resource type="PackedScene" uid="uid://dsq368wv1wotj" path="res://sword/sword.tscn" id="3_8xnxh"]
+[ext_resource type="Texture2D" uid="uid://hfnmdjtsgssa" path="res://ui/hud/settings_icon.png" id="4_4cdhi"]
+[ext_resource type="Script" uid="uid://r8mqryo2epy5" path="res://ui/hud/hud.gd" id="4_fgh25"]
+[ext_resource type="Script" uid="uid://dvoh3jqunjute" path="res://systems/spawner.gd" id="4_sjcnv"]
+[ext_resource type="FontFile" uid="uid://r6bebwqfqoxw" path="res://ui/fonts/GrapeSoda.ttf" id="4_vhpdd"]
+[ext_resource type="PackedScene" uid="uid://4hf7dgvsytss" path="res://entities/chickens/chicken.tscn" id="5_cjuek"]
+[ext_resource type="Texture2D" uid="uid://dt32xdhbxuq86" path="res://ui/hud/settings_icon_outlined.png" id="5_fgh25"]
+[ext_resource type="Texture2D" uid="uid://b5gosdqun7tnj" path="res://ui/hud/wing_count_logo_outlined.png" id="5_vhpdd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cjuek"]
+font = ExtResource("4_vhpdd")
 
 [node name="Game" type="Node2D"]
 
+[node name="CustomCamera" parent="." instance=ExtResource("2_5sg27")]
+anchor_mode = 0
+
+[node name="GameWorld" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="GameWorld"]
+position = Vector2(160, 90)
+texture = ExtResource("1_d3un6")
+
+[node name="ChickenContainer" type="Node2D" parent="GameWorld"]
+
+[node name="Sword" parent="GameWorld" instance=ExtResource("3_8xnxh")]
+
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 320.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_fgh25")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HUD/MarginContainer"]
+layout_mode = 2
+
+[node name="SettingsButton" type="TextureButton" parent="HUD/MarginContainer/HSplitContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_4cdhi")
+texture_pressed = ExtResource("4_4cdhi")
+texture_hover = ExtResource("5_fgh25")
+texture_focused = ExtResource("4_4cdhi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/HSplitContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 2
+
+[node name="WingCountLabel" type="Label" parent="HUD/MarginContainer/HSplitContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_cjuek")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD/MarginContainer/HSplitContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="WingIcon" type="TextureRect" parent="HUD/MarginContainer/HSplitContainer/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+texture = ExtResource("5_vhpdd")
+stretch_mode = 2
+
+[node name="ChickenSpawner" type="Node" parent="." node_paths=PackedStringArray("entity_container")]
+script = ExtResource("4_sjcnv")
+entity_scene = ExtResource("5_cjuek")
+entity_container = NodePath("../GameWorld/ChickenContainer")
+spawn_interval = 1.0
+
+[connection signal="pressed" from="HUD/MarginContainer/HSplitContainer/SettingsButton" to="HUD" method="_on_settings_button_pressed"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="chicken-incremental-game"
-run/main_scene="uid://csx3owk01my5x"
+run/main_scene="uid://73d71fc5ulh"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
 [autoload]
