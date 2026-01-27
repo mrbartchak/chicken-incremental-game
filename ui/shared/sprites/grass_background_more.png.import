@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bir1m82ky4crj"
-path="res://.godot/imported/menu_button_normal.png-5d3f6206d1e45ee28b7c10bb0d13c979.ctex"
+uid="uid://ck5expsguyugy"
+path="res://.godot/imported/grass_background_more.png-c2d4c05155e8435650ddb8f1fe4f4c41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/menu/assets/buttons/menu_button_normal.png"
-dest_files=["res://.godot/imported/menu_button_normal.png-5d3f6206d1e45ee28b7c10bb0d13c979.ctex"]
+source_file="res://ui/shared/sprites/grass_background_more.png"
+dest_files=["res://.godot/imported/grass_background_more.png-c2d4c05155e8435650ddb8f1fe4f4c41.ctex"]
 
 [params]
 

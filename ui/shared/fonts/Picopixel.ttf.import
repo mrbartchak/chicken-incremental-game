@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bpdjfi3ehn2gs"
-path="res://.godot/imported/Alkhemikal.ttf-4a8ef93984cf7fd1f2948bbb9a7aa5c9.fontdata"
+uid="uid://dclbxgjjmtenh"
+path="res://.godot/imported/Picopixel.ttf-2e343c3138a3ec4dca1c55de25dac0bf.fontdata"
 
 [deps]
 
-source_file="res://ui/fonts/Alkhemikal.ttf"
-dest_files=["res://.godot/imported/Alkhemikal.ttf-4a8ef93984cf7fd1f2948bbb9a7aa5c9.fontdata"]
+source_file="res://ui/shared/fonts/Picopixel.ttf"
+dest_files=["res://.godot/imported/Picopixel.ttf-2e343c3138a3ec4dca1c55de25dac0bf.fontdata"]
 
 [params]
 

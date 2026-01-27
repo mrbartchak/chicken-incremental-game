@@ -1,3 +1,4 @@
+class_name MainMenu
 extends Control
 
 @onready var game_scene: PackedScene = preload("res://core/game.tscn")

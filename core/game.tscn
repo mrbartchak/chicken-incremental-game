@@ -1,18 +1,19 @@
-[gd_scene load_steps=15 format=3 uid="uid://blfrx5arorllp"]
+[gd_scene load_steps=16 format=3 uid="uid://blfrx5arorllp"]
 
-[ext_resource type="Texture2D" uid="uid://bb4bho6tgxfv5" path="res://ui/game/grass_background.png" id="1_d3un6"]
 [ext_resource type="PackedScene" uid="uid://dfti5fcwt8h23" path="res://core/camera/custom_camera.tscn" id="2_5sg27"]
+[ext_resource type="Texture2D" uid="uid://ck5expsguyugy" path="res://ui/shared/sprites/grass_background_more.png" id="2_8bifg"]
 [ext_resource type="PackedScene" uid="uid://dsq368wv1wotj" path="res://sword/sword.tscn" id="3_8xnxh"]
 [ext_resource type="Texture2D" uid="uid://hfnmdjtsgssa" path="res://ui/hud/settings_icon.png" id="4_4cdhi"]
 [ext_resource type="Script" uid="uid://r8mqryo2epy5" path="res://ui/hud/hud.gd" id="4_fgh25"]
 [ext_resource type="Script" uid="uid://dvoh3jqunjute" path="res://systems/spawner.gd" id="4_sjcnv"]
-[ext_resource type="FontFile" uid="uid://r6bebwqfqoxw" path="res://ui/fonts/GrapeSoda.ttf" id="4_vhpdd"]
+[ext_resource type="FontFile" uid="uid://r6bebwqfqoxw" path="res://ui/shared/fonts/GrapeSoda.ttf" id="4_vhpdd"]
 [ext_resource type="PackedScene" uid="uid://4hf7dgvsytss" path="res://entities/chickens/chicken.tscn" id="5_cjuek"]
 [ext_resource type="Texture2D" uid="uid://dt32xdhbxuq86" path="res://ui/hud/settings_icon_outlined.png" id="5_fgh25"]
 [ext_resource type="Texture2D" uid="uid://b5gosdqun7tnj" path="res://ui/hud/wing_count_logo_outlined.png" id="5_vhpdd"]
 [ext_resource type="Texture2D" uid="uid://h4s3cmuvmsoj" path="res://ui/hud/shop_icon.png" id="7_gcgb4"]
 [ext_resource type="Texture2D" uid="uid://bcomh5ilvduxg" path="res://ui/hud/shop_icon_outlined.png" id="8_8bifg"]
-[ext_resource type="PackedScene" uid="uid://bs3h83ewc4e0q" path="res://ui/shop/shop_menu.tscn" id="13_8bifg"]
+[ext_resource type="PackedScene" uid="uid://bfbjwecn2ug34" path="res://ui/settings/ingame/ingame_settings.tscn" id="12_r8boq"]
+[ext_resource type="PackedScene" uid="uid://bs3h83ewc4e0q" path="res://ui/menu/shop/shop_menu.tscn" id="13_8bifg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cjuek"]
 font = ExtResource("4_vhpdd")
@@ -26,7 +27,7 @@ anchor_mode = 0
 
 [node name="Background" type="Sprite2D" parent="GameWorld"]
 position = Vector2(160, 90)
-texture = ExtResource("1_d3un6")
+texture = ExtResource("2_8bifg")
 
 [node name="ChickenContainer" type="Node2D" parent="GameWorld"]
 
@@ -114,10 +115,15 @@ vertical_alignment = 2
 visible = false
 layout_mode = 1
 
+[node name="IngameSettings" parent="HUD" instance=ExtResource("12_r8boq")]
+visible = false
+layout_mode = 1
+
 [node name="ChickenSpawner" type="Node" parent="." node_paths=PackedStringArray("entity_container")]
 script = ExtResource("4_sjcnv")
 entity_scene = ExtResource("5_cjuek")
 entity_container = NodePath("../GameWorld/ChickenContainer")
+max_entities = 4
 spawn_interval = 1.0
 
 [connection signal="pressed" from="HUD/MarginContainer/TopBar/LeftGroup/CenterContainer/SettingsButton" to="HUD" method="_on_settings_button_pressed"]

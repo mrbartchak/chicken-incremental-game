@@ -1,15 +1,15 @@
 [gd_scene load_steps=14 format=3 uid="uid://73d71fc5ulh"]
 
-[ext_resource type="Script" uid="uid://c45nlbkvcabkd" path="res://ui/menu/menu.gd" id="1_1brpx"]
-[ext_resource type="Shader" uid="uid://c5bskyqsddk1g" path="res://ui/shaders/background_scroll.gdshader" id="1_77h3e"]
-[ext_resource type="Texture2D" uid="uid://dlhdf232wrjdt" path="res://ui/menu/assets/green_tile_pattern.png" id="3_pjjyy"]
-[ext_resource type="Texture2D" uid="uid://bir1m82ky4crj" path="res://ui/menu/assets/buttons/menu_button_normal.png" id="3_trkij"]
-[ext_resource type="Texture2D" uid="uid://ctxgv3qramxgc" path="res://drops/wings/assets/wing_outline.png" id="3_vlit4"]
-[ext_resource type="Texture2D" uid="uid://7n216m334cyb" path="res://ui/menu/assets/buttons/menu_button_hover.png" id="4_vlit4"]
-[ext_resource type="Texture2D" uid="uid://bu2tjuvrgvop7" path="res://ui/menu/assets/menu_logo-sword.png" id="5_pjjyy"]
+[ext_resource type="Script" uid="uid://c45nlbkvcabkd" path="res://ui/menu/main/main_menu.gd" id="1_i8qw8"]
+[ext_resource type="Shader" uid="uid://c5bskyqsddk1g" path="res://ui/shared/shaders/background_scroll.gdshader" id="2_77una"]
+[ext_resource type="Texture2D" uid="uid://dlhdf232wrjdt" path="res://ui/menu/main/assets/green_tile_pattern.png" id="3_ygv2v"]
+[ext_resource type="Texture2D" uid="uid://ctxgv3qramxgc" path="res://drops/wings/assets/wing_outline.png" id="4_jp7xi"]
+[ext_resource type="Texture2D" uid="uid://bu2tjuvrgvop7" path="res://ui/menu/main/assets/menu_logo-sword.png" id="5_porbc"]
+[ext_resource type="Texture2D" uid="uid://bir1m82ky4crj" path="res://ui/menu/main/assets/buttons/menu_button_normal.png" id="6_cv2ih"]
+[ext_resource type="Texture2D" uid="uid://7n216m334cyb" path="res://ui/menu/main/assets/buttons/menu_button_hover.png" id="7_k15dw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_trkij"]
-shader = ExtResource("1_77h3e")
+shader = ExtResource("2_77una")
 shader_parameter/x_speed = 0.1
 shader_parameter/y_speed = 0.15
 
@@ -39,14 +39,14 @@ font_size = 8
 [sub_resource type="LabelSettings" id="LabelSettings_pjjyy"]
 font_size = 8
 
-[node name="Menu" type="Control"]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1brpx")
+script = ExtResource("1_i8qw8")
 
 [node name="ScrollingBackground" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_trkij")
@@ -56,13 +56,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_pjjyy")
+texture = ExtResource("3_ygv2v")
 stretch_mode = 1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(160, -18)
 amount = 300
-texture = ExtResource("3_vlit4")
+texture = ExtResource("4_jp7xi")
 lifetime = 7.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_vlit4")
@@ -82,7 +82,7 @@ alignment = 1
 
 [node name="TitleLogo" type="TextureRect" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("5_pjjyy")
+texture = ExtResource("5_porbc")
 
 [node name="TitleLogoShadow" type="TextureRect" parent="CenterContainer/VBoxContainer/TitleLogo"]
 self_modulate = Color(0, 0, 0, 0.5882353)
@@ -92,7 +92,7 @@ offset_left = -4.0
 offset_top = 4.0
 offset_right = 228.0
 offset_bottom = 66.0
-texture = ExtResource("5_pjjyy")
+texture = ExtResource("5_porbc")
 
 [node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 visible = false
@@ -114,10 +114,10 @@ alignment = 1
 
 [node name="NewGameButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons"]
 layout_mode = 2
-texture_normal = ExtResource("3_trkij")
-texture_pressed = ExtResource("3_trkij")
-texture_hover = ExtResource("4_vlit4")
-texture_focused = ExtResource("3_trkij")
+texture_normal = ExtResource("6_cv2ih")
+texture_pressed = ExtResource("6_cv2ih")
+texture_hover = ExtResource("7_k15dw")
+texture_focused = ExtResource("6_cv2ih")
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/NewGameButton"]
 layout_mode = 0
@@ -132,10 +132,10 @@ vertical_alignment = 1
 
 [node name="SettingsButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons"]
 layout_mode = 2
-texture_normal = ExtResource("3_trkij")
-texture_pressed = ExtResource("3_trkij")
-texture_hover = ExtResource("4_vlit4")
-texture_focused = ExtResource("3_trkij")
+texture_normal = ExtResource("6_cv2ih")
+texture_pressed = ExtResource("6_cv2ih")
+texture_hover = ExtResource("7_k15dw")
+texture_focused = ExtResource("6_cv2ih")
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/SettingsButton"]
 layout_mode = 0
@@ -150,10 +150,10 @@ vertical_alignment = 1
 
 [node name="ExitButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons"]
 layout_mode = 2
-texture_normal = ExtResource("3_trkij")
-texture_pressed = ExtResource("3_trkij")
-texture_hover = ExtResource("4_vlit4")
-texture_focused = ExtResource("3_trkij")
+texture_normal = ExtResource("6_cv2ih")
+texture_pressed = ExtResource("6_cv2ih")
+texture_hover = ExtResource("7_k15dw")
+texture_focused = ExtResource("6_cv2ih")
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ExitButton"]
 layout_mode = 0

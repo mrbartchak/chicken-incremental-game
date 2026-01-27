@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dsq368wv1wotj" path="res://sword/sword.tscn" id="1_qfrr3"]
 [ext_resource type="Script" uid="uid://83ew0hqw78vm" path="res://ui/ui_manager.gd" id="2_we4n0"]
 [ext_resource type="PackedScene" uid="uid://4hf7dgvsytss" path="res://entities/chickens/chicken.tscn" id="3_6i40u"]
-[ext_resource type="Texture2D" uid="uid://bb4bho6tgxfv5" path="res://ui/game/grass_background.png" id="4_nmn22"]
+[ext_resource type="Texture2D" uid="uid://bb4bho6tgxfv5" path="res://ui/shared/sprites/grass_background.png" id="4_nmn22"]
 [ext_resource type="Texture2D" uid="uid://c8q7cea1hh357" path="res://ui/hud/menu_button.png" id="5_1jhos"]
 [ext_resource type="Texture2D" uid="uid://ctxgv3qramxgc" path="res://drops/wings/assets/wing_outline.png" id="5_kdhv1"]
 [ext_resource type="Script" uid="uid://dvoh3jqunjute" path="res://systems/spawner.gd" id="6_1jhos"]

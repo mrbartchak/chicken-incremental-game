@@ -3,12 +3,13 @@ extends Control
 
 @onready var wing_count_label: Label = $MarginContainer/TopBar/RightGroup/WingCount
 @onready var shop: ShopMenu = $ShopMenu
+@onready var ingame_settings: IngameSettings = $IngameSettings
 
 func _ready() -> void:
 	connect_signals()
 
 func _on_settings_button_pressed() -> void:
-	get_tree().quit()
+	ingame_settings.open()
 
 func _on_shop_button_pressed() -> void:
 	shop.open()

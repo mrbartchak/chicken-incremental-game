@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlhdf232wrjdt"
-path="res://.godot/imported/green_tile_pattern.png-ff5865e2cff6e7aa7d52cfcbbf472d80.ctex"
+uid="uid://bu2tjuvrgvop7"
+path="res://.godot/imported/menu_logo-sword.png-625ebaeaae6f241af299dac3ffd42244.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/menu/assets/green_tile_pattern.png"
-dest_files=["res://.godot/imported/green_tile_pattern.png-ff5865e2cff6e7aa7d52cfcbbf472d80.ctex"]
+source_file="res://ui/menu/main/assets/menu_logo-sword.png"
+dest_files=["res://.godot/imported/menu_logo-sword.png-625ebaeaae6f241af299dac3ffd42244.ctex"]
 
 [params]
 

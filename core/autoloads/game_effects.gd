@@ -1,7 +1,7 @@
 extends Node
 
 var camera: CustomCamera
-var damage_number_scene := preload("res://ui/game/damage_label.tscn")
+var damage_number_scene := preload("res://ui/shared/damage_label.tscn")
 
 func _ready() -> void:
 	Engine.time_scale = 1.0

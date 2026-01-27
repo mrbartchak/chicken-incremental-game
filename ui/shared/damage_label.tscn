@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1oc1ma540w40"]
 
-[ext_resource type="FontFile" uid="uid://dclbxgjjmtenh" path="res://ui/fonts/Picopixel.ttf" id="1_ak7qk"]
+[ext_resource type="FontFile" uid="uid://dclbxgjjmtenh" path="res://ui/shared/fonts/Picopixel.ttf" id="1_ak7qk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lsugv"]
 font = ExtResource("1_ak7qk")

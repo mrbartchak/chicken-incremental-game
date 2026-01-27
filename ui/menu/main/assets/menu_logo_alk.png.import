@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpfrldt35mvju"
-path="res://.godot/imported/blue_tile_pattern.png-c0d9f01b3ff039940f0c0aa702ff83df.ctex"
+uid="uid://bn22gdjy8w7rh"
+path="res://.godot/imported/menu_logo_alk.png-83d5d2e32cf3149971265adc53e587b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/menu/assets/blue_tile_pattern.png"
-dest_files=["res://.godot/imported/blue_tile_pattern.png-c0d9f01b3ff039940f0c0aa702ff83df.ctex"]
+source_file="res://ui/menu/main/assets/menu_logo_alk.png"
+dest_files=["res://.godot/imported/menu_logo_alk.png-83d5d2e32cf3149971265adc53e587b9.ctex"]
 
 [params]
 
