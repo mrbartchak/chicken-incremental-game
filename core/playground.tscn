@@ -74,7 +74,7 @@ script = ExtResource("6_1jhos")
 entity_scene = ExtResource("3_6i40u")
 entity_container = NodePath("../Chickens")
 spawn_area = Rect2(10, 10, 300, 160)
-max_entities = 100
+max_entities = 5
 spawn_interval = 0.01
 
 [connection signal="pressed" from="UI/QuitButton" to="UI" method="_on_quit_button_pressed"]

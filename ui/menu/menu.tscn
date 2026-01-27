@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bir1m82ky4crj" path="res://ui/menu/assets/buttons/menu_button_normal.png" id="3_trkij"]
 [ext_resource type="Texture2D" uid="uid://ctxgv3qramxgc" path="res://drops/wings/assets/wing_outline.png" id="3_vlit4"]
 [ext_resource type="Texture2D" uid="uid://7n216m334cyb" path="res://ui/menu/assets/buttons/menu_button_hover.png" id="4_vlit4"]
-[ext_resource type="Texture2D" uid="uid://cbajv0e070t2s" path="res://ui/menu/assets/menu_logo.png" id="5_pjjyy"]
+[ext_resource type="Texture2D" uid="uid://bu2tjuvrgvop7" path="res://ui/menu/assets/menu_logo-sword.png" id="5_pjjyy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_trkij"]
 shader = ExtResource("1_77h3e")
@@ -18,21 +18,24 @@ emission_shape = 3
 emission_box_extents = Vector3(160, 10, 1)
 angle_min = 1.0728835e-05
 angle_max = 1.0728835e-05
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 40.0
 angular_velocity_min = -45.000015
 angular_velocity_max = 44.999985
-gravity = Vector3(0, 20, 0)
+gravity = Vector3(0, 0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vlit4"]
 font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_trkij"]
-font_size = 12
+font_size = 8
 
 [sub_resource type="LabelSettings" id="LabelSettings_1brpx"]
-font_size = 12
+font_size = 8
 
 [sub_resource type="LabelSettings" id="LabelSettings_pjjyy"]
-font_size = 12
+font_size = 8
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -58,7 +61,7 @@ stretch_mode = 1
 position = Vector2(160, -18)
 amount = 250
 texture = ExtResource("3_vlit4")
-lifetime = 4.5
+lifetime = 7.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_vlit4")
 
@@ -78,6 +81,16 @@ alignment = 1
 layout_mode = 2
 texture = ExtResource("5_pjjyy")
 
+[node name="TitleLogoShadow" type="TextureRect" parent="CenterContainer/VBoxContainer/TitleLogo"]
+self_modulate = Color(0, 0, 0, 0.5882353)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -4.0
+offset_top = 4.0
+offset_right = 228.0
+offset_bottom = 66.0
+texture = ExtResource("5_pjjyy")
+
 [node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
@@ -91,7 +104,6 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="MenuButtons" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer"]
-custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 alignment = 1
 
@@ -104,6 +116,7 @@ texture_focused = ExtResource("3_trkij")
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/NewGameButton"]
 layout_mode = 0
+offset_top = 1.0
 offset_right = 96.0
 offset_bottom = 16.0
 text = "New Game"
@@ -120,7 +133,7 @@ texture_focused = ExtResource("3_trkij")
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/SettingsButton"]
 layout_mode = 0
-offset_top = -1.0
+offset_top = 2.0
 offset_right = 96.0
 offset_bottom = 15.0
 text = "Settings"
@@ -137,9 +150,9 @@ texture_focused = ExtResource("3_trkij")
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ExitButton"]
 layout_mode = 0
-offset_top = -1.0
+offset_top = 1.0
 offset_right = 96.0
-offset_bottom = 15.0
+offset_bottom = 16.0
 text = "Exit"
 label_settings = SubResource("LabelSettings_pjjyy")
 horizontal_alignment = 1
