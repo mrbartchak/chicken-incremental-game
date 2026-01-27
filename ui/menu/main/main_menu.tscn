@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://73d71fc5ulh"]
+[gd_scene load_steps=15 format=3 uid="uid://73d71fc5ulh"]
 
 [ext_resource type="Script" uid="uid://c45nlbkvcabkd" path="res://ui/menu/main/main_menu.gd" id="1_i8qw8"]
 [ext_resource type="Shader" uid="uid://c5bskyqsddk1g" path="res://ui/shared/shaders/background_scroll.gdshader" id="2_77una"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bu2tjuvrgvop7" path="res://ui/menu/main/assets/menu_logo-sword.png" id="5_porbc"]
 [ext_resource type="Texture2D" uid="uid://bir1m82ky4crj" path="res://ui/menu/main/assets/buttons/menu_button_normal.png" id="6_cv2ih"]
 [ext_resource type="Texture2D" uid="uid://7n216m334cyb" path="res://ui/menu/main/assets/buttons/menu_button_hover.png" id="7_k15dw"]
+[ext_resource type="FontFile" uid="uid://5qa1dmxvdrh7" path="res://ui/shared/fonts/Poco.ttf" id="8_77una"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_trkij"]
 shader = ExtResource("2_77una")
@@ -31,13 +32,16 @@ gravity = Vector3(0, 0, 0)
 font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_trkij"]
-font_size = 8
+font = ExtResource("8_77una")
+font_size = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_1brpx"]
-font_size = 8
+font = ExtResource("8_77una")
+font_size = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_pjjyy"]
-font_size = 8
+font = ExtResource("8_77una")
+font_size = 10
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -122,9 +126,8 @@ texture_focused = ExtResource("6_cv2ih")
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/NewGameButton"]
 layout_mode = 0
 offset_left = 1.0
-offset_top = 4.0
 offset_right = 97.0
-offset_bottom = 13.0
+offset_bottom = 12.0
 text = "NEW GAME"
 label_settings = SubResource("LabelSettings_trkij")
 horizontal_alignment = 1
@@ -140,9 +143,8 @@ texture_focused = ExtResource("6_cv2ih")
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/SettingsButton"]
 layout_mode = 0
 offset_left = 1.0
-offset_top = 4.0
 offset_right = 97.0
-offset_bottom = 13.0
+offset_bottom = 12.0
 text = "SETTINGS"
 label_settings = SubResource("LabelSettings_1brpx")
 horizontal_alignment = 1
@@ -158,10 +160,9 @@ texture_focused = ExtResource("6_cv2ih")
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ExitButton"]
 layout_mode = 0
 offset_left = 1.0
-offset_top = 4.0
 offset_right = 97.0
-offset_bottom = 13.0
-text = "EXIT"
+offset_bottom = 12.0
+text = "Quit"
 label_settings = SubResource("LabelSettings_pjjyy")
 horizontal_alignment = 1
 vertical_alignment = 1

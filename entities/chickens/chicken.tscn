@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://4hf7dgvsytss"]
+[gd_scene load_steps=37 format=3 uid="uid://4hf7dgvsytss"]
 
 [ext_resource type="Script" uid="uid://i5bufqdi8vt6" path="res://entities/chickens/chicken.gd" id="1_scr0v"]
 [ext_resource type="PackedScene" uid="uid://bvj685b08ne5i" path="res://drops/wings/wing.tscn" id="2_5egjd"]
@@ -9,6 +9,12 @@
 [ext_resource type="Script" uid="uid://c3o1i4wv3scxd" path="res://core/fsm/state_machine.gd" id="6_gfhuf"]
 [ext_resource type="Script" uid="uid://bxuu6xyklmgms" path="res://entities/chickens/states/chicken_idle.gd" id="7_cgl0l"]
 [ext_resource type="Script" uid="uid://cwlhrwa10vodw" path="res://entities/chickens/states/chicken_roaming.gd" id="8_kpgen"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qxmy2"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(4, 8, 1)
+gravity = Vector3(0, -5, 0)
 
 [sub_resource type="Curve" id="Curve_kpgen"]
 _data = [Vector2(0.5040916, 0.9999999), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -221,8 +227,13 @@ alpha_curve = SubResource("CurveTexture_5egjd")
 script = ExtResource("1_scr0v")
 wing_scene = ExtResource("2_5egjd")
 
+[node name="SparkleParticles" type="GPUParticles2D" parent="."]
+visible = false
+position = Vector2(0, -3)
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_qxmy2")
+
 [node name="WalkParticles" type="GPUParticles2D" parent="."]
-position = Vector2(0, 3)
 emitting = false
 amount = 6
 texture = ExtResource("3_kpgen")
@@ -231,10 +242,9 @@ trail_sections = 4
 process_material = SubResource("ParticleProcessMaterial_cgl0l")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_hdls3")
-animation = &"walk_right"
 autoplay = "default"
-frame_progress = 0.40818757
 
 [node name="HealthBar" type="ProgressBar" parent="Sprite"]
 visible = false
@@ -250,8 +260,7 @@ value = 0.5
 show_percentage = false
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0.5, 0)
+position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_ji1vg")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
@@ -259,6 +268,7 @@ stream = ExtResource("5_kpgen")
 volume_db = -5.0
 
 [node name="HitParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, -3)
 emitting = false
 amount = 2
 texture = ExtResource("3_ji1vg")
@@ -267,6 +277,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ce5f1")
 
 [node name="DeathParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, -3)
 emitting = false
 amount = 4
 texture = ExtResource("3_ji1vg")

@@ -3,7 +3,7 @@ extends Area2D
 
 @export var wing_scene: PackedScene
 
-var max_health: int = 2
+var max_health: int = 1
 var health: int
 var dead: bool = false
 
@@ -37,8 +37,8 @@ func take_damage(amount: int) -> void:
 	if dead:
 		return
 	health -= amount
-	GameEffects.shake_screen(1, 0.1)
-	GameEffects.frame_freeze(0.1, .05)
+	GameEffects.shake_screen(1, 0.2)
+	#GameEffects.frame_freeze(0.1, .05)
 	if health <= 0:
 		die()
 		return

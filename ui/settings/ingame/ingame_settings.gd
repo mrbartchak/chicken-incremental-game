@@ -17,4 +17,4 @@ func _on_resume_button_pressed() -> void:
 	close()
 
 func _on_menu_button_pressed() -> void:
-	get_tree().change_scene_to_packed(MAIN_MENU)
+	get_tree().change_scene_to_file("res://ui/menu/main/main_menu.tscn")

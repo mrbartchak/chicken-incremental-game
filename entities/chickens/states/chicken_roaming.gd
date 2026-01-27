@@ -43,8 +43,9 @@ func exit() -> void:
 	chicken.walk_particles.emitting = false
 
 func clamp_to_screen(pos: Vector2) -> Vector2:
-	var margin: float = 8.0
+	var base_margin: float = 8.0
+	var bottom_margin: float = 8.0
 	var viewport_rect = entity.get_viewport_rect()
-	pos.x = clamp(pos.x, margin, viewport_rect.size.x - margin)
-	pos.y = clamp(pos.y, margin, viewport_rect.size.y - margin)
+	pos.x = clamp(pos.x, base_margin, viewport_rect.size.x - base_margin)
+	pos.y = clamp(pos.y, base_margin, viewport_rect.size.y - base_margin - bottom_margin)
 	return pos

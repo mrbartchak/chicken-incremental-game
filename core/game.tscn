@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://blfrx5arorllp"]
 
 [ext_resource type="PackedScene" uid="uid://dfti5fcwt8h23" path="res://core/camera/custom_camera.tscn" id="2_5sg27"]
-[ext_resource type="Texture2D" uid="uid://ck5expsguyugy" path="res://ui/shared/sprites/grass_background_more.png" id="2_8bifg"]
+[ext_resource type="Texture2D" uid="uid://cgda2fsiheogd" path="res://ui/shared/sprites/background_island.png" id="2_r8boq"]
 [ext_resource type="PackedScene" uid="uid://dsq368wv1wotj" path="res://sword/sword.tscn" id="3_8xnxh"]
 [ext_resource type="Texture2D" uid="uid://hfnmdjtsgssa" path="res://ui/hud/settings_icon.png" id="4_4cdhi"]
 [ext_resource type="Script" uid="uid://r8mqryo2epy5" path="res://ui/hud/hud.gd" id="4_fgh25"]
@@ -27,7 +27,7 @@ anchor_mode = 0
 
 [node name="Background" type="Sprite2D" parent="GameWorld"]
 position = Vector2(160, 90)
-texture = ExtResource("2_8bifg")
+texture = ExtResource("2_r8boq")
 
 [node name="ChickenContainer" type="Node2D" parent="GameWorld"]
 
@@ -123,6 +123,7 @@ layout_mode = 1
 script = ExtResource("4_sjcnv")
 entity_scene = ExtResource("5_cjuek")
 entity_container = NodePath("../GameWorld/ChickenContainer")
+spawn_area = Rect2(10, 10, 300, 150)
 max_entities = 4
 spawn_interval = 1.0
 
