@@ -1,5 +1,5 @@
 class_name ShopMenu
-extends Control
+extends CanvasLayer
 
 func _ready() -> void:
 	close()

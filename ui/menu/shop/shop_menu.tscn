@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bs3h83ewc4e0q"]
+[gd_scene load_steps=9 format=3 uid="uid://bs3h83ewc4e0q"]
 
 [ext_resource type="Script" uid="uid://gvn4jlwnuoxq" path="res://ui/menu/shop/shop_menu.gd" id="1_6id7x"]
 [ext_resource type="Texture2D" uid="uid://b66dhjodgqlb5" path="res://ui/menu/shop/shop_menu_panel.png" id="1_t376w"]
@@ -13,34 +13,10 @@ font_size = 8
 [sub_resource type="LabelSettings" id="LabelSettings_6id7x"]
 font = ExtResource("3_6cl0q")
 
-[sub_resource type="LabelSettings" id="LabelSettings_6cl0q"]
-line_spacing = 0.0
-font_size = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cl0q"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.6)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.05882353, 0.05882353, 0.047058824, 1)
-corner_detail = 5
-
-[node name="ShopMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ShopMenu" type="CanvasLayer"]
 script = ExtResource("1_6id7x")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -113,74 +89,5 @@ texture_normal = ExtResource("5_8yyr0")
 texture_pressed = ExtResource("5_8yyr0")
 texture_hover = ExtResource("6_gb4lm")
 texture_focused = ExtResource("5_8yyr0")
-
-[node name="ScrollArea" type="ScrollContainer" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ShopItems" type="VBoxContainer" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="ColorRect" type="ColorRect" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems"]
-custom_minimum_size = Vector2(100, 10)
-layout_mode = 2
-color = Color(1, 0.2784314, 1, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems"]
-custom_minimum_size = Vector2(100, 10)
-layout_mode = 2
-color = Color(1, 0.2784314, 1, 1)
-
-[node name="ShopItem2" type="HBoxContainer" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems"]
-layout_mode = 2
-
-[node name="ItemLogo" type="ColorRect" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems/ShopItem2"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-
-[node name="Text" type="Label" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems/ShopItem2"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-text = "Example bullshit
-this is some bs."
-label_settings = SubResource("LabelSettings_6cl0q")
-
-[node name="Spacer" type="Control" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems/ShopItem2"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Button" type="Button" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems/ShopItem2"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.16470589, 0.13333334, 0.14117648, 1)
-theme_override_font_sizes/font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_6cl0q")
-text = "Buy"
-
-[node name="ShopItem" type="HBoxContainer" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems"]
-layout_mode = 2
-
-[node name="ItemLogo" type="ColorRect" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems/ShopItem"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-
-[node name="Text" type="Label" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems/ShopItem"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-text = "Example bullshit
-this is some bs."
-label_settings = SubResource("LabelSettings_6cl0q")
-
-[node name="Spacer" type="Control" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems/ShopItem"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Button" type="Button" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/ScrollArea/ShopItems/ShopItem"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.16470589, 0.13333334, 0.14117648, 1)
-theme_override_font_sizes/font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_6cl0q")
-text = "Buy"
 
 [connection signal="pressed" from="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/TopBar/ExitButton" to="." method="_on_exit_button_pressed"]

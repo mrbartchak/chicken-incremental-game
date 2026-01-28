@@ -31,8 +31,6 @@ texture = ExtResource("2_r8boq")
 
 [node name="ChickenContainer" type="Node2D" parent="GameWorld"]
 
-[node name="Sword" parent="GameWorld" instance=ExtResource("3_8xnxh")]
-
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -113,7 +111,6 @@ vertical_alignment = 2
 
 [node name="ShopMenu" parent="HUD" instance=ExtResource("13_8bifg")]
 visible = false
-layout_mode = 1
 
 [node name="IngameSettings" parent="HUD" instance=ExtResource("12_r8boq")]
 visible = false
@@ -126,6 +123,10 @@ entity_container = NodePath("../GameWorld/ChickenContainer")
 spawn_area = Rect2(10, 10, 300, 150)
 max_entities = 4
 spawn_interval = 1.0
+
+[node name="MouseLayer" type="CanvasLayer" parent="."]
+
+[node name="Sword" parent="MouseLayer" instance=ExtResource("3_8xnxh")]
 
 [connection signal="pressed" from="HUD/MarginContainer/TopBar/LeftGroup/CenterContainer/SettingsButton" to="HUD" method="_on_settings_button_pressed"]
 [connection signal="pressed" from="HUD/MarginContainer/TopBar/LeftGroup/CenterContainer2/ShopButton" to="HUD" method="_on_shop_button_pressed"]
