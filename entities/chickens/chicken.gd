@@ -7,6 +7,9 @@ var max_health: int = 1
 var health: int
 var dead: bool = false
 
+var is_hovered: bool = false
+var scale_tween: Tween
+
 @onready var state_machine: StateMachine = $StateMachine
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var hit_particles: GPUParticles2D = $HitParticles
@@ -79,3 +82,21 @@ func flash() -> void:
 	sprite.modulate = Color.ORANGE_RED
 	await get_tree().create_timer(flash_time).timeout
 	sprite.modulate = Color(1, 1, 1)
+
+func scale_up():
+	if scale_tween:
+		scale_tween.kill()
+	
+	scale_tween = create_tween()
+	scale_tween.set_ease(Tween.EASE_OUT)
+	scale_tween.set_trans(Tween.TRANS_BACK)
+	scale_tween.tween_property(self, "scale", 1.2, 0.1)
+
+func scale_down():
+	if scale_tween:
+		scale_tween.kill()
+	
+	scale_tween = create_tween()
+	scale_tween.set_ease(Tween.EASE_OUT)
+	scale_tween.set_trans(Tween.TRANS_BACK)
+	scale_tween.tween_property(self, "scale", 1.0, 0.1)

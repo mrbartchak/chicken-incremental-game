@@ -12,6 +12,7 @@ var collectable: bool = false
 var collected: bool = false
 
 func _ready() -> void:
+	pop_in()
 	velocity = pop_velocity
 	velocity.x = randf_range(-30, 30)
 	stop_after_delay()
@@ -37,3 +38,7 @@ func collect() -> void:
 	$CollectSound.play()
 	await $CollectSound.finished
 	queue_free()
+
+func pop_in() -> void:
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(self, "scale", Vector2(1, 1), 0.6).from(Vector2(0, 0))
