@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://db3djmeyrrxuf" path="res://entities/chickens/assets/chicken_sheet.png" id="2_hdls3"]
 [ext_resource type="Texture2D" uid="uid://bw8s4nkfelrju" path="res://entities/chickens/assets/feather.png" id="3_ji1vg"]
 [ext_resource type="Texture2D" uid="uid://b7kwqf0e5nw3y" path="res://entities/chickens/assets/grass_particle.png" id="3_kpgen"]
-[ext_resource type="AudioStream" uid="uid://csuv52b532lgs" path="res://entities/chickens/assets/bok_bok.wav" id="5_kpgen"]
+[ext_resource type="AudioStream" uid="uid://ce4ues1547dcu" path="res://entities/chickens/assets/poof-80161.wav" id="5_kpgen"]
 [ext_resource type="Script" uid="uid://c3o1i4wv3scxd" path="res://core/fsm/state_machine.gd" id="6_gfhuf"]
 [ext_resource type="Script" uid="uid://bxuu6xyklmgms" path="res://entities/chickens/states/chicken_idle.gd" id="7_cgl0l"]
 [ext_resource type="Script" uid="uid://cwlhrwa10vodw" path="res://entities/chickens/states/chicken_roaming.gd" id="8_kpgen"]

@@ -11,6 +11,8 @@ var velocity: Vector2
 var collectable: bool = false
 var collected: bool = false
 
+@onready var collect_sound: AudioStreamPlayer = $CollectSound
+
 func _ready() -> void:
 	pop_in()
 	velocity = pop_velocity
@@ -35,8 +37,8 @@ func collect() -> void:
 	collected = true
 	GameState.add_wings(1)
 	$Sprite2D.visible = false
-	$CollectSound.play()
-	await $CollectSound.finished
+	collect_sound.play()
+	await collect_sound.finished
 	queue_free()
 
 func pop_in() -> void:

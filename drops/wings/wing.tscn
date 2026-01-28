@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://datalukcqxxej" path="res://drops/wings/wing.gd" id="1_kdif2"]
 [ext_resource type="Texture2D" uid="uid://ctxgv3qramxgc" path="res://drops/wings/assets/wing_outline.png" id="2_cxd1u"]
-[ext_resource type="AudioStream" uid="uid://c2018aajt4at4" path="res://entities/chickens/assets/pop.ogg" id="3_raa7o"]
+[ext_resource type="AudioStream" uid="uid://bnmkbjfjhll4n" path="res://entities/chickens/assets/bubble-pop-05-323639.wav" id="3_kdif2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_byjcj"]
 radius = 6.0
@@ -23,5 +23,7 @@ texture = ExtResource("2_cxd1u")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_byjcj")
 
-[node name="CollectSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_raa7o")
+[node name="CollectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kdif2")
+volume_db = -10.0
+bus = &"SFX"
