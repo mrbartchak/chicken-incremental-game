@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="chicken-incremental-game"
+config/version="0.1.0"
 run/main_scene="uid://73d71fc5ulh"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
@@ -18,6 +19,7 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 
 GameState="*res://core/autoloads/gamestate.gd"
 GameEffects="*res://core/autoloads/game_effects.gd"
+Version="*res://core/autoloads/version.gd"
 
 [display]
 

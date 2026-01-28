@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://73d71fc5ulh"]
+[gd_scene load_steps=16 format=3 uid="uid://73d71fc5ulh"]
 
 [ext_resource type="Script" uid="uid://c45nlbkvcabkd" path="res://ui/menu/main/main_menu.gd" id="1_i8qw8"]
 [ext_resource type="Shader" uid="uid://c5bskyqsddk1g" path="res://ui/shared/shaders/background_scroll.gdshader" id="2_77una"]
@@ -40,6 +40,10 @@ font = ExtResource("8_77una")
 font_size = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_pjjyy"]
+font = ExtResource("8_77una")
+font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_77una"]
 font = ExtResource("8_77una")
 font_size = 10
 
@@ -166,6 +170,20 @@ text = "Quit"
 label_settings = SubResource("LabelSettings_pjjyy")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VersionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -18.0
+offset_right = 42.0
+offset_bottom = -2.0
+grow_vertical = 0
+text = "v0.0.0"
+label_settings = SubResource("LabelSettings_77una")
+vertical_alignment = 2
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ExitButton" to="." method="_on_exit_button_pressed"]
