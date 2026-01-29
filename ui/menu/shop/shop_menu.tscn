@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bs3h83ewc4e0q"]
+[gd_scene load_steps=10 format=3 uid="uid://bs3h83ewc4e0q"]
 
 [ext_resource type="Script" uid="uid://gvn4jlwnuoxq" path="res://ui/menu/shop/shop_menu.gd" id="1_6id7x"]
 [ext_resource type="Texture2D" uid="uid://b66dhjodgqlb5" path="res://ui/menu/shop/shop_menu_panel.png" id="1_t376w"]
@@ -8,24 +8,27 @@
 [ext_resource type="Texture2D" uid="uid://dwmyc1uo05hv" path="res://ui/shared/sprites/exit_button_pressed.png" id="6_gb4lm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t376w"]
-font_size = 8
+font_size = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_6id7x"]
 font = ExtResource("3_6cl0q")
 
+[sub_resource type="LabelSettings" id="LabelSettings_56mkd"]
+line_spacing = -5.0
+font_size = 10
+
 [node name="ShopMenu" type="CanvasLayer"]
 script = ExtResource("1_6id7x")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Overlay" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.09411765, 0.078431375, 0.14509805, 0.78431374)
+color = Color(0.09411765, 0.078431375, 0.14509805, 0.5882353)
 
-[node name="MainPanel" type="TextureRect" parent="ColorRect"]
-layout_mode = 1
+[node name="ShopPanel" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -38,8 +41,9 @@ offset_bottom = 63.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_t376w")
+stretch_mode = 2
 
-[node name="ShopMenuMargin" type="MarginContainer" parent="ColorRect/MainPanel"]
+[node name="ShopMargin" type="MarginContainer" parent="ShopPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,43 +55,97 @@ theme_override_constants/margin_top = 9
 theme_override_constants/margin_right = 9
 theme_override_constants/margin_bottom = 10
 
-[node name="ShopMenuStack" type="VBoxContainer" parent="ColorRect/MainPanel/ShopMenuMargin"]
+[node name="ShopMenuStack" type="VBoxContainer" parent="ShopPanel/ShopMargin"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TopBar" type="HBoxContainer" parent="ShopPanel/ShopMargin/ShopMenuStack"]
 layout_mode = 2
 
-[node name="TopBar" type="HBoxContainer" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack"]
-layout_mode = 2
-
-[node name="WingCount" type="HBoxContainer" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/TopBar"]
+[node name="WingCount" type="HBoxContainer" parent="ShopPanel/ShopMargin/ShopMenuStack/TopBar"]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="WingLogo" type="TextureRect" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/TopBar/WingCount"]
+[node name="WingLogo" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/TopBar/WingCount"]
 layout_mode = 2
 texture = ExtResource("2_wy7hk")
 stretch_mode = 2
 
-[node name="WingLabel" type="Label" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/TopBar/WingCount"]
+[node name="WingLabel" type="Label" parent="ShopPanel/ShopMargin/ShopMenuStack/TopBar/WingCount"]
 layout_mode = 2
 text = "15"
 label_settings = SubResource("LabelSettings_t376w")
 
-[node name="ShopLabel" type="Label" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/TopBar"]
+[node name="ShopLabel" type="Label" parent="ShopPanel/ShopMargin/ShopMenuStack/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "~TheWingShop~"
+text = "Shop"
 label_settings = SubResource("LabelSettings_6id7x")
 horizontal_alignment = 1
 
-[node name="Spacer" type="Control" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/TopBar"]
+[node name="Spacer" type="Control" parent="ShopPanel/ShopMargin/ShopMenuStack/TopBar"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ExitButton" type="TextureButton" parent="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/TopBar"]
+[node name="ExitButton" type="TextureButton" parent="ShopPanel/ShopMargin/ShopMenuStack/TopBar"]
 layout_mode = 2
 texture_normal = ExtResource("5_8yyr0")
 texture_pressed = ExtResource("5_8yyr0")
 texture_hover = ExtResource("6_gb4lm")
 texture_focused = ExtResource("5_8yyr0")
 
-[connection signal="pressed" from="ColorRect/MainPanel/ShopMenuMargin/ShopMenuStack/TopBar/ExitButton" to="." method="_on_exit_button_pressed"]
+[node name="HSeparator" type="HSeparator" parent="ShopPanel/ShopMargin/ShopMenuStack"]
+layout_mode = 2
+
+[node name="UpgradeRow" type="HBoxContainer" parent="ShopPanel/ShopMargin/ShopMenuStack"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradeRow"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "spwn
+rate"
+label_settings = SubResource("LabelSettings_56mkd")
+
+[node name="Button" type="Button" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradeRow"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "1"
+
+[node name="Button2" type="Button" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradeRow"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "1"
+
+[node name="Button3" type="Button" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradeRow"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "1"
+
+[node name="UpgradeRow2" type="HBoxContainer" parent="ShopPanel/ShopMargin/ShopMenuStack"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradeRow2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "max
+ckns"
+label_settings = SubResource("LabelSettings_56mkd")
+
+[node name="Button" type="Button" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradeRow2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Upgrade 1"
+
+[node name="Button2" type="Button" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradeRow2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Upgrade 2"
+
+[connection signal="pressed" from="ShopPanel/ShopMargin/ShopMenuStack/TopBar/ExitButton" to="." method="_on_exit_button_pressed"]
