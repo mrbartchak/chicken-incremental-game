@@ -5,7 +5,7 @@ extends Area2D
 
 var pop_velocity: Vector2 = Vector2(0, -60)
 var drop_gravity: float = 200.0
-var stop_time: float = 0.6
+var stop_time: float = 0.5
 
 var velocity: Vector2
 var collectable: bool = false
@@ -28,19 +28,18 @@ func stop_after_delay() -> void:
 	await get_tree().create_timer(stop_time).timeout
 	drop_gravity = 0.0
 	velocity = Vector2.ZERO
-	await get_tree().create_timer(0.1).timeout
 	collectable = true
 
 func collect() -> void:
 	if !collectable or collected:
 		return
+	collect_sound.play()
 	collected = true
 	GameState.add_wings(1)
 	$Sprite2D.visible = false
-	collect_sound.play()
 	await collect_sound.finished
 	queue_free()
 
 func pop_in() -> void:
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-	tween.tween_property(self, "scale", Vector2(1, 1), 0.6).from(Vector2(0, 0))
+	tween.tween_property(self, "scale", Vector2(1, 1), 0.6).from(Vector2(.2, .2))

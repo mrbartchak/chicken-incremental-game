@@ -34,4 +34,8 @@ func get_spawn_position() -> Vector2:
 	return pos
 
 func get_active_entities() -> int:
-	return entity_container.get_child_count()
+	var active_entities: int = 0
+	for entity: Node2D in entity_container.get_children():
+		if entity.is_in_group("chickens"):
+			active_entities += 1
+	return active_entities
