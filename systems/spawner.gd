@@ -11,6 +11,8 @@ var spawn_timer: float = 0.0
 
 func _ready() -> void:
 	spawn_timer = 0.0
+	max_entities = GameState.max_population
+	GameState.max_population_changed.connect(_update_max_population)
 
 func _process(delta: float) -> void:
 	if get_active_entities() >= max_entities:
@@ -19,7 +21,9 @@ func _process(delta: float) -> void:
 	if spawn_timer >= spawn_interval:  #and get_active_entities() < max_entities:
 		spawn_timer = 0.0
 		spawn_entity()
-	
+
+func _update_max_population(amount: int) -> void:
+	max_entities = amount
 
 func spawn_entity() -> void:
 	if not entity_scene or not entity_container:

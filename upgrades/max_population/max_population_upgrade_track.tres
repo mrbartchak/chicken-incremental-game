@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeTrack" load_steps=5 format=3 uid="uid://b8timi4en15a4"]
+
+[ext_resource type="Script" uid="uid://qfkdktxtx8hw" path="res://upgrades/upgrade_track.gd" id="1_kls51"]
+[ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://upgrades/upgrade.gd" id="2_vof0p"]
+[ext_resource type="Resource" uid="uid://bjagihm6psd82" path="res://upgrades/max_population/max_population_upgrade_1.tres" id="3_5cd7d"]
+[ext_resource type="Resource" uid="uid://cn2qt1qkf28y8" path="res://upgrades/max_population/max_population_upgrade_2.tres" id="4_j721o"]
+
+[resource]
+script = ExtResource("1_kls51")
+id = "max_population_upgrade_track"
+display_name = "Max Population Upgrades"
+upgrades = Array[ExtResource("2_vof0p")]([ExtResource("3_5cd7d"), ExtResource("4_j721o")])
+metadata/_custom_type_script = "uid://qfkdktxtx8hw"

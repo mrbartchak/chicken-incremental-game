@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c4yp75834n5ji"]
 
 [ext_resource type="Script" uid="uid://cbx3f068sgghh" path="res://upgrades/upgrade_track_ui.gd" id="1_m02ym"]
-[ext_resource type="Texture2D" uid="uid://bntyr0xn8ui0c" path="res://ui/menu/shop/upgrade_tier_icon.png" id="2_dyvvi"]
+[ext_resource type="Texture2D" uid="uid://bntyr0xn8ui0c" path="res://upgrades/assets/upgrade_tier_icon.png" id="2_dyvvi"]
 [ext_resource type="Texture2D" uid="uid://dkexwtmywpi4n" path="res://ui/menu/shop/shop_price_buttons.png" id="4_pwric"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ttsph"]

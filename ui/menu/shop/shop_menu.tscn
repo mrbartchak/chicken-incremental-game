@@ -96,11 +96,12 @@ texture_focused = ExtResource("5_8yyr0")
 layout_mode = 2
 alignment = 1
 
-[node name="Upgrade" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow" instance=ExtResource("7_ttsph")]
-layout_mode = 2
-
 [node name="UpgradeTrackUI" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow" instance=ExtResource("7_ttsph")]
 layout_mode = 2
 track_id = "wing_value_upgrade_track"
+
+[node name="UpgradeTrackUI2" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow" instance=ExtResource("7_ttsph")]
+layout_mode = 2
+track_id = "max_population_upgrade_track"
 
 [connection signal="pressed" from="ShopPanel/ShopMargin/ShopMenuStack/TopBar/ExitButton" to="." method="_on_exit_button_pressed"]

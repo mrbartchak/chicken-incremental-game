@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WingValueUpgrade" load_steps=3 format=3 uid="uid://bwbohps0aru7v"]
 
-[ext_resource type="Texture2D" uid="uid://df1g6w2t6nea" path="res://ui/menu/shop/wing_price_upgrade_icon.png" id="1_4ybu2"]
+[ext_resource type="Texture2D" uid="uid://df1g6w2t6nea" path="res://upgrades/assets/wing_price_upgrade_icon.png" id="1_4ybu2"]
 [ext_resource type="Script" uid="uid://cnuwmnmx87qjw" path="res://upgrades/wing_value/wing_value_upgrade.gd" id="1_awrx1"]
 
 [resource]
