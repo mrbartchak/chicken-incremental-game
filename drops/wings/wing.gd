@@ -35,7 +35,7 @@ func collect() -> void:
 		return
 	collect_sound.play()
 	collected = true
-	GameState.add_wings(1)
+	GameState.collect_wing()
 	$Sprite2D.visible = false
 	await collect_sound.finished
 	queue_free()

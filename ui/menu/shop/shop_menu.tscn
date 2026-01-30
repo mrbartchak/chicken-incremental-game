@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bs3h83ewc4e0q"]
+[gd_scene load_steps=15 format=3 uid="uid://bs3h83ewc4e0q"]
 
 [ext_resource type="Script" uid="uid://gvn4jlwnuoxq" path="res://ui/menu/shop/shop_menu.gd" id="1_6id7x"]
 [ext_resource type="Texture2D" uid="uid://b66dhjodgqlb5" path="res://ui/menu/shop/shop_menu_panel.png" id="1_t376w"]
@@ -23,6 +23,9 @@ region = Rect2(0, 0, 32, 14)
 [sub_resource type="AtlasTexture" id="AtlasTexture_okyqw"]
 atlas = ExtResource("7_ttsph")
 region = Rect2(0, 14, 32, 14)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jn3yi"]
+font_size = 10
 
 [node name="ShopMenu" type="CanvasLayer"]
 script = ExtResource("1_6id7x")
@@ -64,7 +67,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="ShopMenuStack" type="VBoxContainer" parent="ShopPanel/ShopMargin"]
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 4
 
 [node name="TopBar" type="HBoxContainer" parent="ShopPanel/ShopMargin/ShopMenuStack"]
 layout_mode = 2
@@ -148,172 +151,19 @@ texture_pressed = SubResource("AtlasTexture_ttsph")
 texture_hover = SubResource("AtlasTexture_okyqw")
 texture_focused = SubResource("AtlasTexture_ttsph")
 
-[node name="Upgrade2" type="VBoxContainer" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow"]
-layout_mode = 2
-theme_override_constants/separation = 1
-alignment = 1
-
-[node name="UpgradeTiers" type="HBoxContainer" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade2"]
-layout_mode = 2
-theme_override_constants/separation = 1
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade2/UpgradeTiers"]
-layout_mode = 2
-texture = ExtResource("7_jn3yi")
-
-[node name="TextureRect2" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade2/UpgradeTiers"]
-layout_mode = 2
-texture = ExtResource("7_jn3yi")
-
-[node name="TextureRect3" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade2/UpgradeTiers"]
-layout_mode = 2
-texture = ExtResource("7_jn3yi")
-
-[node name="TextureRect4" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade2/UpgradeTiers"]
-layout_mode = 2
-texture = ExtResource("7_jn3yi")
-
-[node name="CenterContainer" type="CenterContainer" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade2"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade2/CenterContainer"]
-layout_mode = 2
-texture = ExtResource("7_okyqw")
-stretch_mode = 2
-
-[node name="Button" type="TextureButton" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade2"]
-custom_minimum_size = Vector2(32, 14)
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_ttsph")
-texture_pressed = SubResource("AtlasTexture_ttsph")
-texture_hover = SubResource("AtlasTexture_okyqw")
-texture_focused = SubResource("AtlasTexture_ttsph")
-
-[node name="Upgrade3" type="VBoxContainer" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow"]
-layout_mode = 2
-theme_override_constants/separation = 1
-alignment = 1
-
-[node name="UpgradeTiers" type="HBoxContainer" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade3"]
-layout_mode = 2
-theme_override_constants/separation = 1
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade3/UpgradeTiers"]
-layout_mode = 2
-texture = ExtResource("7_jn3yi")
-
-[node name="TextureRect2" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade3/UpgradeTiers"]
-layout_mode = 2
-texture = ExtResource("7_jn3yi")
-
-[node name="TextureRect3" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade3/UpgradeTiers"]
-layout_mode = 2
-texture = ExtResource("7_jn3yi")
-
-[node name="TextureRect4" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade3/UpgradeTiers"]
-layout_mode = 2
-texture = ExtResource("7_jn3yi")
-
-[node name="CenterContainer" type="CenterContainer" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade3"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade3/CenterContainer"]
-layout_mode = 2
-texture = ExtResource("7_okyqw")
-stretch_mode = 2
-
-[node name="Button" type="TextureButton" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade3"]
-custom_minimum_size = Vector2(32, 14)
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_ttsph")
-texture_pressed = SubResource("AtlasTexture_ttsph")
-texture_hover = SubResource("AtlasTexture_okyqw")
-texture_focused = SubResource("AtlasTexture_ttsph")
-
-[node name="Upgrade4" type="VBoxContainer" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow"]
-layout_mode = 2
-theme_override_constants/separation = 1
-alignment = 1
-
-[node name="UpgradeTiers" type="HBoxContainer" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade4"]
-layout_mode = 2
-theme_override_constants/separation = 1
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade4/UpgradeTiers"]
-layout_mode = 2
-texture = ExtResource("7_jn3yi")
-
-[node name="TextureRect2" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade4/UpgradeTiers"]
-layout_mode = 2
-texture = ExtResource("7_jn3yi")
-
-[node name="TextureRect3" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade4/UpgradeTiers"]
-layout_mode = 2
-texture = ExtResource("7_jn3yi")
-
-[node name="TextureRect4" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade4/UpgradeTiers"]
-layout_mode = 2
-texture = ExtResource("7_jn3yi")
-
-[node name="CenterContainer" type="CenterContainer" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade4"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade4/CenterContainer"]
-layout_mode = 2
-texture = ExtResource("7_okyqw")
-stretch_mode = 2
-
-[node name="Button" type="TextureButton" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade4"]
-custom_minimum_size = Vector2(32, 14)
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_ttsph")
-texture_pressed = SubResource("AtlasTexture_ttsph")
-texture_hover = SubResource("AtlasTexture_okyqw")
-texture_focused = SubResource("AtlasTexture_ttsph")
-
-[node name="Upgrade5" type="VBoxContainer" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow"]
-layout_mode = 2
-theme_override_constants/separation = 1
-alignment = 1
-
-[node name="UpgradeTiers" type="HBoxContainer" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade5"]
-layout_mode = 2
-theme_override_constants/separation = 1
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade5/UpgradeTiers"]
-layout_mode = 2
-texture = ExtResource("7_jn3yi")
-
-[node name="TextureRect2" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade5/UpgradeTiers"]
-layout_mode = 2
-texture = ExtResource("7_jn3yi")
-
-[node name="TextureRect3" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade5/UpgradeTiers"]
-layout_mode = 2
-texture = ExtResource("7_jn3yi")
-
-[node name="TextureRect4" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade5/UpgradeTiers"]
-layout_mode = 2
-texture = ExtResource("7_jn3yi")
-
-[node name="CenterContainer" type="CenterContainer" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade5"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade5/CenterContainer"]
-layout_mode = 2
-texture = ExtResource("7_okyqw")
-stretch_mode = 2
-
-[node name="Button" type="TextureButton" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade5"]
-custom_minimum_size = Vector2(32, 14)
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_ttsph")
-texture_pressed = SubResource("AtlasTexture_ttsph")
-texture_hover = SubResource("AtlasTexture_okyqw")
-texture_focused = SubResource("AtlasTexture_ttsph")
+[node name="Label" type="Label" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow/Upgrade/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -2.0
+offset_right = -3.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "25"
+label_settings = SubResource("LabelSettings_jn3yi")
+horizontal_alignment = 2
 
 [connection signal="pressed" from="ShopPanel/ShopMargin/ShopMenuStack/TopBar/ExitButton" to="." method="_on_exit_button_pressed"]
