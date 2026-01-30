@@ -10,3 +10,9 @@ func get_next_upgrade() -> Upgrade:
 	if next_index >= upgrades.size():
 		return null
 	return upgrades.get(next_index)
+
+func is_complete() -> bool:
+	return next_index >= upgrades.size()
+
+func increment_index() -> void:
+	next_index += 1
