@@ -13,8 +13,10 @@ func _ready() -> void:
 	spawn_timer = 0.0
 
 func _process(delta: float) -> void:
+	if get_active_entities() >= max_entities:
+		return
 	spawn_timer += delta
-	if spawn_timer >= spawn_interval and get_active_entities() < max_entities:
+	if spawn_timer >= spawn_interval:  #and get_active_entities() < max_entities:
 		spawn_timer = 0.0
 		spawn_entity()
 	
