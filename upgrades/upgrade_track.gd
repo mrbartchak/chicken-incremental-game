@@ -11,6 +11,9 @@ func get_next_upgrade() -> Upgrade:
 		return null
 	return upgrades.get(next_index)
 
+func get_max_upgrades() -> int:
+	return upgrades.size()
+
 func is_complete() -> bool:
 	return next_index >= upgrades.size()
 
