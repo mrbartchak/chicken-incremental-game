@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeTrack" load_steps=5 format=3 uid="uid://dl2pd185sd018"]
+
+[ext_resource type="Script" uid="uid://qfkdktxtx8hw" path="res://upgrades/upgrade_track.gd" id="1_merpj"]
+[ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://upgrades/upgrade.gd" id="2_4q18w"]
+[ext_resource type="Resource" uid="uid://bs3fslm87fsmf" path="res://upgrades/spawn_rate/spawn_rate_upgrade_1.tres" id="3_lukh7"]
+[ext_resource type="Resource" uid="uid://cwdv7dhs0u0cg" path="res://upgrades/spawn_rate/spawn_rate_upgrade_2.tres" id="4_8omox"]
+
+[resource]
+script = ExtResource("1_merpj")
+id = "spawn_rate_upgrade_track"
+display_name = "Spawn Rate Upgrade Track"
+upgrades = Array[ExtResource("2_4q18w")]([ExtResource("3_lukh7"), ExtResource("4_8omox")])
+metadata/_custom_type_script = "uid://qfkdktxtx8hw"

@@ -3,6 +3,7 @@ extends Node
 signal wings_changed(amount: int)
 signal chicken_count_changed(amount: int)
 signal max_population_changed(amount: int)
+signal spawn_rate_changed(amount: float)
 signal upgrade_purchased()
 
 #=== Wings ===
@@ -19,6 +20,11 @@ var max_population: int = 1:
 	set(value):
 		max_population = value
 		max_population_changed.emit(max_population)
+var spawn_rate: float = 2.0:
+	set(value):
+		spawn_rate = value
+		spawn_rate_changed.emit(spawn_rate)
+
 #=== Upgrades ===
 var upgrade_tracks: Dictionary = {}
 
@@ -28,8 +34,10 @@ func _ready() -> void:
 func _load_upgrade_tracks() -> void:
 	var track1: UpgradeTrack = load("res://upgrades/wing_value/wing_value_upgrade_track.tres")
 	var track2: UpgradeTrack = load("res://upgrades/max_population/max_population_upgrade_track.tres")
+	var track3: UpgradeTrack = load("res://upgrades/spawn_rate/spawn_rate_upgrade_track.tres")
 	upgrade_tracks[track1.id] = track1
 	upgrade_tracks[track2.id] = track2
+	upgrade_tracks[track3.id] = track3
 
 func can_afford(cost: int) -> bool:
 	return wings >= cost
