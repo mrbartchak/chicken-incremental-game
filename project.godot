@@ -15,11 +15,16 @@ config/version="0.1.0"
 run/main_scene="uid://73d71fc5ulh"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout="res://core/audio/default_bus_layout.tres"
+
 [autoload]
 
 GameState="*res://core/autoloads/gamestate.gd"
 GameEffects="*res://core/autoloads/game_effects.gd"
 Version="*res://core/autoloads/version.gd"
+AudioManager="*res://core/audio/audio_manager.gd"
 
 [display]
 

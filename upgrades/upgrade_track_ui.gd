@@ -39,3 +39,8 @@ func _update_tiers(next_tier: int) -> void:
 
 func _on_purchase_button_pressed() -> void:
 	GameState.request_upgrade_purchase(track_id)
+
+# for popping the newly purchased tier
+#func _on_upgrade_purchased(purchased_track_id: String) -> void:
+	#var animate = purchased_track_id == track_id
+	#_update_display(animate)
