@@ -9,6 +9,6 @@ spawn_interval_decrease = 0.5
 id = "spawn_rate_upgrade_1"
 display_name = "Spawn Rate Upgrade 1"
 description = "Increases the rate at which chickens spawn"
-cost = 10
+cost = 25
 icon = ExtResource("1_muxfu")
 metadata/_custom_type_script = "uid://b0vh5w24c5cwr"

@@ -193,7 +193,7 @@ bg_color = Color(0.9647059, 0.45882353, 0.47843137, 1)
 corner_detail = 6
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ji1vg"]
-radius = 7.071068
+radius = 8.0
 
 [sub_resource type="Curve" id="Curve_hdls3"]
 _data = [Vector2(0.6506024, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -242,7 +242,7 @@ trail_sections = 4
 process_material = SubResource("ParticleProcessMaterial_cgl0l")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(-0.5, -3)
 sprite_frames = SubResource("SpriteFrames_hdls3")
 autoplay = "default"
 

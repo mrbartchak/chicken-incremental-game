@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WingValueUpgrade" load_steps=3 format=3 uid="uid://c8q3fb1rgl333"]
+
+[ext_resource type="Texture2D" uid="uid://df1g6w2t6nea" path="res://upgrades/assets/wing_price_upgrade_icon.png" id="1_pm2cx"]
+[ext_resource type="Script" uid="uid://cnuwmnmx87qjw" path="res://upgrades/wing_value/wing_value_upgrade.gd" id="2_bpb74"]
+
+[resource]
+script = ExtResource("2_bpb74")
+value_increase = 4
+id = "wing_value_upgrade_3"
+description = "Adds +4 wing value for every wing"
+cost = 800
+icon = ExtResource("1_pm2cx")
+metadata/_custom_type_script = "uid://cnuwmnmx87qjw"

@@ -8,6 +8,6 @@ script = ExtResource("1_awrx1")
 value_increase = 1
 id = "wing_value_upgrade_1"
 description = "Adds +1 wing value for every wing"
-cost = 25
+cost = 40
 icon = ExtResource("1_4ybu2")
 metadata/_custom_type_script = "uid://cnuwmnmx87qjw"

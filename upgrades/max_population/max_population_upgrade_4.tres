@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MaxPopulationUpgrade" load_steps=3 format=3 uid="uid://dcxqndmpa5lbr"]
+
+[ext_resource type="Texture2D" uid="uid://namfaod84lyr" path="res://upgrades/assets/max_population_upgrade_icon.png" id="1_1oyhi"]
+[ext_resource type="Script" uid="uid://mk5vj0mdd8oc" path="res://upgrades/max_population/max_population_upgrade.gd" id="2_rmsqg"]
+
+[resource]
+script = ExtResource("2_rmsqg")
+population_increase = 5
+id = "max_population_upgrade_3"
+display_name = "Max Population Upgrade 3"
+description = "Increases the max chicken population"
+cost = 800
+icon = ExtResource("1_1oyhi")
+metadata/_custom_type_script = "uid://mk5vj0mdd8oc"

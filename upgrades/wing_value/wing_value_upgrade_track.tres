@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="UpgradeTrack" load_steps=5 format=3 uid="uid://fkhry764wp8f"]
+[gd_resource type="Resource" script_class="UpgradeTrack" load_steps=7 format=3 uid="uid://fkhry764wp8f"]
 
 [ext_resource type="Script" uid="uid://qfkdktxtx8hw" path="res://upgrades/upgrade_track.gd" id="1_ul6sg"]
 [ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://upgrades/upgrade.gd" id="2_tp2an"]
 [ext_resource type="Resource" uid="uid://bwbohps0aru7v" path="res://upgrades/wing_value/wing_value_upgrade_1.tres" id="3_mu6qo"]
 [ext_resource type="Resource" uid="uid://msh5nres21tp" path="res://upgrades/wing_value/wing_value_upgrade_2.tres" id="4_rec4j"]
+[ext_resource type="Resource" uid="uid://c8q3fb1rgl333" path="res://upgrades/wing_value/wing_value_upgrade_3.tres" id="5_lvwj4"]
+[ext_resource type="Resource" uid="uid://7nfrk1drqd2l" path="res://upgrades/wing_value/wing_value_upgrade_4.tres" id="6_deeaa"]
 
 [resource]
 script = ExtResource("1_ul6sg")
 id = "wing_value_upgrade_track"
 display_name = "Wing Value"
-upgrades = Array[ExtResource("2_tp2an")]([ExtResource("3_mu6qo"), ExtResource("4_rec4j")])
+upgrades = Array[ExtResource("2_tp2an")]([ExtResource("3_mu6qo"), ExtResource("4_rec4j"), ExtResource("5_lvwj4"), ExtResource("6_deeaa")])
 metadata/_custom_type_script = "uid://qfkdktxtx8hw"

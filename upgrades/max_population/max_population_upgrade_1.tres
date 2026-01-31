@@ -9,6 +9,6 @@ population_increase = 1
 id = "max_population_upgrade_1"
 display_name = "Max Population Upgrade 1"
 description = "Increases the max chicken population"
-cost = 10
+cost = 5
 icon = ExtResource("1_vxey6")
 metadata/_custom_type_script = "uid://mk5vj0mdd8oc"

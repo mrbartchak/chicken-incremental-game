@@ -6,21 +6,24 @@ signal max_population_changed(amount: int)
 signal spawn_rate_changed(amount: float)
 signal upgrade_purchased()
 
+const BASE_SPAWN_INTERVAL: float = 2.0
+const BASE_MAX_POPULATION: int = 1
+const BASE_WING_VALUE: int = 1
 #=== Wings ===
-var wings: int = 100:
+var wings: int = 10000:
 	set(value):
 		wings = value
 		wings_changed.emit(wings)
 
 var total_wings_collected: int = 0
-var wing_value: int = 1
+var wing_value: int = BASE_WING_VALUE
 #=== Chickens ===
 var chicken_count: int = 0
-var max_population: int = 1:
+var max_population: int = BASE_MAX_POPULATION:
 	set(value):
 		max_population = value
 		max_population_changed.emit(max_population)
-var spawn_rate: float = 2.0:
+var spawn_rate: float = BASE_SPAWN_INTERVAL:
 	set(value):
 		spawn_rate = value
 		spawn_rate_changed.emit(spawn_rate)

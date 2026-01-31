@@ -120,7 +120,7 @@ layout_mode = 1
 script = ExtResource("4_sjcnv")
 entity_scene = ExtResource("5_cjuek")
 entity_container = NodePath("../GameWorld/ChickenContainer")
-spawn_area = Rect2(10, 10, 300, 150)
+spawn_area = Rect2(20, 20, 280, 130)
 spawn_interval = 2.0
 
 [node name="MouseLayer" type="CanvasLayer" parent="."]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpawnRateUpgrade" load_steps=3 format=3 uid="uid://cu0i3b21l68p0"]
+
+[ext_resource type="Texture2D" uid="uid://bac1tj0f4xyu3" path="res://upgrades/assets/spawn_rate_upgrade_icon.png" id="1_cd3s5"]
+[ext_resource type="Script" uid="uid://b0vh5w24c5cwr" path="res://upgrades/spawn_rate/spawn_rate_upgrade.gd" id="2_4bw8i"]
+
+[resource]
+script = ExtResource("2_4bw8i")
+spawn_interval_decrease = 0.5
+id = "spawn_rate_upgrade_3"
+display_name = "Spawn Rate Upgrade 3"
+description = "Increases the rate at which chickens spawn"
+cost = 400
+icon = ExtResource("1_cd3s5")
+metadata/_custom_type_script = "uid://b0vh5w24c5cwr"

@@ -40,12 +40,10 @@ layout_mode = 2
 texture = ExtResource("2_dyvvi")
 
 [node name="Tier3" type="TextureRect" parent="UpgradeTiers"]
-visible = false
 layout_mode = 2
 texture = ExtResource("2_dyvvi")
 
 [node name="Tier4" type="TextureRect" parent="UpgradeTiers"]
-visible = false
 layout_mode = 2
 texture = ExtResource("2_dyvvi")
 
