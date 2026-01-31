@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ChickenType" load_steps=2 format=3 uid="uid://do8icirsuvl60"]
+
+[ext_resource type="Script" uid="uid://0ic7vuhhcb2t" path="res://entities/chickens/types/chicken_type.gd" id="1_olm4h"]
+
+[resource]
+script = ExtResource("1_olm4h")
+display_name = "Silver Chicken"
+wing_multiplier = 1.5
+health = 5
+metadata/_custom_type_script = "uid://0ic7vuhhcb2t"

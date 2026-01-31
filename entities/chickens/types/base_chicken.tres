@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ChickenType" load_steps=2 format=3 uid="uid://dysbita1w72n3"]
+
+[ext_resource type="Script" uid="uid://0ic7vuhhcb2t" path="res://entities/chickens/types/chicken_type.gd" id="1_uryqi"]
+
+[resource]
+script = ExtResource("1_uryqi")
+display_name = "Chicken"
+metadata/_custom_type_script = "uid://0ic7vuhhcb2t"
