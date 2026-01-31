@@ -8,6 +8,8 @@ extends VBoxContainer
 @onready var tier_container: HBoxContainer = $UpgradeTiers
 @onready var upgrade_icon: TextureRect = $CenterIcon/UpgradeIcon
 @onready var cost_label: Label = $PurchaseButton/CostLabel
+@onready var purchase_button: TextureButton = $PurchaseButton
+@onready var maxed_logo: TextureRect = $MaxedLogo
 
 func _ready() -> void:
 	GameState.upgrade_purchased.connect(_update_display)
@@ -20,7 +22,8 @@ func _update_display() -> void:
 	_update_tiers(track.next_index)
 	var upgrade: Upgrade = track.get_next_upgrade()
 	if not upgrade:
-		print("thats the max")
+		purchase_button.visible = false
+		maxed_logo.visible = true
 		return
 	cost_label.text = str(upgrade.cost)
 	upgrade_icon.texture = upgrade.icon

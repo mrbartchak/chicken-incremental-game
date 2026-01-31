@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4yp75834n5ji"]
+[gd_scene load_steps=9 format=3 uid="uid://c4yp75834n5ji"]
 
 [ext_resource type="Script" uid="uid://cbx3f068sgghh" path="res://upgrades/upgrade_track_ui.gd" id="1_m02ym"]
 [ext_resource type="Texture2D" uid="uid://bntyr0xn8ui0c" path="res://upgrades/assets/upgrade_tier_icon.png" id="2_dyvvi"]
 [ext_resource type="Texture2D" uid="uid://c7uhqdoarndb5" path="res://upgrades/assets/upgrade_tier_icon_empty.png" id="3_m02ym"]
 [ext_resource type="Texture2D" uid="uid://dkexwtmywpi4n" path="res://ui/menu/shop/shop_price_buttons.png" id="4_pwric"]
+[ext_resource type="Texture2D" uid="uid://lienbp28u3ar" path="res://upgrades/assets/max_upgrade_button.png" id="5_dyvvi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ttsph"]
 atlas = ExtResource("4_pwric")
@@ -78,5 +79,11 @@ grow_vertical = 2
 text = "00"
 label_settings = SubResource("LabelSettings_jn3yi")
 horizontal_alignment = 2
+
+[node name="MaxedLogo" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_dyvvi")
+stretch_mode = 2
 
 [connection signal="pressed" from="PurchaseButton" to="." method="_on_purchase_button_pressed"]
