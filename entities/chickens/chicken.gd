@@ -75,7 +75,7 @@ func drop_wing() -> void:
 # ===================
 func play_spawn_animation() -> void:
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-	tween.tween_property(self, "scale", Vector2(1, 1), 0.4).from(Vector2(0, 0))
+	tween.tween_property(self, "scale", Vector2(1, 1), 0.8).from(Vector2(0, 0))
 
 func flash() -> void:
 	var flash_time: float = 0.05
