@@ -44,6 +44,10 @@ func attack() -> void:
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
 
+func auto_attack(area: Area2D) -> void:
+	if area.has_method("take_damage"):
+		area.take_damage(attack_damage)
+
 func collect_wings() -> void:
 	var areas: Array[Area2D] = get_overlapping_areas()
 	for area: Area2D in areas:
@@ -68,3 +72,7 @@ func update_cooldown_bar(delta) -> void:
 		cooldown_bar.value = cooldown_timer / attack_cooldown
 	else:
 		cooldown_bar.value = 1.0
+
+
+#func _on_area_entered(area: Area2D) -> void:
+	#auto_attack(area)

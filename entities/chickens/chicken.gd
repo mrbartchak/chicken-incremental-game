@@ -43,7 +43,7 @@ func take_damage(amount: int) -> void:
 	GameEffects.shake_screen(1, 0.2)
 	#GameEffects.frame_freeze(0.1, .05)
 	if health <= 0:
-		die()
+		die() #call_deferred("die") !!!
 		return
 	flash()
 	hit_particles.restart()
