@@ -37,6 +37,7 @@ func collect() -> void:
 	collected = true
 	GameState.collect_wing()
 	$Sprite2D.visible = false
+	GameEffects.spawn_floating_number(1, self.global_position)
 	await collect_sound.finished
 	queue_free()
 

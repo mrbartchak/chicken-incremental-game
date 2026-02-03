@@ -1,7 +1,7 @@
 extends Node
 
 var camera: CustomCamera
-var damage_number_scene := preload("res://ui/shared/damage_label.tscn")
+var floating_number_scene := preload("res://ui/shared/floating_number.tscn")
 
 func _ready() -> void:
 	Engine.time_scale = 1.0
@@ -24,8 +24,12 @@ func shake_screen(intensity: int, time: float) -> void:
 # ================
 #   Damage Nums
 # ================
-func show_damage_at(amount: int, pos: Vector2) -> void:
-	pass
+func spawn_floating_number(value: int, pos: Vector2, color: Color = Color.WHITE) -> void:
+	var floating_number: FloatingNumber =  floating_number_scene.instantiate()
+	floating_number.position = pos
+	floating_number.set_value(value)
+	floating_number.set_color(color)
+	get_tree().current_scene.add_child(floating_number)
 
 # ================
 #      Pop

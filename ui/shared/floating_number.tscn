@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://sgufamijtruh"]
+
+[ext_resource type="FontFile" uid="uid://dc64gsq8ochws" path="res://ui/shared/fonts/Simple.ttf" id="1_el5f4"]
+[ext_resource type="Script" uid="uid://b08g084cw34sv" path="res://ui/shared/floating_number.gd" id="2_kd2n5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kd2n5"]
+font = ExtResource("1_el5f4")
+font_size = 8
+outline_size = 4
+outline_color = Color(0.14901961, 0.16862746, 0.26666668, 1)
+
+[node name="FloatingNumber" type="Label"]
+offset_right = 4.0
+offset_bottom = 8.0
+text = "+1"
+label_settings = SubResource("LabelSettings_kd2n5")
+script = ExtResource("2_kd2n5")
