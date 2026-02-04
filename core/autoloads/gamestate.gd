@@ -35,9 +35,9 @@ func _ready() -> void:
 	_load_upgrade_tracks()
 
 func _load_upgrade_tracks() -> void:
-	var track1: UpgradeTrack = load("res://upgrades/wing_value/wing_value_upgrade_track.tres")
-	var track2: UpgradeTrack = load("res://upgrades/max_population/max_population_upgrade_track.tres")
-	var track3: UpgradeTrack = load("res://upgrades/spawn_rate/spawn_rate_upgrade_track.tres")
+	var track1: UpgradeTrack = load("res://systems/upgrades/wing_value/wing_value_upgrade_track.tres")
+	var track2: UpgradeTrack = load("res://systems/upgrades/max_population/max_population_upgrade_track.tres")
+	var track3: UpgradeTrack = load("res://systems/upgrades/spawn_rate/spawn_rate_upgrade_track.tres")
 	upgrade_tracks[track1.id] = track1
 	upgrade_tracks[track2.id] = track2
 	upgrade_tracks[track3.id] = track3

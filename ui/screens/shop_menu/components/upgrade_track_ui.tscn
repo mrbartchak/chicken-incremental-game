@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://c4yp75834n5ji"]
+
+[ext_resource type="Script" uid="uid://cbx3f068sgghh" path="res://ui/screens/shop_menu/components/upgrade_track_ui.gd" id="1_m02ym"]
+[ext_resource type="Texture2D" uid="uid://bntyr0xn8ui0c" path="res://ui/screens/shop_menu/assets/upgrade_tier_icon.png" id="2_dyvvi"]
+[ext_resource type="Texture2D" uid="uid://c7uhqdoarndb5" path="res://ui/screens/shop_menu/assets/upgrade_tier_icon_empty.png" id="3_m02ym"]
+[ext_resource type="Texture2D" uid="uid://dkexwtmywpi4n" path="res://ui/screens/shop_menu/assets/shop_price_buttons.png" id="4_pwric"]
+[ext_resource type="Texture2D" uid="uid://namfaod84lyr" path="res://systems/upgrades/assets/max_population_upgrade_icon.png" id="4_uotk2"]
+[ext_resource type="Texture2D" uid="uid://lienbp28u3ar" path="res://ui/screens/shop_menu/assets/max_upgrade_button.png" id="5_dyvvi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttsph"]
+atlas = ExtResource("4_pwric")
+region = Rect2(0, 0, 32, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okyqw"]
+atlas = ExtResource("4_pwric")
+region = Rect2(0, 14, 32, 14)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jn3yi"]
+font_size = 8
+
+[node name="UpgradeTrackUI" type="VBoxContainer"]
+offset_right = 32.0
+offset_bottom = 44.0
+theme_override_constants/separation = 1
+alignment = 1
+script = ExtResource("1_m02ym")
+tier_filled = ExtResource("2_dyvvi")
+tier_empty = ExtResource("3_m02ym")
+
+[node name="UpgradeTiers" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="Tier1" type="TextureRect" parent="UpgradeTiers"]
+layout_mode = 2
+texture = ExtResource("2_dyvvi")
+
+[node name="Tier2" type="TextureRect" parent="UpgradeTiers"]
+layout_mode = 2
+texture = ExtResource("2_dyvvi")
+
+[node name="Tier3" type="TextureRect" parent="UpgradeTiers"]
+layout_mode = 2
+texture = ExtResource("2_dyvvi")
+
+[node name="Tier4" type="TextureRect" parent="UpgradeTiers"]
+layout_mode = 2
+texture = ExtResource("2_dyvvi")
+
+[node name="CenterIcon" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="UpgradeIcon" type="TextureRect" parent="CenterIcon"]
+custom_minimum_size = Vector2(30, 22)
+layout_mode = 2
+texture = ExtResource("4_uotk2")
+stretch_mode = 2
+
+[node name="PurchaseButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(32, 14)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ttsph")
+texture_pressed = SubResource("AtlasTexture_ttsph")
+texture_hover = SubResource("AtlasTexture_okyqw")
+texture_focused = SubResource("AtlasTexture_ttsph")
+
+[node name="CostLabel" type="Label" parent="PurchaseButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "O"
+label_settings = SubResource("LabelSettings_jn3yi")
+horizontal_alignment = 2
+
+[node name="MaxedLogo" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_dyvvi")
+stretch_mode = 2
+
+[connection signal="pressed" from="PurchaseButton" to="." method="_on_purchase_button_pressed"]
