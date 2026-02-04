@@ -12,7 +12,7 @@ var shake_time_speed: float = 20.0
 var noise = FastNoiseLite.new()
 
 func _ready() -> void:
-	GameEffects.camera = self
+	GameEffects.register_camera(self)
 
 func _physics_process(delta: float) -> void:
 	if active_shake_time > 0:

@@ -45,9 +45,10 @@ func _load_upgrade_tracks() -> void:
 func can_afford(cost: int) -> bool:
 	return wings >= cost
 
-func collect_wing() -> void:
+func collect_wing(at: Vector2) -> void:
 	wings += wing_value
 	total_wings_collected += wing_value
+	GameEffects.spawn_floating_number(wing_value, at)
 
 func add_chickens(amount: int = 1) -> void:
 	chicken_count += amount

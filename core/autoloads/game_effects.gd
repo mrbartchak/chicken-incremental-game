@@ -1,31 +1,32 @@
 extends Node
 
-var camera: CustomCamera
-var floating_number_scene := preload("res://ui/shared/floating_number.tscn")
+var _camera: CustomCamera
+var _floating_number_scene := preload("res://ui/shared/floating_number.tscn")
 
 func _ready() -> void:
 	Engine.time_scale = 1.0
 
 # ================
-#    Hit Freeze
+#  Camera Effects
 # ================
+func register_camera(camera: Camera2D) -> void:
+	if not _camera:
+		_camera = camera
+
 func frame_freeze(timescale: float, duration: float) -> void:
 	Engine.time_scale = timescale
 	await  get_tree().create_timer(duration * timescale).timeout
 	Engine.time_scale = 1.0
 
-# ================
-#   Screen Shake
-# ================
 func shake_screen(intensity: int, time: float) -> void:
-	if camera:
-		camera.screen_shake(intensity, time)
+	if _camera:
+		_camera.screen_shake(intensity, time)
 
 # ================
 #   Damage Nums
 # ================
 func spawn_floating_number(value: int, pos: Vector2, color: Color = Color.WHITE) -> void:
-	var floating_number: FloatingNumber =  floating_number_scene.instantiate()
+	var floating_number: FloatingNumber =  _floating_number_scene.instantiate()
 	floating_number.position = pos
 	floating_number.set_value(value)
 	floating_number.set_color(color)
