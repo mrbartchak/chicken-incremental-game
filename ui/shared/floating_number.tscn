@@ -10,6 +10,7 @@ outline_size = 4
 outline_color = Color(0.14901961, 0.16862746, 0.26666668, 1)
 
 [node name="FloatingNumber" type="Label"]
+texture_filter = 1
 offset_right = 4.0
 offset_bottom = 8.0
 text = "+1"
