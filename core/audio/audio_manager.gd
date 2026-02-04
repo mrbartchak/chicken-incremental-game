@@ -37,4 +37,4 @@ func play_button_hover() -> void:
 	play_sfx(sfx_button_hover)
 
 func play_item_collect() -> void:
-	play_sfx(sfx_item_collect, 0.1, -8.0)
+	play_sfx(sfx_item_collect, 0.25, -15.0)
