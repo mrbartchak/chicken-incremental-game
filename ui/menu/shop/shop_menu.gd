@@ -1,6 +1,8 @@
 class_name ShopMenu
 extends CanvasLayer
 
+@onready var wing_count_label: Label = $ShopPanel/ShopMargin/ShopMenuStack/TopBar/WingCount/WingLabel
+
 func _ready() -> void:
 	close()
 
