@@ -25,7 +25,7 @@ func _update_display() -> void:
 		purchase_button.visible = false
 		maxed_logo.visible = true
 		return
-	cost_label.text = str(upgrade.cost)
+	cost_label.text = replace_zeros_with_o(str(upgrade.cost))
 	upgrade_icon.texture = upgrade.icon
 
 #func _init_tiers(current_tier: int, total_tiers: int) -> void:
@@ -47,3 +47,6 @@ func _on_purchase_button_pressed() -> void:
 #func _on_upgrade_purchased(purchased_track_id: String) -> void:
 	#var animate = purchased_track_id == track_id
 	#_update_display(animate)
+
+func replace_zeros_with_o(text: String) -> String:
+	return text.replace("0", "o")

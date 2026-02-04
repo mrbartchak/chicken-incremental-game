@@ -32,7 +32,7 @@ func spawn_floating_number(value: int, pos: Vector2, color: Color = Color.WHITE)
 	get_tree().current_scene.add_child(floating_number)
 
 # ================
-#      Pop
+#      Pops
 # ================
 func pop(target: Control, amount: float = 1.2):
 	var tween = create_tween()
@@ -40,3 +40,12 @@ func pop(target: Control, amount: float = 1.2):
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.tween_property(target, "scale", Vector2(amount, amount), 0.1)
 	tween.tween_property(target, "scale", Vector2(1.0, 1.0), 0.1)
+
+func scale_in(target: Control, amount: float = 1.1, duration: float = 0.15) -> void:
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(target, "scale", Vector2(amount, amount), duration)
+
+func scale_out(target: Control, duration: float = 0.15) -> void:
+	scale_in(target, 1.0, duration)

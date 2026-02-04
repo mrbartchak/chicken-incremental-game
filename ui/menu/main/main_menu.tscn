@@ -32,16 +32,13 @@ gravity = Vector3(0, 0, 0)
 font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_trkij"]
-font = ExtResource("8_77una")
-font_size = 10
+font_size = 8
 
-[sub_resource type="LabelSettings" id="LabelSettings_1brpx"]
-font = ExtResource("8_77una")
-font_size = 10
+[sub_resource type="LabelSettings" id="LabelSettings_ygv2v"]
+font_size = 8
 
 [sub_resource type="LabelSettings" id="LabelSettings_pjjyy"]
-font = ExtResource("8_77una")
-font_size = 10
+font_size = 8
 
 [sub_resource type="LabelSettings" id="LabelSettings_77una"]
 font = ExtResource("8_77una")
@@ -130,6 +127,7 @@ texture_focused = ExtResource("6_cv2ih")
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/NewGameButton"]
 layout_mode = 0
 offset_left = 1.0
+offset_top = 4.0
 offset_right = 97.0
 offset_bottom = 12.0
 text = "NEW GAME"
@@ -147,10 +145,11 @@ texture_focused = ExtResource("6_cv2ih")
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/SettingsButton"]
 layout_mode = 0
 offset_left = 1.0
+offset_top = 4.0
 offset_right = 97.0
 offset_bottom = 12.0
 text = "SETTINGS"
-label_settings = SubResource("LabelSettings_1brpx")
+label_settings = SubResource("LabelSettings_ygv2v")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -164,6 +163,7 @@ texture_focused = ExtResource("6_cv2ih")
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ExitButton"]
 layout_mode = 0
 offset_left = 1.0
+offset_top = 4.0
 offset_right = 97.0
 offset_bottom = 12.0
 text = "Quit"
