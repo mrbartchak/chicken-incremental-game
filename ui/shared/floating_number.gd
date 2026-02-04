@@ -10,6 +10,11 @@ func _ready() -> void:
 
 func set_value(value: int) -> void:
 	text = "+" + str(value)
+	set_value_outline(value)
 
 func set_color(color: Color) -> void:
 	modulate = color
+
+func set_value_outline(value: int) -> void:
+	for child: Label in get_children():
+		child.text = "+" + str(value)
