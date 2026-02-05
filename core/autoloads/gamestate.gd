@@ -8,6 +8,7 @@ signal upgrade_purchased()
 signal attack_speed_changed(speed: float)
 signal attack_radius_changed(radius: int)
 
+const BASE_STARTING_WINGS: int = 0
 const BASE_SPAWN_INTERVAL: float = 2.0
 const BASE_MAX_POPULATION: int = 1
 const BASE_WING_VALUE: int = 1
@@ -15,7 +16,7 @@ const BASE_DOUBLE_DROP_RATE: float = 0.0
 const BASE_ATTACK_SPEED: float = 1.0
 const BASE_ATTACK_RADIUS: int = 7
 #=== Wings ===
-var wings: int = 10000:
+var wings: int = BASE_STARTING_WINGS:
 	set(value):
 		wings = value
 		wings_changed.emit(wings)
