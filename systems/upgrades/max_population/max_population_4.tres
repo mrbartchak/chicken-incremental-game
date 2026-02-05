@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_rmsqg")
-population_increase = 5
+population_increase = 10
 id = "max_population_4"
 display_name = "Max Population Upgrade 3"
 description = "Increases the max chicken population"

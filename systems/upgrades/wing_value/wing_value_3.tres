@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_bpb74")
-value_increase = 4
+value_increase = 5
 id = "wing_value_3"
 description = "Adds +4 wing value for every wing"
 cost = 800

@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_7j5po")
-population_increase = 1
+population_increase = 2
 id = "max_population_1"
 display_name = "Max Population Upgrade 1"
 description = "Increases the max chicken population"
