@@ -43,6 +43,14 @@ func _update_tiers(next_tier: int) -> void:
 func _on_purchase_button_pressed() -> void:
 	GameState.request_upgrade_purchase(track_id)
 
+func _on_purchase_button_mouse_entered() -> void:
+	purchase_button.pivot_offset = Vector2(15, 0)
+	GameEffects.scale_in(purchase_button)
+
+func _on_purchase_button_mouse_exited() -> void:
+	purchase_button.pivot_offset = Vector2(15, 0)
+	GameEffects.scale_out(purchase_button)
+
 # for popping the newly purchased tier
 #func _on_upgrade_purchased(purchased_track_id: String) -> void:
 	#var animate = purchased_track_id == track_id

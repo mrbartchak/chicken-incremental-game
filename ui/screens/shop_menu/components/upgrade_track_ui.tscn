@@ -60,6 +60,8 @@ stretch_mode = 2
 [node name="PurchaseButton" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(32, 14)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = SubResource("AtlasTexture_ttsph")
 texture_pressed = SubResource("AtlasTexture_ttsph")
 texture_hover = SubResource("AtlasTexture_okyqw")
@@ -86,4 +88,6 @@ layout_mode = 2
 texture = ExtResource("5_dyvvi")
 stretch_mode = 2
 
+[connection signal="mouse_entered" from="PurchaseButton" to="." method="_on_purchase_button_mouse_entered"]
+[connection signal="mouse_exited" from="PurchaseButton" to="." method="_on_purchase_button_mouse_exited"]
 [connection signal="pressed" from="PurchaseButton" to="." method="_on_purchase_button_pressed"]

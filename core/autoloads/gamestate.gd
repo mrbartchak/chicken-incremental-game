@@ -5,10 +5,15 @@ signal chicken_count_changed(amount: int)
 signal max_population_changed(amount: int)
 signal spawn_rate_changed(amount: float)
 signal upgrade_purchased()
+signal attack_speed_changed(speed: float)
+signal attack_radius_changed(radius: int)
 
 const BASE_SPAWN_INTERVAL: float = 2.0
 const BASE_MAX_POPULATION: int = 1
 const BASE_WING_VALUE: int = 1
+const BASE_DOUBLE_DROP_RATE: float = 0.0
+const BASE_ATTACK_SPEED: float = 1.0
+const BASE_ATTACK_RADIUS: int = 7
 #=== Wings ===
 var wings: int = 10000:
 	set(value):
@@ -27,6 +32,15 @@ var spawn_rate: float = BASE_SPAWN_INTERVAL:
 	set(value):
 		spawn_rate = value
 		spawn_rate_changed.emit(spawn_rate)
+#=== Sword ===
+var attack_speed: float = BASE_ATTACK_SPEED:
+	set(value):
+		attack_speed = value
+		attack_speed_changed.emit(attack_speed)
+var attack_radius: float = BASE_ATTACK_RADIUS:
+	set(value):
+		attack_radius = value
+		attack_radius_changed.emit(attack_radius)
 
 #=== Upgrades ===
 var upgrade_tracks: Dictionary = {}
