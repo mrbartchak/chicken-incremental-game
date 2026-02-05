@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://qfkdktxtx8hw" path="res://systems/upgrades/upgrade_track.gd" id="1_kls51"]
 [ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="2_vof0p"]
-[ext_resource type="Resource" uid="uid://bjagihm6psd82" path="res://systems/upgrades/max_population/max_population_upgrade_1.tres" id="3_5cd7d"]
-[ext_resource type="Resource" uid="uid://cn2qt1qkf28y8" path="res://systems/upgrades/max_population/max_population_upgrade_2.tres" id="4_j721o"]
-[ext_resource type="Resource" uid="uid://6uiree0lc5nx" path="res://systems/upgrades/max_population/max_population_upgrade_3.tres" id="5_3h21x"]
-[ext_resource type="Resource" uid="uid://dcxqndmpa5lbr" path="res://systems/upgrades/max_population/max_population_upgrade_4.tres" id="6_g45ul"]
+[ext_resource type="Resource" uid="uid://bjagihm6psd82" path="res://systems/upgrades/max_population/max_population_1.tres" id="3_5cd7d"]
+[ext_resource type="Resource" uid="uid://cn2qt1qkf28y8" path="res://systems/upgrades/max_population/max_population_2.tres" id="4_j721o"]
+[ext_resource type="Resource" uid="uid://6uiree0lc5nx" path="res://systems/upgrades/max_population/max_population_3.tres" id="5_3h21x"]
+[ext_resource type="Resource" uid="uid://dcxqndmpa5lbr" path="res://systems/upgrades/max_population/max_population_4.tres" id="6_g45ul"]
 
 [resource]
 script = ExtResource("1_kls51")

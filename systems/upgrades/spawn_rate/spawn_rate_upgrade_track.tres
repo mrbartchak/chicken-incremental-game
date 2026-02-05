@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://qfkdktxtx8hw" path="res://systems/upgrades/upgrade_track.gd" id="1_merpj"]
 [ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="2_4q18w"]
-[ext_resource type="Resource" uid="uid://bs3fslm87fsmf" path="res://systems/upgrades/spawn_rate/spawn_rate_upgrade_1.tres" id="3_lukh7"]
-[ext_resource type="Resource" uid="uid://cwdv7dhs0u0cg" path="res://systems/upgrades/spawn_rate/spawn_rate_upgrade_2.tres" id="4_8omox"]
-[ext_resource type="Resource" uid="uid://cu0i3b21l68p0" path="res://systems/upgrades/spawn_rate/spawn_rate_upgrade_3.tres" id="5_fva30"]
-[ext_resource type="Resource" uid="uid://b0lmufty1oebs" path="res://systems/upgrades/spawn_rate/spawn_rate_upgrade_4.tres" id="6_5l6q8"]
+[ext_resource type="Resource" uid="uid://bs3fslm87fsmf" path="res://systems/upgrades/spawn_rate/spawn_rate_1.tres" id="3_lukh7"]
+[ext_resource type="Resource" uid="uid://cwdv7dhs0u0cg" path="res://systems/upgrades/spawn_rate/spawn_rate_2.tres" id="4_8omox"]
+[ext_resource type="Resource" uid="uid://cu0i3b21l68p0" path="res://systems/upgrades/spawn_rate/spawn_rate_3.tres" id="5_fva30"]
+[ext_resource type="Resource" uid="uid://b0lmufty1oebs" path="res://systems/upgrades/spawn_rate/spawn_rate_4.tres" id="6_5l6q8"]
 
 [resource]
 script = ExtResource("1_merpj")

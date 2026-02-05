@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_i5vwe")
 spawn_interval_decrease = 0.5
-id = "spawn_rate_upgrade_2"
+id = "spawn_rate_2"
 display_name = "Spawn Rate Upgrade 2"
 description = "Increases the rate at which chickens spawn"
 cost = 100
