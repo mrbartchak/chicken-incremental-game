@@ -13,7 +13,21 @@ extends VBoxContainer
 
 func _ready() -> void:
 	GameState.upgrade_purchased.connect(_update_display)
+	_init_purchase_button()
 	_update_display()
+
+func _init_purchase_button() -> void:
+	purchase_button.pivot_offset = Vector2(15, 0)
+	purchase_button.pressed.connect(func():
+		GameState.request_upgrade_purchase(track_id))
+	
+	purchase_button.mouse_entered.connect(func():
+		GameEffects.scale_in(purchase_button)
+		AudioManager.play_button_hover())
+	
+	purchase_button.mouse_exited.connect(func():
+		GameEffects.scale_out(purchase_button)
+		AudioManager.play_button_hover())
 
 func _update_display() -> void:
 	var track: UpgradeTrack = GameState.get_upgrade_track(track_id)
@@ -39,17 +53,6 @@ func _update_display() -> void:
 func _update_tiers(next_tier: int) -> void:
 	for tier: TextureRect in tier_container.get_children():
 		tier.texture = tier_filled if tier.get_index() < next_tier else tier_empty
-
-func _on_purchase_button_pressed() -> void:
-	GameState.request_upgrade_purchase(track_id)
-
-func _on_purchase_button_mouse_entered() -> void:
-	purchase_button.pivot_offset = Vector2(15, 0)
-	GameEffects.scale_in(purchase_button)
-
-func _on_purchase_button_mouse_exited() -> void:
-	purchase_button.pivot_offset = Vector2(15, 0)
-	GameEffects.scale_out(purchase_button)
 
 # for popping the newly purchased tier
 #func _on_upgrade_purchased(purchased_track_id: String) -> void:
