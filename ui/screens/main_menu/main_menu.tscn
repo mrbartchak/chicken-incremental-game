@@ -1,0 +1,191 @@
+[gd_scene load_steps=16 format=3 uid="uid://73d71fc5ulh"]
+
+[ext_resource type="Script" uid="uid://c45nlbkvcabkd" path="res://ui/screens/main_menu/main_menu.gd" id="1_i8qw8"]
+[ext_resource type="Shader" uid="uid://c5bskyqsddk1g" path="res://core/shaders/background_scroll.gdshader" id="2_77una"]
+[ext_resource type="Texture2D" uid="uid://dlhdf232wrjdt" path="res://ui/screens/main_menu/assets/green_tile_pattern.png" id="3_ygv2v"]
+[ext_resource type="Texture2D" uid="uid://ctxgv3qramxgc" path="res://entities/drops/wings/assets/wing_outline.png" id="4_jp7xi"]
+[ext_resource type="Texture2D" uid="uid://bu2tjuvrgvop7" path="res://ui/screens/main_menu/assets/menu_logo-sword.png" id="5_porbc"]
+[ext_resource type="Texture2D" uid="uid://bir1m82ky4crj" path="res://ui/screens/main_menu/assets/buttons/menu_button_normal.png" id="6_cv2ih"]
+[ext_resource type="Texture2D" uid="uid://7n216m334cyb" path="res://ui/screens/main_menu/assets/buttons/menu_button_hover.png" id="7_k15dw"]
+[ext_resource type="FontFile" uid="uid://5qa1dmxvdrh7" path="res://ui/theme/fonts/Poco.ttf" id="8_77una"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_trkij"]
+shader = ExtResource("2_77una")
+shader_parameter/x_speed = 0.1
+shader_parameter/y_speed = 0.15
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vlit4"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(160, 10, 1)
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 30.0
+initial_velocity_max = 40.0
+angular_velocity_min = -20.000015
+angular_velocity_max = 19.999983
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vlit4"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_trkij"]
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_ygv2v"]
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_pjjyy"]
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_77una"]
+font = ExtResource("8_77una")
+font_size = 10
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i8qw8")
+
+[node name="ScrollingBackground" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_trkij")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ygv2v")
+stretch_mode = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(160, -18)
+amount = 300
+texture = ExtResource("4_jp7xi")
+lifetime = 7.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_vlit4")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="TitleLogo" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_porbc")
+
+[node name="TitleLogoShadow" type="TextureRect" parent="CenterContainer/VBoxContainer/TitleLogo"]
+self_modulate = Color(0, 0, 0, 0.5882353)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -4.0
+offset_top = 4.0
+offset_right = 228.0
+offset_bottom = 66.0
+texture = ExtResource("5_porbc")
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Placeholder
+Name"
+label_settings = SubResource("LabelSettings_vlit4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MenuButtons" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(98, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="NewGameButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons"]
+layout_mode = 2
+texture_normal = ExtResource("6_cv2ih")
+texture_pressed = ExtResource("6_cv2ih")
+texture_hover = ExtResource("7_k15dw")
+texture_focused = ExtResource("6_cv2ih")
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/NewGameButton"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 97.0
+offset_bottom = 12.0
+text = "NEW GAME"
+label_settings = SubResource("LabelSettings_trkij")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons"]
+layout_mode = 2
+texture_normal = ExtResource("6_cv2ih")
+texture_pressed = ExtResource("6_cv2ih")
+texture_hover = ExtResource("7_k15dw")
+texture_focused = ExtResource("6_cv2ih")
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/SettingsButton"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 97.0
+offset_bottom = 12.0
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_ygv2v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons"]
+layout_mode = 2
+texture_normal = ExtResource("6_cv2ih")
+texture_pressed = ExtResource("6_cv2ih")
+texture_hover = ExtResource("7_k15dw")
+texture_focused = ExtResource("6_cv2ih")
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ExitButton"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 97.0
+offset_bottom = 12.0
+text = "Quit"
+label_settings = SubResource("LabelSettings_pjjyy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VersionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -18.0
+offset_right = 42.0
+offset_bottom = -2.0
+grow_vertical = 0
+text = "v0.0.0"
+label_settings = SubResource("LabelSettings_77una")
+vertical_alignment = 2
+
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/NewGameButton" to="." method="_on_new_game_button_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ExitButton" to="." method="_on_exit_button_pressed"]

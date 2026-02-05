@@ -1,7 +1,7 @@
 extends Node
 
 var _camera: CustomCamera
-var _floating_number_scene := preload("res://ui/shared/floating_number.tscn")
+var _floating_number_scene := preload("res://ui/components/floating_number/floating_number.tscn")
 
 func _ready() -> void:
 	Engine.time_scale = 1.0
