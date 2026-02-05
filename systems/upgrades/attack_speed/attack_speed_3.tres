@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AttackSpeedUpgrade" load_steps=3 format=3 uid="uid://b10yv8cnvf1pl"]
+
+[ext_resource type="Texture2D" uid="uid://cd6kqoyamj8u6" path="res://systems/upgrades/assets/attack_speed_upgrade_icon.png" id="1_ecblm"]
+[ext_resource type="Script" uid="uid://cyhwn3sfe17dl" path="res://systems/upgrades/attack_speed/attack_speed_upgrade.gd" id="2_h16ia"]
+
+[resource]
+script = ExtResource("2_h16ia")
+speed_increase = 0.2
+id = "attack_speed_3"
+display_name = "Attack Speed 3"
+description = "Increase attack speed (click speed)"
+cost = 60
+icon = ExtResource("1_ecblm")
+metadata/_custom_type_script = "uid://cyhwn3sfe17dl"

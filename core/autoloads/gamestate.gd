@@ -52,9 +52,11 @@ func _load_upgrade_tracks() -> void:
 	var track1: UpgradeTrack = load("res://systems/upgrades/wing_value/wing_value_upgrade_track.tres")
 	var track2: UpgradeTrack = load("res://systems/upgrades/max_population/max_population_upgrade_track.tres")
 	var track3: UpgradeTrack = load("res://systems/upgrades/spawn_rate/spawn_rate_upgrade_track.tres")
+	var track4: UpgradeTrack = load("res://systems/upgrades/attack_speed/attack_speed_upgrade_track.tres")
 	upgrade_tracks[track1.id] = track1
 	upgrade_tracks[track2.id] = track2
 	upgrade_tracks[track3.id] = track3
+	upgrade_tracks[track4.id] = track4
 
 func can_afford(cost: int) -> bool:
 	return wings >= cost

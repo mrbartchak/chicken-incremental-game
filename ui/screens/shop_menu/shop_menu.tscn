@@ -115,5 +115,9 @@ track_id = "max_population_upgrade_track"
 layout_mode = 2
 track_id = "spawn_rate_upgrade_track"
 
+[node name="UpgradeTrackUI4" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow" instance=ExtResource("7_ttsph")]
+layout_mode = 2
+track_id = "attack_speed_upgrade_track"
+
 [connection signal="mouse_entered" from="ShopPanel/ShopMargin/ShopMenuStack/TopBar/ExitButton" to="." method="_on_exit_button_mouse_entered"]
 [connection signal="pressed" from="ShopPanel/ShopMargin/ShopMenuStack/TopBar/ExitButton" to="." method="_on_exit_button_pressed"]
