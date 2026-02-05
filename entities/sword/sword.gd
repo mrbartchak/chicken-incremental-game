@@ -14,6 +14,8 @@ var cooldown_timer: float = 0.0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	GameState.attack_speed_changed.connect(_update_attack_speed)
+	GameState.attack_radius_changed.connect(_update_attack_radius)
 	cooldown_bar.value = 1.0
 	attack_hitbox.shape.radius = attack_radius
 
@@ -27,6 +29,12 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			try_attack()
+
+func _update_attack_speed(speed: float) -> void:
+	attack_cooldown = speed
+
+func _update_attack_radius(radius: int) -> void:
+	attack_radius = radius
 
 func try_attack() -> void:
 	if !can_attack:
