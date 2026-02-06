@@ -76,7 +76,7 @@ func _load_upgrade_tracks() -> void:
 		_upgrade_tracks[track.id] = track
 
 func _init_track_progress() -> void:
-	for track_id in _upgrade_tracks:
+	for track_id: String in _upgrade_tracks:
 		if not _state.upgrade_progress.has(track_id):
 			_state.upgrade_progress[track_id] = 0
 
@@ -90,8 +90,26 @@ func get_upgrade_track(track_id: String) -> UpgradeTrack:
 func get_upgrade_progress(track_id: String) -> int:
 	return _state.upgrade_progress.get(track_id, 0)
 
+func get_next_upgrade(track_id: String) -> Upgrade:
+	var track: UpgradeTrack = get_upgrade_track(track_id)
+	if not track:
+		return null
+	return track.get_upgrade_at(get_upgrade_progress(track_id))
+
+func is_track_complete(track_id: String) -> bool:
+	var track: UpgradeTrack = get_upgrade_track(track_id)
+	if not track:
+		return true
+	return get_upgrade_progress(track_id) >= track.get_max_upgrades()
+
 func can_afford(cost: int) -> bool:
 	return _state.wings >= cost
+
+func can_afford_next_upgrade(track_id: String) -> bool:
+	var upgrade: Upgrade = get_next_upgrade(track_id)
+	if not upgrade:
+		return false
+	return can_afford(upgrade.cost)
 
 # ============ Actions ============
 func add_wings(amount: int) -> void:
@@ -112,8 +130,22 @@ func remove_chicken(amount: int = 1) -> void:
 	chicken_count_changed.emit(_state.chicken_count)
 
 # ============ Reducer ============
+func _recalculate_stats() -> void:
+	wing_value = BASE_WING_VALUE
+	
+	for track_id: String in _upgrade_tracks:
+		var track: UpgradeTrack = _upgrade_tracks[track_id]
+		var progress: int = get_upgrade_progress(track_id)
+		
+		for i in range(progress):
+			var upgrade: Upgrade = track.get_upgrade_at(i)
+			if upgrade:
+				_apply_upgrade_effect(upgrade)
+
 func _apply_upgrade_effect(upgrade: Upgrade) -> void:
-	pass
+	match upgrade.effect_type:
+		"wing_value":
+			wing_value += int(upgrade.effect_value)
 
 
 

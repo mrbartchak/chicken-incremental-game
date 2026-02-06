@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://qfkdktxtx8hw" path="res://systems/upgrades/upgrade_track.gd" id="1_ul6sg"]
 [ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="2_tp2an"]
-[ext_resource type="Resource" uid="uid://bwbohps0aru7v" path="res://systems/upgrades/wing_value/wing_value_1.tres" id="3_mu6qo"]
-[ext_resource type="Resource" uid="uid://msh5nres21tp" path="res://systems/upgrades/wing_value/wing_value_2.tres" id="4_rec4j"]
-[ext_resource type="Resource" uid="uid://c8q3fb1rgl333" path="res://systems/upgrades/wing_value/wing_value_3.tres" id="5_lvwj4"]
-[ext_resource type="Resource" uid="uid://7nfrk1drqd2l" path="res://systems/upgrades/wing_value/wing_value_4.tres" id="6_deeaa"]
+[ext_resource type="Resource" uid="uid://b5lo8wwx5ia3g" path="res://systems/upgrades/wing_value/wing_value_1.tres" id="3_mu6qo"]
+[ext_resource type="Resource" uid="uid://cs01a06dst00l" path="res://systems/upgrades/wing_value/wing_value_2.tres" id="4_rec4j"]
+[ext_resource type="Resource" uid="uid://der1uyyb07s7q" path="res://systems/upgrades/wing_value/wing_value_3.tres" id="5_lvwj4"]
+[ext_resource type="Resource" uid="uid://qvopv0s3si13" path="res://systems/upgrades/wing_value/wing_value_4.tres" id="6_deeaa"]
 
 [resource]
 script = ExtResource("1_ul6sg")
