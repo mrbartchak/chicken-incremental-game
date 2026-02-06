@@ -12,6 +12,7 @@ func _ready() -> void:
 	update_version_label()
 
 func _on_exit_button_pressed() -> void:
+	SaveManager.delete_save()
 	get_tree().quit()
 
 func _on_new_game_button_pressed() -> void:

@@ -18,9 +18,9 @@ func load_game() -> bool:
 	var data: Variant = JSON.parse_string(file.get_as_text())
 	if not data:
 		return false
+	
 	GameManager.load_state_dict(data)
 	return true
-	
 
 func has_save() -> bool:
 	return FileAccess.file_exists(SAVE_PATH)

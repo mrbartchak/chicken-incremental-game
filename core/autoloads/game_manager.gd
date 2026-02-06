@@ -3,7 +3,6 @@ extends Node
 signal wings_changed(amount: int)
 signal chicken_count_changed(amount: int)
 signal stats_changed()
-signal state_loaded()
 
 const BASE_WING_VALUE: int = 1
 const BASE_MAX_POPULATION: int = 1
@@ -101,7 +100,6 @@ func load_state_dict(data: Dictionary) -> void:
 	_init_track_progress()
 	_recalculate_stats()
 	_emit_all()
-	state_loaded.emit()
 
 # ============ Reducer ============
 func _recalculate_stats() -> void:
@@ -132,7 +130,9 @@ func _apply_upgrade_effect(upgrade: Upgrade) -> void:
 
 # ============ Internal ============
 func _emit_all() -> void:
-	pass
+	wings_changed.emit(_state.wings)
+	chicken_count_changed.emit(_state.chicken_count)
+	stats_changed.emit()
 
 func _load_upgrade_tracks() -> void:
 	var tracks: Array = [
