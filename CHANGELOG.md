@@ -1,6 +1,11 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
+## [v0.2.1] - 2026-02-06
+
+### Fixed
+- Reworked the GameManager logic
+- Split into a read only GameState RefCounted Object and a GameManager Autoload
 
 ## [v0.2.0] - 2026-02-05
 
