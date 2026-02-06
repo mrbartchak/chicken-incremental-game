@@ -33,7 +33,7 @@ func collect() -> void:
 		return
 	AudioManager.play_item_collect()
 	collected = true
-	GameState.collect_wing(self.global_position)
+	GameManager.collect_wing(self.global_position)
 	$Sprite2D.visible = false
 	queue_free()
 

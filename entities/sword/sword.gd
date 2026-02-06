@@ -14,8 +14,8 @@ var cooldown_timer: float = 0.0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	GameState.attack_speed_changed.connect(_update_attack_speed)
-	GameState.attack_radius_changed.connect(_update_attack_radius)
+	GameManager.attack_speed_changed.connect(_update_attack_speed)
+	GameManager.attack_radius_changed.connect(_update_attack_radius)
 	cooldown_bar.value = 1.0
 	attack_hitbox.shape.radius = attack_radius
 

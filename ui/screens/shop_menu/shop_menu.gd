@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var exit_button: TextureButton = $ShopPanel/ShopMargin/ShopMenuStack/TopBar/ExitButton
 
 func _ready() -> void:
-	GameState.upgrade_purchased.connect(_update_wing_count)
+	GameManager.upgrade_purchased.connect(_update_wing_count)
 	_connect_signals()
 	close()
 
@@ -28,4 +28,4 @@ func _connect_signals() -> void:
 	)
 
 func _update_wing_count() -> void:
-	wing_count_label.text = str(GameState.wings)
+	wing_count_label.text = str(GameManager.wings)

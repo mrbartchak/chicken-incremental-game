@@ -12,14 +12,14 @@ extends VBoxContainer
 @onready var maxed_logo: TextureRect = $MaxedLogo
 
 func _ready() -> void:
-	GameState.upgrade_purchased.connect(_update_display)
+	GameManager.upgrade_purchased.connect(_update_display)
 	_init_purchase_button()
 	_update_display()
 
 func _init_purchase_button() -> void:
 	purchase_button.pivot_offset = Vector2(15, 0)
 	purchase_button.pressed.connect(func():
-		GameState.request_upgrade_purchase(track_id))
+		GameManager.request_upgrade_purchase(track_id))
 	
 	purchase_button.mouse_entered.connect(func():
 		GameEffects.scale_in(purchase_button)
@@ -30,7 +30,7 @@ func _init_purchase_button() -> void:
 		AudioManager.play_button_hover())
 
 func _update_display() -> void:
-	var track: UpgradeTrack = GameState.get_upgrade_track(track_id)
+	var track: UpgradeTrack = GameManager.get_upgrade_track(track_id)
 	if not track:
 		return
 	_update_tiers(track.next_index)

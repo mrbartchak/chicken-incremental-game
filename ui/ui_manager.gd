@@ -1,8 +1,8 @@
 extends Control
 
 func _ready() -> void:
-	GameState.wings_changed.connect(update_wing_count)
-	GameState.chicken_count_changed.connect(update_chicken_count)
+	GameManager.wings_changed.connect(update_wing_count)
+	GameManager.chicken_count_changed.connect(update_chicken_count)
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()

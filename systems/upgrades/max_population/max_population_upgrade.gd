@@ -4,4 +4,4 @@ extends Upgrade
 @export var population_increase: int
 
 func apply() -> void:
-	GameState.max_population += population_increase
+	GameManager.max_population += population_increase
