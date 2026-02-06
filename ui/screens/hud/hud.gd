@@ -8,10 +8,10 @@ extends Control
 
 func _ready() -> void:
 	connect_signals()
-	update_wing_count_label(GameState.wings)
+	update_wing_count_label(GameManager.get_wings())
 
 func connect_signals() -> void:
-	GameState.wings_changed.connect(update_wing_count_label)
+	GameManager.wings_changed.connect(update_wing_count_label)
 
 # ================
 #    Callbacks

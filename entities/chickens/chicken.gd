@@ -21,7 +21,7 @@ func _ready() -> void:
 	state_machine.init(self, sprite)
 	health = max_health
 	play_spawn_animation()
-	GameState.add_chickens(1)
+	GameManager.add_chicken(1)
 
 #func _unhandled_input(event: InputEvent) -> void:
 	#state_machine.process_input(event)
