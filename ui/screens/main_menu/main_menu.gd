@@ -1,7 +1,6 @@
 class_name MainMenu
 extends Control
 
-@onready var game_scene: PackedScene = preload("res://scenes/game.tscn")
 @onready var start_button: TextureButton = $CenterContainer/VBoxContainer/CenterContainer/MenuButtons/NewGameButton
 @onready var settings_button: TextureButton = $CenterContainer/VBoxContainer/CenterContainer/MenuButtons/SettingsButton
 @onready var exit_button: TextureButton = $CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ExitButton
@@ -16,7 +15,9 @@ func _on_exit_button_pressed() -> void:
 	get_tree().quit()
 
 func _on_new_game_button_pressed() -> void:
-	get_tree().change_scene_to_packed(game_scene)
+	if not SaveManager.load_game():
+		GameManager.new_game()
+	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 func update_version_label() -> void:
 	version_label.text = Version.get_full_version()

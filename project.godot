@@ -25,6 +25,7 @@ GameManager="*res://core/autoloads/game_manager.gd"
 GameEffects="*res://core/autoloads/game_effects.gd"
 Version="*res://core/autoloads/version.gd"
 AudioManager="*res://core/autoloads/audio_manager.gd"
+SaveManager="*res://core/autoloads/save_manager.gd"
 
 [display]
 
