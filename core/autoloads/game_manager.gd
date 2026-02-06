@@ -22,6 +22,7 @@ func _ready() -> void:
 	_load_upgrade_tracks()
 	_state = GameState.new()
 	_init_track_progress()
+	_recalculate_stats()
 
 func _load_upgrade_tracks() -> void:
 	var tracks: Array = [
@@ -70,9 +71,10 @@ func can_afford_next_upgrade(track_id: String) -> bool:
 	return can_afford(upgrade.cost)
 
 # ============ Actions ============
-func add_wings(amount: int) -> void:
-	_state.wings += amount
-	_state.total_wings_collected += amount
+func collect_wing(base_value: int = 1) -> void:
+	var final_value: int = base_value * wing_value
+	_state.wings += final_value
+	_state.total_wings_collected += final_value
 	wings_changed.emit(_state.wings)
 
 func spend_wings(amount: int) -> void:

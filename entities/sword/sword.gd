@@ -30,11 +30,11 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			try_attack()
 
-func _update_attack_speed(speed: float) -> void:
-	attack_cooldown = speed
+func _update_attack_speed() -> void:
+	attack_cooldown = GameManager.attack_speed
 
-func _update_attack_radius(radius: int) -> void:
-	attack_radius = radius
+func _update_attack_radius() -> void:
+	pass
 
 func try_attack() -> void:
 	if !can_attack:

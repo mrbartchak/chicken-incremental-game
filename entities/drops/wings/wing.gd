@@ -34,7 +34,7 @@ func collect() -> void:
 	AudioManager.play_item_collect()
 	GameEffects.spawn_floating_number(GameManager.wing_value, self.global_position)
 	collected = true
-	GameManager.add_wings(1)
+	GameManager.collect_wing()
 	$Sprite2D.visible = false
 	queue_free()
 
