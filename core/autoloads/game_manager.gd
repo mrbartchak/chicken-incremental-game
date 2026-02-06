@@ -1,63 +1,22 @@
 extends Node
 
-# =================================================================
-const BASE_STARTING_WINGS: int = 0
-const BASE_SPAWN_INTERVAL: float = 2.0
-const BASE_MAX_POPULATION: int = 1
-const BASE_DOUBLE_DROP_RATE: float = 0.0
-const BASE_ATTACK_SPEED: float = 1.0
-const BASE_ATTACK_RADIUS: int = 7
-
-signal max_population_changed(amount: int)
-signal spawn_rate_changed(amount: float)
-signal attack_speed_changed(speed: float)
-signal attack_radius_changed(radius: int)
-
-# =================================================================
-#=== Chickens ===
-var max_population: int = BASE_MAX_POPULATION:
-	set(value):
-		max_population = value
-		max_population_changed.emit(max_population)
-var spawn_rate: float = BASE_SPAWN_INTERVAL:
-	set(value):
-		spawn_rate = value
-		spawn_rate_changed.emit(spawn_rate)
-#=== Sword ===
-var attack_speed: float = BASE_ATTACK_SPEED:
-	set(value):
-		attack_speed = value
-		attack_speed_changed.emit(attack_speed)
-var attack_radius: float = BASE_ATTACK_RADIUS:
-	set(value):
-		attack_radius = value
-		attack_radius_changed.emit(attack_radius)
-# =================================================================
-# ^^^ OLD
-
-
-
-
-
 signal wings_changed(amount: int)
 signal chicken_count_changed(amount: int)
 signal stats_changed()
 
 const BASE_WING_VALUE: int = 1
+const BASE_MAX_POPULATION: int = 1
+const BASE_SPAWN_RATE: float = 2.0
+const BASE_ATTACK_SPEED: float = 1.0
 
 var _state: GameState
 var _upgrade_tracks: Dictionary = {}
 
 # Computed Stats (derived from state)
 var wing_value: int = BASE_WING_VALUE
-
-
-
-
-
-
-
-
+var max_population: int = BASE_MAX_POPULATION
+var spawn_rate: float = BASE_SPAWN_RATE
+var attack_speed: float = BASE_ATTACK_SPEED
 
 func _ready() -> void:
 	_load_upgrade_tracks()
@@ -145,6 +104,9 @@ func purchase_upgrade(track_id: String) -> bool:
 # ============ Reducer ============
 func _recalculate_stats() -> void:
 	wing_value = BASE_WING_VALUE
+	max_population = BASE_MAX_POPULATION
+	spawn_rate = BASE_SPAWN_RATE
+	attack_speed = BASE_ATTACK_SPEED
 	
 	for track_id: String in _upgrade_tracks:
 		var track: UpgradeTrack = _upgrade_tracks[track_id]
@@ -159,3 +121,9 @@ func _apply_upgrade_effect(upgrade: Upgrade) -> void:
 	match upgrade.effect_type:
 		"wing_value":
 			wing_value += int(upgrade.effect_value)
+		"max_population":
+			max_population += int(upgrade.effect_value)
+		"spawn_rate":
+			spawn_rate -= upgrade.effect_value
+		"attack_speed":
+			attack_speed -= upgrade.effect_value

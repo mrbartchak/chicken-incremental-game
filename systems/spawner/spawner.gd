@@ -13,8 +13,8 @@ func _ready() -> void:
 	spawn_timer = 0.0
 	max_entities = GameManager.max_population
 	spawn_interval = GameManager.spawn_rate
-	GameManager.max_population_changed.connect(_update_max_population)
-	GameManager.spawn_rate_changed.connect(_update_spawn_rate)
+	GameManager.stats_changed.connect(_update_max_population)
+	GameManager.stats_changed.connect(_update_spawn_rate)
 
 func _process(delta: float) -> void:
 	if get_active_entities() >= max_entities:
