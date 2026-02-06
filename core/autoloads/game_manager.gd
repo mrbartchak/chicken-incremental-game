@@ -2,6 +2,7 @@ extends Node
 
 signal wings_changed(amount: int)
 signal chicken_count_changed(amount: int)
+
 signal max_population_changed(amount: int)
 signal spawn_rate_changed(amount: float)
 signal upgrade_purchased()
@@ -22,7 +23,6 @@ var _state: GameState
 var total_wings_collected: int = 0
 var wing_value: int = BASE_WING_VALUE
 #=== Chickens ===
-var chicken_count: int = 0
 var max_population: int = BASE_MAX_POPULATION:
 	set(value):
 		max_population = value
@@ -61,6 +61,14 @@ func remove_wings(amount: int) -> void:
 	_state.wings -= amount
 	wings_changed.emit(_state.wings)
 
+func add_chicken(amount: int = 1) -> void:
+	_state.chicken_count += amount
+	chicken_count_changed.emit(_state.chicken_count)
+
+func remove_chicken(amount: int = 1) -> void:
+	_state.chicken_count -= amount
+	chicken_count_changed.emit(_state.chicken_count)
+
 func _load_upgrade_tracks() -> void:
 	var track1: UpgradeTrack = load("res://systems/upgrades/wing_value/wing_value_upgrade_track.tres")
 	var track2: UpgradeTrack = load("res://systems/upgrades/max_population/max_population_upgrade_track.tres")
@@ -73,10 +81,6 @@ func _load_upgrade_tracks() -> void:
 
 func can_afford(cost: int) -> bool:
 	return get_wings() >= cost
-
-func add_chickens(amount: int = 1) -> void:
-	chicken_count += amount
-	chicken_count_changed.emit(chicken_count)
 
 func get_upgrade_track(track_id: String) -> UpgradeTrack:
 	return upgrade_tracks.get(track_id)
