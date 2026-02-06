@@ -15,11 +15,9 @@ const BASE_WING_VALUE: int = 1
 const BASE_DOUBLE_DROP_RATE: float = 0.0
 const BASE_ATTACK_SPEED: float = 1.0
 const BASE_ATTACK_RADIUS: int = 7
+
+var _state: GameState
 #=== Wings ===
-var wings: int = BASE_STARTING_WINGS:
-	set(value):
-		wings = value
-		wings_changed.emit(wings)
 
 var total_wings_collected: int = 0
 var wing_value: int = BASE_WING_VALUE
@@ -47,7 +45,21 @@ var attack_radius: float = BASE_ATTACK_RADIUS:
 var upgrade_tracks: Dictionary = {}
 
 func _ready() -> void:
+	_state = GameState.new()
 	_load_upgrade_tracks()
+
+# ======== Queries ========
+func get_wings() -> int:
+	return _state.wings
+# ======== Actions ========
+func add_wings(amount: int) -> void:
+	_state.wings += amount
+	_state.total_wings_collected += amount
+	wings_changed.emit(_state.wings)
+
+func remove_wings(amount: int) -> void:
+	_state.wings -= amount
+	wings_changed.emit(_state.wings)
 
 func _load_upgrade_tracks() -> void:
 	var track1: UpgradeTrack = load("res://systems/upgrades/wing_value/wing_value_upgrade_track.tres")
@@ -60,12 +72,7 @@ func _load_upgrade_tracks() -> void:
 	upgrade_tracks[track4.id] = track4
 
 func can_afford(cost: int) -> bool:
-	return wings >= cost
-
-func collect_wing(at: Vector2) -> void:
-	wings += wing_value
-	total_wings_collected += wing_value
-	GameEffects.spawn_floating_number(wing_value, at)
+	return get_wings() >= cost
 
 func add_chickens(amount: int = 1) -> void:
 	chicken_count += amount
@@ -86,7 +93,7 @@ func request_upgrade_purchase(track_id: String) -> void:
 	var upgrade: Upgrade = track.get_next_upgrade()
 	if not can_afford(upgrade.cost):
 		return
-	wings -= upgrade.cost
+	remove_wings(upgrade.cost)
 	track.increment_index()
 	# add to purchased upgrades list
 	upgrade.apply()

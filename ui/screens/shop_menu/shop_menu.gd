@@ -28,4 +28,4 @@ func _connect_signals() -> void:
 	)
 
 func _update_wing_count() -> void:
-	wing_count_label.text = str(GameManager.wings)
+	wing_count_label.text = str(GameManager.get_wings())
