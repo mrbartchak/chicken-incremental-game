@@ -18,22 +18,22 @@ func _ready() -> void:
 	_connect_button_sounds()
 	_update_version_label()
 
+# ============ Buttons ============
 func _on_continue_button_pressed() -> void:
 	SaveManager.load_game()
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
-	
 
 func _on_new_game_button_pressed() -> void:
 	GameManager.new_game()
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
+func _on_settings_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://ui/screens/settings_menu/settings_menu.tscn")
+
 func _on_exit_button_pressed() -> void:
-	SaveManager.delete_save()
 	get_tree().quit()
 
-func _update_version_label() -> void:
-	version_label.text = Version.get_full_version()
-
+# ============ Internal ============
 func _connect_button_sounds() -> void:
 	new_game_button.mouse_entered.connect(AudioManager.play_button_hover)
 	settings_button.mouse_entered.connect(AudioManager.play_button_hover)
@@ -42,3 +42,6 @@ func _connect_button_sounds() -> void:
 	new_game_button.pressed.connect(AudioManager.play_button_click)
 	settings_button.pressed.connect(AudioManager.play_button_click)
 	exit_button.pressed.connect(AudioManager.play_button_click)
+
+func _update_version_label() -> void:
+	version_label.text = Version.get_full_version()
