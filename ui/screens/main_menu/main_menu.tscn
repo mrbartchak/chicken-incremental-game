@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bu2tjuvrgvop7" path="res://ui/screens/main_menu/assets/menu_logo-sword.png" id="5_porbc"]
 [ext_resource type="Texture2D" uid="uid://bir1m82ky4crj" path="res://ui/screens/main_menu/assets/buttons/menu_button_normal.png" id="6_cv2ih"]
 [ext_resource type="Texture2D" uid="uid://7n216m334cyb" path="res://ui/screens/main_menu/assets/buttons/menu_button_hover.png" id="7_k15dw"]
-[ext_resource type="FontFile" uid="uid://5qa1dmxvdrh7" path="res://ui/theme/fonts/Poco.ttf" id="8_77una"]
+[ext_resource type="FontFile" uid="uid://dclbxgjjmtenh" path="res://ui/theme/fonts/Picopixel.ttf" id="8_uck36"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_trkij"]
 shader = ExtResource("2_77una")
@@ -41,8 +41,8 @@ font_size = 8
 font_size = 8
 
 [sub_resource type="LabelSettings" id="LabelSettings_77una"]
-font = ExtResource("8_77una")
-font_size = 10
+font = ExtResource("8_uck36")
+font_size = 8
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -117,6 +117,24 @@ layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
+[node name="ContinueButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons"]
+layout_mode = 2
+texture_normal = ExtResource("6_cv2ih")
+texture_pressed = ExtResource("6_cv2ih")
+texture_hover = ExtResource("7_k15dw")
+texture_focused = ExtResource("6_cv2ih")
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ContinueButton"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 95.0
+offset_bottom = 12.0
+text = "Continue"
+label_settings = SubResource("LabelSettings_trkij")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="NewGameButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons"]
 layout_mode = 2
 texture_normal = ExtResource("6_cv2ih")
@@ -177,14 +195,14 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 2.0
-offset_top = -18.0
+offset_top = -16.0
 offset_right = 42.0
-offset_bottom = -2.0
 grow_vertical = 0
 text = "v0.0.0"
 label_settings = SubResource("LabelSettings_77una")
 vertical_alignment = 2
 
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/NewGameButton" to="." method="_on_new_game_button_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/SettingsButton" to="." method="_on_settings_button_pressed"]

@@ -17,4 +17,5 @@ func _on_resume_button_pressed() -> void:
 	close()
 
 func _on_menu_button_pressed() -> void:
+	SaveManager.save_game()
 	get_tree().change_scene_to_file("res://ui/screens/main_menu/main_menu.tscn")
