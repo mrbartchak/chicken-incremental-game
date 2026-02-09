@@ -20,24 +20,6 @@ var attack_speed: float = BASE_ATTACK_SPEED
 
 func _ready() -> void:
 	_load_upgrade_tracks()
-	_state = GameState.new()
-	_init_track_progress()
-	_recalculate_stats()
-
-func _load_upgrade_tracks() -> void:
-	var tracks: Array = [
-		load("res://systems/upgrades/wing_value/wing_value_upgrade_track.tres"),
-		load("res://systems/upgrades/max_population/max_population_upgrade_track.tres"),
-		load("res://systems/upgrades/spawn_rate/spawn_rate_upgrade_track.tres"),
-		load("res://systems/upgrades/attack_speed/attack_speed_upgrade_track.tres")
-	]
-	for track: UpgradeTrack in tracks:
-		_upgrade_tracks[track.id] = track
-
-func _init_track_progress() -> void:
-	for track_id: String in _upgrade_tracks:
-		if not _state.upgrade_progress.has(track_id):
-			_state.upgrade_progress[track_id] = 0
 
 # ============ Queries ============
 func get_wings() -> int:
@@ -103,6 +85,22 @@ func purchase_upgrade(track_id: String) -> bool:
 	
 	return true
 
+# ============ State Management ============
+func new_game() -> void:
+	_state = GameState.new()
+	_init_track_progress()
+	_recalculate_stats()
+	_emit_all()
+
+func get_state_dict() -> Dictionary:
+	return _state.to_dict()
+
+func load_state_dict(data: Dictionary) -> void:
+	_state = GameState.from_dict(data)
+	_init_track_progress()
+	_recalculate_stats()
+	_emit_all()
+
 # ============ Reducer ============
 func _recalculate_stats() -> void:
 	wing_value = BASE_WING_VALUE
@@ -129,3 +127,24 @@ func _apply_upgrade_effect(upgrade: Upgrade) -> void:
 			spawn_rate -= upgrade.effect_value
 		"attack_speed":
 			attack_speed -= upgrade.effect_value
+
+# ============ Internal ============
+func _emit_all() -> void:
+	wings_changed.emit(_state.wings)
+	chicken_count_changed.emit(_state.chicken_count)
+	stats_changed.emit()
+
+func _load_upgrade_tracks() -> void:
+	var tracks: Array = [
+		load("res://systems/upgrades/wing_value/wing_value_upgrade_track.tres"),
+		load("res://systems/upgrades/max_population/max_population_upgrade_track.tres"),
+		load("res://systems/upgrades/spawn_rate/spawn_rate_upgrade_track.tres"),
+		load("res://systems/upgrades/attack_speed/attack_speed_upgrade_track.tres")
+	]
+	for track: UpgradeTrack in tracks:
+		_upgrade_tracks[track.id] = track
+
+func _init_track_progress() -> void:
+	for track_id: String in _upgrade_tracks:
+		if not _state.upgrade_progress.has(track_id):
+			_state.upgrade_progress[track_id] = 0

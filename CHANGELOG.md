@@ -1,6 +1,11 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
+## [v0.2.2] - 2026-02-08
+
+### Added
+- save/load game (also delete)
+
 ## [v0.2.1] - 2026-02-06
 
 ### Fixed
