@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ChickenType" load_steps=4 format=3 uid="uid://do8icirsuvl60"]
 
-[ext_resource type="Script" uid="uid://0ic7vuhhcb2t" path="res://entities/chickens/types/chicken_type.gd" id="1_olm4h"]
+[ext_resource type="Script" uid="uid://0ic7vuhhcb2t" path="res://entities/chickens/chicken_type.gd" id="1_olm4h"]
 [ext_resource type="SpriteFrames" uid="uid://bkgtv1aeyh70n" path="res://entities/chickens/assets/silver_chicken_sprite_frames.tres" id="2_i8rsi"]
 [ext_resource type="Resource" uid="uid://c3b7vj7g0yvav" path="res://entities/drops/wings/wing_types/silver_wing.tres" id="2_ksfpc"]
 
