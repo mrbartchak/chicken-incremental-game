@@ -2,6 +2,10 @@ class_name Chicken
 extends Area2D
 
 @export var wing_scene: PackedScene
+var drop_weights: Array[Dictionary] = [
+	{"type": preload("res://entities/drops/wings/wing_types/normal_wing.tres"), "weight": 0.95},
+	{"type": preload("res://entities/drops/wings/wing_types/silver_wing.tres"), "weight": 0.05}
+]
 
 var max_health: int = 1
 var health: int
@@ -66,9 +70,19 @@ func die() -> void:
 #        Drops
 # ===================
 func drop_wing() -> void:
-	var wing: Area2D = wing_scene.instantiate()
+	var wing: Wing = wing_scene.instantiate()
+	wing.wing_type = get_random_wing_type()
 	wing.global_position = global_position
 	get_parent().add_child(wing)
+
+func get_random_wing_type() -> WingType:
+	var roll: float = randf()
+	var cumulative: float = 0.0
+	for entry: Dictionary in drop_weights:
+		cumulative += entry.weight
+		if roll < cumulative:
+			return entry.type
+	return drop_weights[0].type
 
 # ===================
 #      Visuals
