@@ -1,7 +1,8 @@
 class_name Wing
 extends Area2D
 
-@export var value: int = 1
+@export var wing_type: WingType
+var value: int
 
 var pop_velocity: Vector2 = Vector2(0, -60)
 var drop_gravity: float = 200.0
@@ -11,7 +12,11 @@ var velocity: Vector2
 var collectable: bool = false
 var collected: bool = false
 
+@onready var sprite: Sprite2D = $Sprite2D
+
 func _ready() -> void:
+	value = wing_type.base_value
+	sprite.texture = wing_type.sprite
 	pop_in()
 	velocity = pop_velocity
 	velocity.x = randf_range(-30, 30)
@@ -34,7 +39,7 @@ func collect() -> void:
 	AudioManager.play_item_collect()
 	GameEffects.spawn_floating_number(GameManager.wing_value, self.global_position)
 	collected = true
-	GameManager.collect_wing()
+	GameManager.collect_wing(value)
 	$Sprite2D.visible = false
 	queue_free()
 
