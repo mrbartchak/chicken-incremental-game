@@ -244,6 +244,7 @@ process_material = SubResource("ParticleProcessMaterial_cgl0l")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.5, -3)
 sprite_frames = SubResource("SpriteFrames_hdls3")
+animation = &"idle_right"
 autoplay = "default"
 
 [node name="HealthBar" type="ProgressBar" parent="Sprite"]
