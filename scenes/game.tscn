@@ -9,12 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://bjd5newmllgoq" path="res://ui/assets/floating_background.png" id="5_rysoc"]
 [ext_resource type="Texture2D" uid="uid://dt32xdhbxuq86" path="res://ui/screens/hud/assets/settings_icon_outlined.png" id="5_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://h4s3cmuvmsoj" path="res://ui/screens/hud/assets/shop_icon.png" id="6_264po"]
+[ext_resource type="Script" uid="uid://di770m57wej6y" path="res://systems/spawners/chicken_spawner.gd" id="6_rysoc"]
 [ext_resource type="Texture2D" uid="uid://bcomh5ilvduxg" path="res://ui/screens/hud/assets/shop_icon_outlined.png" id="7_1kice"]
 [ext_resource type="Texture2D" uid="uid://b5gosdqun7tnj" path="res://ui/screens/hud/assets/wing_count_logo_outlined.png" id="8_5newe"]
 [ext_resource type="FontFile" uid="uid://r6bebwqfqoxw" path="res://ui/theme/fonts/GrapeSoda.ttf" id="9_37s47"]
 [ext_resource type="PackedScene" uid="uid://bs3h83ewc4e0q" path="res://ui/screens/shop_menu/shop_menu.tscn" id="10_bt5mj"]
 [ext_resource type="PackedScene" uid="uid://bfbjwecn2ug34" path="res://ui/screens/ingame_settings/ingame_settings.tscn" id="11_e1j6l"]
-[ext_resource type="Script" uid="uid://dvoh3jqunjute" path="res://systems/spawner/spawner.gd" id="12_pl11u"]
 [ext_resource type="PackedScene" uid="uid://4hf7dgvsytss" path="res://entities/chickens/chicken.tscn" id="13_bhx41"]
 [ext_resource type="PackedScene" uid="uid://dsq368wv1wotj" path="res://entities/sword/sword.tscn" id="14_qnb83"]
 
@@ -138,16 +138,14 @@ visible = false
 visible = false
 layout_mode = 1
 
-[node name="ChickenSpawner" type="Node" parent="." node_paths=PackedStringArray("entity_container")]
-script = ExtResource("12_pl11u")
-entity_scene = ExtResource("13_bhx41")
-entity_container = NodePath("../GameWorld/ChickenContainer")
-spawn_area = Rect2(44, 24, 232, 128)
-spawn_interval = 2.0
-
 [node name="MouseLayer" type="CanvasLayer" parent="."]
 
 [node name="Sword" parent="MouseLayer" instance=ExtResource("14_qnb83")]
+
+[node name="ChickenSpawner" type="Node" parent="." node_paths=PackedStringArray("chicken_container")]
+script = ExtResource("6_rysoc")
+chicken_scene = ExtResource("13_bhx41")
+chicken_container = NodePath("../GameWorld/ChickenContainer")
 
 [connection signal="pressed" from="HUD/MarginContainer/TopBar/LeftGroup/CenterContainer/SettingsButton" to="HUD" method="_on_settings_button_pressed"]
 [connection signal="pressed" from="HUD/MarginContainer/TopBar/LeftGroup/CenterContainer2/ShopButton" to="HUD" method="_on_shop_button_pressed"]

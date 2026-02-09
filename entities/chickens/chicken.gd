@@ -3,10 +3,11 @@ extends Area2D
 
 @export var wing_scene: PackedScene
 var drop_weights: Array[Dictionary] = [
-	{"type": preload("res://entities/drops/wings/wing_types/normal_wing.tres"), "weight": 0.95},
+	{"type": preload("res://entities/drops/wings/wing_types/basic_wing.tres"), "weight": 0.95},
 	{"type": preload("res://entities/drops/wings/wing_types/silver_wing.tres"), "weight": 0.05}
 ]
 
+var chicken_type: ChickenType
 var max_health: int = 1
 var health: int
 var dead: bool = false
@@ -25,7 +26,7 @@ func _ready() -> void:
 	state_machine.init(self, sprite)
 	health = max_health
 	play_spawn_animation()
-	GameManager.add_chicken(1)
+	#GameManager.add_chicken(1)
 
 #func _unhandled_input(event: InputEvent) -> void:
 	#state_machine.process_input(event)
@@ -64,6 +65,7 @@ func die() -> void:
 	drop_wing()
 	death_particles.restart()
 	await get_tree().create_timer(death_particles.lifetime).timeout
+	#GameManager.remove_chicken()
 	queue_free()
 
 # ===================
