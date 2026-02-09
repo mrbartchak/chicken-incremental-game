@@ -53,10 +53,11 @@ func can_afford_next_upgrade(track_id: String) -> bool:
 	return can_afford(upgrade.cost)
 
 # ============ Actions ============
-func collect_wing(base_value: int = 1) -> void:
+func collect_wing(base_value: int, at: Vector2) -> void:
 	var final_value: int = base_value * wing_value
 	_state.wings += final_value
 	_state.total_wings_collected += final_value
+	GameEffects.spawn_floating_number(final_value, at)
 	wings_changed.emit(_state.wings)
 
 func spend_wings(amount: int) -> void:
