@@ -4,7 +4,7 @@ signal wings_changed(amount: int)
 signal chicken_count_changed(amount: int)
 signal stats_changed()
 
-const BASE_WING_VALUE: int = 1
+const BASE_WING_VALUE_BONUS: int = 0
 const BASE_MAX_POPULATION: int = 1
 const BASE_SPAWN_RATE: float = 2.0
 const BASE_ATTACK_SPEED: float = 1.0
@@ -13,7 +13,7 @@ var _state: GameState
 var _upgrade_tracks: Dictionary = {}
 
 # Computed Stats (derived from state)
-var wing_value: int = BASE_WING_VALUE
+var wing_value_bonus: int = BASE_WING_VALUE_BONUS
 var max_population: int = BASE_MAX_POPULATION
 var spawn_rate: float = BASE_SPAWN_RATE
 var attack_speed: float = BASE_ATTACK_SPEED
@@ -54,7 +54,7 @@ func can_afford_next_upgrade(track_id: String) -> bool:
 
 # ============ Actions ============
 func collect_wing(base_value: int, at: Vector2) -> void:
-	var final_value: int = base_value * wing_value
+	var final_value: int = base_value + wing_value_bonus
 	_state.wings += final_value
 	_state.total_wings_collected += final_value
 	GameEffects.spawn_floating_number(final_value, at)
@@ -104,7 +104,7 @@ func load_state_dict(data: Dictionary) -> void:
 
 # ============ Reducer ============
 func _recalculate_stats() -> void:
-	wing_value = BASE_WING_VALUE
+	wing_value_bonus = BASE_WING_VALUE_BONUS
 	max_population = BASE_MAX_POPULATION
 	spawn_rate = BASE_SPAWN_RATE
 	attack_speed = BASE_ATTACK_SPEED
@@ -121,7 +121,7 @@ func _recalculate_stats() -> void:
 func _apply_upgrade_effect(upgrade: Upgrade) -> void:
 	match upgrade.effect_type:
 		"wing_value":
-			wing_value += int(upgrade.effect_value)
+			wing_value_bonus += int(upgrade.effect_value)
 		"max_population":
 			max_population += int(upgrade.effect_value)
 		"spawn_rate":
