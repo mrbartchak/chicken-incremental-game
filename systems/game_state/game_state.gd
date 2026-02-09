@@ -18,6 +18,6 @@ static func from_dict(data: Dictionary) -> GameState:
 	var state: GameState = GameState.new()
 	state.wings = data.get("wings", 0)
 	state.total_wings_collected = data.get("total_wings_collected", 0)
-	state.chicken_count = data.get("chicken_count", 0)
+	state.chicken_count = 0 #data.get("chicken_count", 0)
 	state.upgrade_progress = data.get("upgrade_progress", {})
 	return state

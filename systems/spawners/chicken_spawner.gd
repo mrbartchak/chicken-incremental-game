@@ -25,10 +25,10 @@ func _process(delta: float) -> void:
 
 func _spawn_chicken() -> void:
 	var chicken: Chicken = chicken_scene.instantiate()
+	chicken.chicken_type = chicken_types["silver"]
 	chicken_container.add_child(chicken)
-	chicken.chicken_type = chicken_types["basic"]
 	chicken.position = _get_spawn_position()
-	#GameManager.add_chicken()
+	GameManager.add_chicken()
 
 func _get_spawn_position() -> Vector2:
 	var pos = Vector2(

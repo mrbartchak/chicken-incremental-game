@@ -8,7 +8,6 @@ var drop_weights: Array[Dictionary] = [
 ]
 
 var chicken_type: ChickenType
-var max_health: int = 1
 var health: int
 var dead: bool = false
 
@@ -23,8 +22,9 @@ var scale_tween: Tween
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
 func _ready() -> void:
+	sprite.sprite_frames = chicken_type.sprite_frames
 	state_machine.init(self, sprite)
-	health = max_health
+	health = chicken_type.max_health
 	play_spawn_animation()
 	#GameManager.add_chicken(1)
 
@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
 
 func _process(delta: float) -> void:
-	$Sprite/HealthBar.value = health / float(max_health)
+	$Sprite/HealthBar.value = health / float(chicken_type.max_health)
 	state_machine.process_frame(delta)
 
 # ===================
@@ -65,7 +65,7 @@ func die() -> void:
 	drop_wing()
 	death_particles.restart()
 	await get_tree().create_timer(death_particles.lifetime).timeout
-	#GameManager.remove_chicken()
+	GameManager.remove_chicken()
 	queue_free()
 
 # ===================
@@ -73,18 +73,18 @@ func die() -> void:
 # ===================
 func drop_wing() -> void:
 	var wing: Wing = wing_scene.instantiate()
-	wing.wing_type = get_random_wing_type()
+	wing.wing_type = chicken_type.wing_type
 	wing.global_position = global_position
 	get_parent().add_child(wing)
 
-func get_random_wing_type() -> WingType:
-	var roll: float = randf()
-	var cumulative: float = 0.0
-	for entry: Dictionary in drop_weights:
-		cumulative += entry.weight
-		if roll < cumulative:
-			return entry.type
-	return drop_weights[0].type
+#func get_random_wing_type() -> WingType:
+	#var roll: float = randf()
+	#var cumulative: float = 0.0
+	#for entry: Dictionary in drop_weights:
+		#cumulative += entry.weight
+		#if roll < cumulative:
+			#return entry.type
+	#return drop_weights[0].type
 
 # ===================
 #      Visuals

@@ -8,5 +8,5 @@ script = ExtResource("1_mlw24")
 id = "silver_wing"
 display_name = "Silver Wing"
 sprite = ExtResource("2_b0vom")
-base_value = 25
+base_value = 31
 metadata/_custom_type_script = "uid://cwfxw1775mxs7"
