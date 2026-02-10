@@ -5,6 +5,5 @@ extends Resource
 @export var display_name: String
 @export var description: String
 @export var cost: int
-@export var icon: Texture2D
 @export var effect_type: String
 @export var effect_value: float

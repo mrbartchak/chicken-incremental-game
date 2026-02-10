@@ -33,6 +33,7 @@ func _update_display() -> void:
 	var track: UpgradeTrack = GameManager.get_upgrade_track(track_id)
 	if not track:
 		return
+	upgrade_icon.texture = track.icon
 	_update_tiers(GameManager.get_upgrade_progress(track_id))
 	var upgrade: Upgrade = GameManager.get_next_upgrade(track_id)
 	if not upgrade:
@@ -40,7 +41,6 @@ func _update_display() -> void:
 		maxed_logo.visible = true
 		return
 	cost_label.text = replace_zeros_with_o(str(upgrade.cost))
-	upgrade_icon.texture = upgrade.icon
 
 #func _init_tiers(current_tier: int, total_tiers: int) -> void:
 	#pass
