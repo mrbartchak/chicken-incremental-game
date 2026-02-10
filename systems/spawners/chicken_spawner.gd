@@ -25,10 +25,20 @@ func _process(delta: float) -> void:
 
 func _spawn_chicken() -> void:
 	var chicken: Chicken = chicken_scene.instantiate()
-	chicken.chicken_type = chicken_types["silver"]
+	chicken.chicken_type = _get_random_chicken_type()
 	chicken_container.add_child(chicken)
 	chicken.position = _get_spawn_position()
 	GameManager.add_chicken()
+
+func _get_random_chicken_type() -> ChickenType:
+	var roll: float = randf()
+	var cumulative: float = 0.0
+	
+	for id in GameManager.SPAWN_ORDER:
+		cumulative += GameManager.get_chicken_spawn_chance(id)
+		if roll < cumulative:
+			return chicken_types[id]
+	return chicken_types["basic"]
 
 func _get_spawn_position() -> Vector2:
 	var pos = Vector2(

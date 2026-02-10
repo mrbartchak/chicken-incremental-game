@@ -9,8 +9,11 @@ const BASE_MAX_POPULATION: int = 1
 const BASE_SPAWN_RATE: float = 2.0
 const BASE_ATTACK_SPEED: float = 1.0
 const BASE_CHICKEN_SPAWN_CHANCES: Dictionary = {
-	"silver": 0.0
+	"basic": 1.0,
+	"silver": 0.0,
+	"gold": 0.0
 }
+const SPAWN_ORDER: Array[String] = ["gold", "silver", "basic"]
 
 var _state: GameState
 var _upgrade_tracks: Dictionary = {}
@@ -31,6 +34,9 @@ func get_wings() -> int:
 
 func get_chicken_count() -> int:
 	return _state.chicken_count
+
+func get_chicken_spawn_chance(id: String) -> float:
+	return chicken_spawn_chances.get(id, 0.0)
 
 func get_upgrade_track(track_id: String) -> UpgradeTrack:
 	return _upgrade_tracks.get(track_id)
@@ -137,6 +143,9 @@ func _apply_upgrade_effect(upgrade: Upgrade) -> void:
 			spawn_rate -= upgrade.effect_value
 		"attack_speed":
 			attack_speed -= upgrade.effect_value
+		"silver_spawn_chance":
+			chicken_spawn_chances["silver"] += upgrade.effect_value
+			chicken_spawn_chances["basic"] -= upgrade.effect_value
 
 # ============ Internal ============
 func _emit_all() -> void:
