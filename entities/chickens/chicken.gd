@@ -1,25 +1,21 @@
 class_name Chicken
 extends Area2D
 
-@export var wing_scene: PackedScene
-var drop_weights: Array[Dictionary] = [
-	{"type": preload("res://entities/drops/wings/wing_types/basic_wing.tres"), "weight": 0.95},
-	{"type": preload("res://entities/drops/wings/wing_types/silver_wing.tres"), "weight": 0.05}
-]
+enum State { IDLE, ROAMING }
 
+@export var wing_scene: PackedScene
+
+#var state: State = State.IDLE
 var chicken_type: ChickenType
 var health: int
 var dead: bool = false
 
-var is_hovered: bool = false
-var scale_tween: Tween
-
 @onready var state_machine: StateMachine = $StateMachine
+
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var hit_particles: GPUParticles2D = $HitParticles
 @onready var walk_particles: GPUParticles2D = $WalkParticles
 @onready var death_particles: GPUParticles2D = $DeathParticles
-@onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
 func _ready() -> void:
 	sprite.sprite_frames = chicken_type.sprite_frames
@@ -45,7 +41,6 @@ func take_damage(amount: int) -> void:
 	if dead:
 		return
 	health -= amount
-	GameEffects.shake_screen(1, 0.2)
 	#GameEffects.frame_freeze(0.1, .05)
 	if health <= 0:
 		die() #call_deferred("die") !!!
@@ -58,10 +53,10 @@ func die() -> void:
 	if dead:
 		return
 	dead = true
+	GameEffects.shake_screen(1, 0.2)
 	sprite.visible = false
 	monitorable = false
-	death_sound.pitch_scale = randf_range(0.9, 1.2)
-	death_sound.play()
+	AudioManager.play_chicken_death()
 	drop_wing()
 	death_particles.restart()
 	await get_tree().create_timer(death_particles.lifetime).timeout
@@ -77,15 +72,6 @@ func drop_wing() -> void:
 	wing.global_position = global_position
 	get_parent().add_child(wing)
 
-#func get_random_wing_type() -> WingType:
-	#var roll: float = randf()
-	#var cumulative: float = 0.0
-	#for entry: Dictionary in drop_weights:
-		#cumulative += entry.weight
-		#if roll < cumulative:
-			#return entry.type
-	#return drop_weights[0].type
-
 # ===================
 #      Visuals
 # ===================
@@ -98,21 +84,3 @@ func flash() -> void:
 	sprite.modulate = Color.ORANGE_RED
 	await get_tree().create_timer(flash_time).timeout
 	sprite.modulate = Color(1, 1, 1)
-
-func scale_up():
-	if scale_tween:
-		scale_tween.kill()
-	
-	scale_tween = create_tween()
-	scale_tween.set_ease(Tween.EASE_OUT)
-	scale_tween.set_trans(Tween.TRANS_BACK)
-	scale_tween.tween_property(self, "scale", 1.2, 0.1)
-
-func scale_down():
-	if scale_tween:
-		scale_tween.kill()
-	
-	scale_tween = create_tween()
-	scale_tween.set_ease(Tween.EASE_OUT)
-	scale_tween.set_trans(Tween.TRANS_BACK)
-	scale_tween.tween_property(self, "scale", 1.0, 0.1)

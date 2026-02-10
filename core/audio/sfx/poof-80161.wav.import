@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ce4ues1547dcu"
-path="res://.godot/imported/poof-80161.wav-3837fad7816b352dc92e5dd5f7465464.sample"
+path="res://.godot/imported/poof-80161.wav-b7fd2c3d7fb741c372e96dc83a47c022.sample"
 
 [deps]
 
-source_file="res://entities/chickens/assets/poof-80161.wav"
-dest_files=["res://.godot/imported/poof-80161.wav-3837fad7816b352dc92e5dd5f7465464.sample"]
+source_file="res://core/audio/sfx/poof-80161.wav"
+dest_files=["res://.godot/imported/poof-80161.wav-b7fd2c3d7fb741c372e96dc83a47c022.sample"]
 
 [params]
 

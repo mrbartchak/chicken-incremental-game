@@ -7,6 +7,7 @@ var music_menu: AudioStream = preload("res://core/audio/music/lofi-piano-fantasy
 var sfx_button_click: AudioStream = preload("res://core/audio/sfx/ui_button_click.wav")
 var sfx_button_hover: AudioStream = preload("res://core/audio/sfx/ui_button_hover.wav")
 var sfx_item_collect: AudioStream = preload("res://core/audio/sfx/collect_item_drop.wav")
+var sfx_chicken_death: AudioStream = preload("res://core/audio/sfx/poof-80161.wav")
 
 func _ready() -> void:
 	music_player = AudioStreamPlayer.new()
@@ -30,11 +31,16 @@ func play_sfx(audio: AudioStream, pitch_range: float = 0.0, volume: float = 0.0)
 	sfx_player.volume_db = volume
 	sfx_player.play()
 
+# ============ UI ============
 func play_button_click() -> void:
 	play_sfx(sfx_button_click, 0.0, -10.0)
 
 func play_button_hover() -> void:
 	play_sfx(sfx_button_hover)
 
+# ========= ENTITIES =========
 func play_item_collect() -> void:
 	play_sfx(sfx_item_collect, 0.25, -15.0)
+
+func play_chicken_death() -> void:
+	play_sfx(sfx_chicken_death, 0.15, -10.0)
