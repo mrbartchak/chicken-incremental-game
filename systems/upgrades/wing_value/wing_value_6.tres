@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://cg6uec3xfuusi"]
+
+[ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="1_jn7ku"]
+
+[resource]
+script = ExtResource("1_jn7ku")
+id = "wing_value_6"
+cost = 400
+effect_type = "wing_value"
+effect_value = 2.0
+metadata/_custom_type_script = "uid://dakr2yr8ekswl"

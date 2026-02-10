@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UpgradeTrack" load_steps=8 format=3 uid="uid://fkhry764wp8f"]
+[gd_resource type="Resource" script_class="UpgradeTrack" load_steps=14 format=3 uid="uid://fkhry764wp8f"]
 
 [ext_resource type="Texture2D" uid="uid://dlcf06p3youya" path="res://systems/upgrades/assets/wing_value_icon.png" id="1_cqgdj"]
 [ext_resource type="Script" uid="uid://qfkdktxtx8hw" path="res://systems/upgrades/upgrade_track.gd" id="1_ul6sg"]
@@ -7,11 +7,17 @@
 [ext_resource type="Resource" uid="uid://cs01a06dst00l" path="res://systems/upgrades/wing_value/wing_value_2.tres" id="4_rec4j"]
 [ext_resource type="Resource" uid="uid://der1uyyb07s7q" path="res://systems/upgrades/wing_value/wing_value_3.tres" id="5_lvwj4"]
 [ext_resource type="Resource" uid="uid://qvopv0s3si13" path="res://systems/upgrades/wing_value/wing_value_4.tres" id="6_deeaa"]
+[ext_resource type="Resource" uid="uid://bmk0wjolc3rb6" path="res://systems/upgrades/wing_value/wing_value_5.tres" id="8_uy4y5"]
+[ext_resource type="Resource" uid="uid://cg6uec3xfuusi" path="res://systems/upgrades/wing_value/wing_value_6.tres" id="9_ttcnq"]
+[ext_resource type="Resource" uid="uid://q2h1qbelux1e" path="res://systems/upgrades/wing_value/wing_value_7.tres" id="10_vgyom"]
+[ext_resource type="Resource" uid="uid://dth4n08cr2bfn" path="res://systems/upgrades/wing_value/wing_value_8.tres" id="11_y8gyn"]
+[ext_resource type="Resource" uid="uid://docmsqvp21758" path="res://systems/upgrades/wing_value/wing_value_9.tres" id="12_ue6bl"]
+[ext_resource type="Resource" uid="uid://b8xkp4blgwyqs" path="res://systems/upgrades/wing_value/wing_value_10.tres" id="13_ww2kd"]
 
 [resource]
 script = ExtResource("1_ul6sg")
 id = "wing_value_upgrade_track"
 display_name = "Wing Value"
 icon = ExtResource("1_cqgdj")
-upgrades = Array[ExtResource("2_tp2an")]([ExtResource("3_mu6qo"), ExtResource("4_rec4j"), ExtResource("5_lvwj4"), ExtResource("6_deeaa")])
+upgrades = Array[ExtResource("2_tp2an")]([ExtResource("3_mu6qo"), ExtResource("4_rec4j"), ExtResource("5_lvwj4"), ExtResource("6_deeaa"), ExtResource("8_uy4y5"), ExtResource("9_ttcnq"), ExtResource("10_vgyom"), ExtResource("11_y8gyn"), ExtResource("12_ue6bl"), ExtResource("13_ww2kd")])
 metadata/_custom_type_script = "uid://qfkdktxtx8hw"

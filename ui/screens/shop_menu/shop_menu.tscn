@@ -101,6 +101,7 @@ texture_focused = ExtResource("5_8yyr0")
 
 [node name="Upgrades" type="VBoxContainer" parent="ShopPanel/ShopMargin/ShopMenuStack"]
 layout_mode = 2
+theme_override_constants/separation = 2
 alignment = 1
 
 [node name="UpgradeTrackUI" parent="ShopPanel/ShopMargin/ShopMenuStack/Upgrades" instance=ExtResource("7_ttsph")]

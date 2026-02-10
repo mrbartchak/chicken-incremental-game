@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://cs01a06dst00l"]
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://cs01a06dst00l"]
 
-[ext_resource type="Texture2D" uid="uid://df1g6w2t6nea" path="res://systems/upgrades/assets/wing_price_upgrade_icon_lg.png" id="1_vn4m6"]
 [ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="2_6h8ki"]
 
 [resource]
 script = ExtResource("2_6h8ki")
 id = "wing_value_2"
-cost = 10
-icon = ExtResource("1_vn4m6")
+cost = 50
 effect_type = "wing_value"
-effect_value = 3.0
+effect_value = 1.0
 metadata/_custom_type_script = "uid://dakr2yr8ekswl"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://ddl3gvd0om01t"]
+
+[ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="1_b4gw2"]
+
+[resource]
+script = ExtResource("1_b4gw2")
+id = "spawn_rate_8"
+cost = 550
+effect_type = "spawn_rate"
+effect_value = 0.1
+metadata/_custom_type_script = "uid://dakr2yr8ekswl"

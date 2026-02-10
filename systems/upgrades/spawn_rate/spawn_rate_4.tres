@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://ckup2gchyl4kn"]
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://ckup2gchyl4kn"]
 
-[ext_resource type="Texture2D" uid="uid://bac1tj0f4xyu3" path="res://systems/upgrades/assets/spawn_rate_upgrade_icon_lg.png" id="1_5la1i"]
 [ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="2_5ai2s"]
 
 [resource]
 script = ExtResource("2_5ai2s")
 id = "spawn_rate_4"
-cost = 400
-icon = ExtResource("1_5la1i")
+cost = 100
 effect_type = "spawn_rate"
 effect_value = 0.2
 metadata/_custom_type_script = "uid://dakr2yr8ekswl"
