@@ -27,8 +27,6 @@ shader_parameter/y_speed = 0.0
 font = ExtResource("9_37s47")
 
 [node name="Game" type="Node2D"]
-metadata/_edit_vertical_guides_ = [38.0, 280.0, 40.0, -204.0, 42.0]
-metadata/_edit_horizontal_guides_ = [20.0, 152.0, 22.0, 152.0, 150.0, 24.0]
 
 [node name="CustomCamera" parent="." instance=ExtResource("1_trtic")]
 anchor_mode = 0
@@ -77,14 +75,14 @@ theme_override_constants/margin_right = 6
 [node name="TopBar" type="HBoxContainer" parent="HUD/MarginContainer"]
 layout_mode = 2
 
-[node name="LeftGroup" type="HBoxContainer" parent="HUD/MarginContainer/TopBar"]
+[node name="LeftGroup" type="HBoxContainer" parent="HUD/MarginContainer/TopBar" groups=["interactive_ui"]]
 layout_mode = 2
 theme_override_constants/separation = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="HUD/MarginContainer/TopBar/LeftGroup"]
 layout_mode = 2
 
-[node name="SettingsButton" type="TextureButton" parent="HUD/MarginContainer/TopBar/LeftGroup/CenterContainer"]
+[node name="SettingsButton" type="TextureButton" parent="HUD/MarginContainer/TopBar/LeftGroup/CenterContainer" groups=["interactive_ui"]]
 custom_minimum_size = Vector2(14, 14)
 layout_mode = 2
 texture_normal = ExtResource("4_rysoc")
@@ -95,7 +93,7 @@ texture_focused = ExtResource("4_rysoc")
 [node name="CenterContainer2" type="CenterContainer" parent="HUD/MarginContainer/TopBar/LeftGroup"]
 layout_mode = 2
 
-[node name="ShopButton" type="TextureButton" parent="HUD/MarginContainer/TopBar/LeftGroup/CenterContainer2"]
+[node name="ShopButton" type="TextureButton" parent="HUD/MarginContainer/TopBar/LeftGroup/CenterContainer2" groups=["interactive_ui"]]
 layout_mode = 2
 texture_normal = ExtResource("6_264po")
 texture_pressed = ExtResource("6_264po")

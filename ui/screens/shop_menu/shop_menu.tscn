@@ -20,7 +20,7 @@ font = ExtResource("3_6cl0q")
 [node name="ShopMenu" type="CanvasLayer"]
 script = ExtResource("1_6id7x")
 
-[node name="Overlay" type="ColorRect" parent="."]
+[node name="Overlay" type="ColorRect" parent="." groups=["interactive_ui"]]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -28,7 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.09411765, 0.078431375, 0.14509805, 0.5882353)
 
-[node name="ShopPanel" type="TextureRect" parent="."]
+[node name="ShopPanel" type="TextureRect" parent="." groups=["interactive_ui"]]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

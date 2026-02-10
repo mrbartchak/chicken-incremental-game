@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var exit_button: TextureButton = $ShopPanel/ShopMargin/ShopMenuStack/TopBar/ExitButton
 
 func _ready() -> void:
+	_add_group_recursive(self)
 	GameManager.wings_changed.connect(_update_wing_count)
 	_connect_signals()
 	close()
@@ -29,3 +30,9 @@ func _connect_signals() -> void:
 
 func _update_wing_count(amount: int) -> void:
 	wing_count_label.text = str(amount)
+
+func _add_group_recursive(node: Node) -> void:
+	if node is Control:
+		node.add_to_group("interactive_ui")
+	for child in node.get_children():
+		_add_group_recursive(child)
