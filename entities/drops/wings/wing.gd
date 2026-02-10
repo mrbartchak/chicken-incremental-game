@@ -3,8 +3,8 @@ extends Area2D
 
 @export var wing_type: WingType
 
-var magnetic_range: float = 30.0
-var magnetic_strength: float = 100.00
+var magnetic_range: float = 20.0
+var magnetic_strength: float = 15.0
 
 var pop_velocity: Vector2 = Vector2(0, -60)
 var drop_gravity: float = 200.0
@@ -20,10 +20,12 @@ func _ready() -> void:
 	sprite.texture = wing_type.sprite
 	_pop_in()
 
-
 func _process(delta: float) -> void:
-	velocity.y += drop_gravity * delta
-	global_position += velocity * delta
+	if collectable:
+		_handle_magnetism(delta)
+	else:
+		velocity.y += drop_gravity * delta
+		global_position += velocity * delta
 
 func collect() -> void:
 	if !collectable or collected:
@@ -34,17 +36,25 @@ func collect() -> void:
 	GameManager.collect_wing(wing_type.base_value, self.global_position)
 	queue_free()
 
+func _handle_magnetism(delta) -> void:
+	var cursor_pos: Vector2 = get_global_mouse_position()
+	var distance: float = global_position.distance_to(cursor_pos)
+	
+	if distance < magnetic_range:
+		var magnetic_weight: float = (1.0 - distance/magnetic_range) * magnetic_strength
+		self.global_position = global_position.lerp(cursor_pos, magnetic_weight * delta)
+
 func _pop_in() -> void:
 	_play_pop_tween()
 	velocity = pop_velocity
 	velocity.x = randf_range(-30, 30)
-	_stop_after_delay()
+	await _stop_after_delay()
+	collectable = true
 
 func _stop_after_delay() -> void:
 	await get_tree().create_timer(stop_time).timeout
 	drop_gravity = 0.0
 	velocity = Vector2.ZERO
-	collectable = true
 
 func _play_pop_tween() -> void:
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
