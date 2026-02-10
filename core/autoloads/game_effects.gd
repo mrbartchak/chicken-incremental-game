@@ -35,7 +35,7 @@ func spawn_floating_number(value: int, pos: Vector2, color: Color = Color.WHITE)
 # ================
 #      Pops
 # ================
-func pop(target: Control, amount: float = 1.2):
+func pop(target: CanvasItem, amount: float = 1.2):
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_BACK)

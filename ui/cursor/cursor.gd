@@ -16,3 +16,7 @@ func show_cursor() -> void:
 
 func hide_cursor() -> void:
 	sprite.visible = false
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("click"):
+		GameEffects.pop(sprite, 1.5)
