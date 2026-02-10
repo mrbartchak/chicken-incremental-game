@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://doryk43vj6nnv"]
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://doryk43vj6nnv"]
 
-[ext_resource type="Texture2D" uid="uid://bn55421islje1" path="res://systems/upgrades/assets/silver_spawn_chance_icon_lg.png" id="1_8hdle"]
 [ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="2_42s42"]
 
 [resource]
 script = ExtResource("2_42s42")
 id = "silver_spawn_chance_2"
-cost = 2000
-icon = ExtResource("1_8hdle")
+cost = 200
 effect_type = "silver_spawn_chance"
-effect_value = 0.1
+effect_value = 0.05
 metadata/_custom_type_script = "uid://dakr2yr8ekswl"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UpgradeTrack" load_steps=8 format=3 uid="uid://df52tjgkdxkkc"]
+[gd_resource type="Resource" script_class="UpgradeTrack" load_steps=14 format=3 uid="uid://df52tjgkdxkkc"]
 
 [ext_resource type="Script" uid="uid://qfkdktxtx8hw" path="res://systems/upgrades/upgrade_track.gd" id="1_huoy4"]
 [ext_resource type="Texture2D" uid="uid://di4xsnf63pl05" path="res://systems/upgrades/assets/silver_spawn_chance_icon.png" id="1_pmcfe"]
@@ -7,11 +7,17 @@
 [ext_resource type="Resource" uid="uid://doryk43vj6nnv" path="res://systems/upgrades/silver_spawn_chance/silver_spawn_chance_2.tres" id="4_pmcfe"]
 [ext_resource type="Resource" uid="uid://e7snkynl21uo" path="res://systems/upgrades/silver_spawn_chance/silver_spawn_chance_3.tres" id="5_hge00"]
 [ext_resource type="Resource" uid="uid://deafhiweik6qe" path="res://systems/upgrades/silver_spawn_chance/silver_spawn_chance_4.tres" id="6_3voxr"]
+[ext_resource type="Resource" uid="uid://ce1f3pofydaow" path="res://systems/upgrades/silver_spawn_chance/silver_spawn_chance_5.tres" id="8_yspf0"]
+[ext_resource type="Resource" uid="uid://kvaxkduj8xt6" path="res://systems/upgrades/silver_spawn_chance/silver_spawn_chance_6.tres" id="9_svoos"]
+[ext_resource type="Resource" uid="uid://bgry0vw62a6aq" path="res://systems/upgrades/silver_spawn_chance/silver_spawn_chance_7.tres" id="10_eyygj"]
+[ext_resource type="Resource" uid="uid://duo4hi0it1lq" path="res://systems/upgrades/silver_spawn_chance/silver_spawn_chance_8.tres" id="11_fv44d"]
+[ext_resource type="Resource" uid="uid://chkn0wuhe2xu1" path="res://systems/upgrades/silver_spawn_chance/silver_spawn_chance_9.tres" id="12_pmcef"]
+[ext_resource type="Resource" uid="uid://bngjw7jexqsjx" path="res://systems/upgrades/silver_spawn_chance/silver_spawn_chance_10.tres" id="13_jghgf"]
 
 [resource]
 script = ExtResource("1_huoy4")
 id = "silver_spawn_chance_track"
 display_name = "Silver Spawn Chance"
 icon = ExtResource("1_pmcfe")
-upgrades = Array[ExtResource("2_a7v7t")]([ExtResource("3_rbkgp"), ExtResource("4_pmcfe"), ExtResource("5_hge00"), ExtResource("6_3voxr")])
+upgrades = Array[ExtResource("2_a7v7t")]([ExtResource("3_rbkgp"), ExtResource("4_pmcfe"), ExtResource("5_hge00"), ExtResource("6_3voxr"), ExtResource("8_yspf0"), ExtResource("9_svoos"), ExtResource("10_eyygj"), ExtResource("11_fv44d"), ExtResource("12_pmcef"), ExtResource("13_jghgf")])
 metadata/_custom_type_script = "uid://qfkdktxtx8hw"

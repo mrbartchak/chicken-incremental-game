@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UpgradeTrack" load_steps=8 format=3 uid="uid://bhwyy1m68tvq1"]
+[gd_resource type="Resource" script_class="UpgradeTrack" load_steps=14 format=3 uid="uid://bhwyy1m68tvq1"]
 
 [ext_resource type="Script" uid="uid://qfkdktxtx8hw" path="res://systems/upgrades/upgrade_track.gd" id="1_28u2m"]
 [ext_resource type="Texture2D" uid="uid://btt6yaogympa2" path="res://systems/upgrades/assets/attack_speed_icon.png" id="1_fcu23"]
@@ -7,11 +7,17 @@
 [ext_resource type="Resource" uid="uid://ykr75g04soes" path="res://systems/upgrades/attack_speed/attack_speed_2.tres" id="4_fcu23"]
 [ext_resource type="Resource" uid="uid://b10yv8cnvf1pl" path="res://systems/upgrades/attack_speed/attack_speed_3.tres" id="5_rgr0f"]
 [ext_resource type="Resource" uid="uid://bywhcx1jy6kme" path="res://systems/upgrades/attack_speed/attack_speed_4.tres" id="6_ptarp"]
+[ext_resource type="Resource" uid="uid://cn5s1liv0f4ht" path="res://systems/upgrades/attack_speed/attack_speed_5.tres" id="8_020rb"]
+[ext_resource type="Resource" uid="uid://yy3u5icmfb14" path="res://systems/upgrades/attack_speed/attack_speed_6.tres" id="9_rurp6"]
+[ext_resource type="Resource" uid="uid://fdwittdkgm15" path="res://systems/upgrades/attack_speed/attack_speed_7.tres" id="10_uc3xd"]
+[ext_resource type="Resource" uid="uid://xo8jydrjmw2k" path="res://systems/upgrades/attack_speed/attack_speed_8.tres" id="11_axnlw"]
+[ext_resource type="Resource" uid="uid://bldxp4wnlrqpx" path="res://systems/upgrades/attack_speed/attack_speed_9.tres" id="12_nvmof"]
+[ext_resource type="Resource" uid="uid://c7y2i03qqva32" path="res://systems/upgrades/attack_speed/attack_speed_10.tres" id="13_mb6ok"]
 
 [resource]
 script = ExtResource("1_28u2m")
 id = "attack_speed_upgrade_track"
 display_name = "Attack Speed"
 icon = ExtResource("1_fcu23")
-upgrades = Array[ExtResource("2_a1myr")]([ExtResource("3_ubatb"), ExtResource("4_fcu23"), ExtResource("5_rgr0f"), ExtResource("6_ptarp")])
+upgrades = Array[ExtResource("2_a1myr")]([ExtResource("3_ubatb"), ExtResource("4_fcu23"), ExtResource("5_rgr0f"), ExtResource("6_ptarp"), ExtResource("8_020rb"), ExtResource("9_rurp6"), ExtResource("10_uc3xd"), ExtResource("11_axnlw"), ExtResource("12_nvmof"), ExtResource("13_mb6ok")])
 metadata/_custom_type_script = "uid://qfkdktxtx8hw"

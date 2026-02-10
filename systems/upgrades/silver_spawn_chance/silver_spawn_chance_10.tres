@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://bngjw7jexqsjx"]
+
+[ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="1_r4xlh"]
+
+[resource]
+script = ExtResource("1_r4xlh")
+id = "silver_spawn_chance_10"
+cost = 2500
+effect_type = "silver_spawn_chance"
+effect_value = 0.5
+metadata/_custom_type_script = "uid://dakr2yr8ekswl"

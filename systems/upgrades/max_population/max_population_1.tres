@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://sm4a4nvhbvkn"]
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://sm4a4nvhbvkn"]
 
-[ext_resource type="Texture2D" uid="uid://namfaod84lyr" path="res://systems/upgrades/assets/max_population_upgrade_icon_lg.png" id="1_8rxmd"]
 [ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="1_nm1xj"]
 
 [resource]
 script = ExtResource("1_nm1xj")
 id = "max_population_1"
-cost = 5
-icon = ExtResource("1_8rxmd")
+cost = 15
 effect_type = "max_population"
 effect_value = 1.0
 metadata/_custom_type_script = "uid://dakr2yr8ekswl"

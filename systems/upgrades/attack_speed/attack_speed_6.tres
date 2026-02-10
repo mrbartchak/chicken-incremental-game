@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://yy3u5icmfb14"]
+
+[ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="1_hs0ao"]
+
+[resource]
+script = ExtResource("1_hs0ao")
+id = "attack_speed_6"
+cost = 450
+effect_type = "attack_speed"
+effect_value = 0.05
+metadata/_custom_type_script = "uid://dakr2yr8ekswl"

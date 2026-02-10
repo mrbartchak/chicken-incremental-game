@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://b10yv8cnvf1pl"]
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://b10yv8cnvf1pl"]
 
-[ext_resource type="Texture2D" uid="uid://cd6kqoyamj8u6" path="res://systems/upgrades/assets/attack_speed_upgrade_icon_lg.png" id="1_ecblm"]
 [ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="2_h16ia"]
 
 [resource]
 script = ExtResource("2_h16ia")
 id = "attack_speed_3"
-cost = 100
-icon = ExtResource("1_ecblm")
+cost = 120
 effect_type = "attack_speed"
-effect_value = 0.2
+effect_value = 0.1
 metadata/_custom_type_script = "uid://dakr2yr8ekswl"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://chffbvtytxdi3"]
+
+[ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="1_5noet"]
+
+[resource]
+script = ExtResource("1_5noet")
+id = "max_population_7"
+cost = 700
+effect_type = "max_population"
+effect_value = 4.0
+metadata/_custom_type_script = "uid://dakr2yr8ekswl"

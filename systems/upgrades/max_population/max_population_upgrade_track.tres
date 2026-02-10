@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UpgradeTrack" load_steps=8 format=3 uid="uid://b8timi4en15a4"]
+[gd_resource type="Resource" script_class="UpgradeTrack" load_steps=14 format=3 uid="uid://b8timi4en15a4"]
 
 [ext_resource type="Script" uid="uid://qfkdktxtx8hw" path="res://systems/upgrades/upgrade_track.gd" id="1_kls51"]
 [ext_resource type="Texture2D" uid="uid://cfubi5kfvfisb" path="res://systems/upgrades/assets/max_population_icon.png" id="1_u756j"]
@@ -7,11 +7,17 @@
 [ext_resource type="Resource" uid="uid://dth45kqkesm5b" path="res://systems/upgrades/max_population/max_population_2.tres" id="4_j721o"]
 [ext_resource type="Resource" uid="uid://dlqcc77y5gnaf" path="res://systems/upgrades/max_population/max_population_3.tres" id="5_3h21x"]
 [ext_resource type="Resource" uid="uid://cfed43qg6iiqb" path="res://systems/upgrades/max_population/max_population_4.tres" id="6_g45ul"]
+[ext_resource type="Resource" uid="uid://b2fqwfvoki3vq" path="res://systems/upgrades/max_population/max_population_5.tres" id="8_q7g72"]
+[ext_resource type="Resource" uid="uid://cxhl0pkhn5yt3" path="res://systems/upgrades/max_population/max_population_6.tres" id="9_yv12a"]
+[ext_resource type="Resource" uid="uid://chffbvtytxdi3" path="res://systems/upgrades/max_population/max_population_7.tres" id="10_w8fji"]
+[ext_resource type="Resource" uid="uid://b82u5vwwv5mai" path="res://systems/upgrades/max_population/max_population_8.tres" id="11_00p07"]
+[ext_resource type="Resource" uid="uid://b245cyotifdj1" path="res://systems/upgrades/max_population/max_population_9.tres" id="12_fbnws"]
+[ext_resource type="Resource" uid="uid://4haa0vi1y4hm" path="res://systems/upgrades/max_population/max_population_10.tres" id="13_20ur7"]
 
 [resource]
 script = ExtResource("1_kls51")
 id = "max_population_upgrade_track"
 display_name = "Max Population Upgrades"
 icon = ExtResource("1_u756j")
-upgrades = Array[ExtResource("2_vof0p")]([ExtResource("3_5cd7d"), ExtResource("4_j721o"), ExtResource("5_3h21x"), ExtResource("6_g45ul")])
+upgrades = Array[ExtResource("2_vof0p")]([ExtResource("3_5cd7d"), ExtResource("4_j721o"), ExtResource("5_3h21x"), ExtResource("6_g45ul"), ExtResource("8_q7g72"), ExtResource("9_yv12a"), ExtResource("10_w8fji"), ExtResource("11_00p07"), ExtResource("12_fbnws"), ExtResource("13_20ur7")])
 metadata/_custom_type_script = "uid://qfkdktxtx8hw"
