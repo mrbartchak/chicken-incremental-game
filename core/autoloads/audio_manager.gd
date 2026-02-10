@@ -33,10 +33,10 @@ func play_sfx(audio: AudioStream, pitch_range: float = 0.0, volume: float = 0.0)
 
 # ============ UI ============
 func play_button_click() -> void:
-	play_sfx(sfx_button_click, 0.0, -10.0)
+	play_sfx(sfx_button_click, 0.0, -15.0)
 
 func play_button_hover() -> void:
-	play_sfx(sfx_button_hover)
+	play_sfx(sfx_button_hover, 0.0, -10.0)
 
 # ========= ENTITIES =========
 func play_item_collect() -> void:

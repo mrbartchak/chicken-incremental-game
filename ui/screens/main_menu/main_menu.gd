@@ -35,10 +35,12 @@ func _on_exit_button_pressed() -> void:
 
 # ============ Internal ============
 func _connect_button_sounds() -> void:
+	continue_button.mouse_entered.connect(AudioManager.play_button_hover)
 	new_game_button.mouse_entered.connect(AudioManager.play_button_hover)
 	settings_button.mouse_entered.connect(AudioManager.play_button_hover)
 	exit_button.mouse_entered.connect(AudioManager.play_button_hover)
 	
+	continue_button.pressed.connect(AudioManager.play_button_click)
 	new_game_button.pressed.connect(AudioManager.play_button_click)
 	settings_button.pressed.connect(AudioManager.play_button_click)
 	exit_button.pressed.connect(AudioManager.play_button_click)

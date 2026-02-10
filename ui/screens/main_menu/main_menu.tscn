@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c45nlbkvcabkd" path="res://ui/screens/main_menu/main_menu.gd" id="1_i8qw8"]
 [ext_resource type="Shader" uid="uid://c5bskyqsddk1g" path="res://core/shaders/background_scroll.gdshader" id="2_77una"]
-[ext_resource type="Texture2D" uid="uid://dlhdf232wrjdt" path="res://ui/screens/main_menu/assets/green_tile_pattern.png" id="3_ygv2v"]
+[ext_resource type="Texture2D" uid="uid://rpj22vbh14xu" path="res://ui/assets/cloud_tile.png" id="3_uck36"]
 [ext_resource type="Texture2D" uid="uid://ctxgv3qramxgc" path="res://entities/drops/wings/assets/wing_outline.png" id="4_jp7xi"]
 [ext_resource type="Texture2D" uid="uid://bu2tjuvrgvop7" path="res://ui/screens/main_menu/assets/menu_logo-sword.png" id="5_porbc"]
 [ext_resource type="Texture2D" uid="uid://bir1m82ky4crj" path="res://ui/screens/main_menu/assets/buttons/menu_button_normal.png" id="6_cv2ih"]
@@ -11,8 +11,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_trkij"]
 shader = ExtResource("2_77una")
-shader_parameter/x_speed = 0.1
-shader_parameter/y_speed = 0.15
+shader_parameter/x_speed = -0.01
+shader_parameter/y_speed = 0.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vlit4"]
 particle_flag_disable_z = true
@@ -61,7 +61,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_ygv2v")
+texture = ExtResource("3_uck36")
 stretch_mode = 1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
