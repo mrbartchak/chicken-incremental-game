@@ -9,5 +9,6 @@ script = ExtResource("1_psnmj")
 id = "basic_chicken"
 display_name = "Chicken"
 sprite_frames = ExtResource("2_ydnyr")
+speed = 20.0
 wing_type = ExtResource("3_uss16")
 metadata/_custom_type_script = "uid://0ic7vuhhcb2t"

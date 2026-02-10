@@ -1,36 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://4hf7dgvsytss"]
+[gd_scene load_steps=13 format=3 uid="uid://4hf7dgvsytss"]
 
 [ext_resource type="Script" uid="uid://i5bufqdi8vt6" path="res://entities/chickens/chicken.gd" id="1_scr0v"]
 [ext_resource type="PackedScene" uid="uid://bvj685b08ne5i" path="res://entities/drops/wings/wing.tscn" id="2_5egjd"]
 [ext_resource type="Texture2D" uid="uid://bw8s4nkfelrju" path="res://entities/chickens/assets/feather.png" id="3_ji1vg"]
-[ext_resource type="Texture2D" uid="uid://b7kwqf0e5nw3y" path="res://entities/chickens/assets/grass_particle.png" id="3_kpgen"]
 [ext_resource type="SpriteFrames" uid="uid://d2vso4gooyii8" path="res://entities/chickens/assets/basic_chicken_sprite_frames.tres" id="4_kpgen"]
-[ext_resource type="Script" uid="uid://c3o1i4wv3scxd" path="res://systems/state_machine/state_machine.gd" id="6_gfhuf"]
-[ext_resource type="Script" uid="uid://bxuu6xyklmgms" path="res://entities/chickens/states/chicken_idle.gd" id="7_cgl0l"]
-[ext_resource type="Script" uid="uid://cwlhrwa10vodw" path="res://entities/chickens/states/chicken_roaming.gd" id="8_kpgen"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qxmy2"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(4, 8, 1)
 gravity = Vector3(0, -5, 0)
-
-[sub_resource type="Curve" id="Curve_kpgen"]
-_data = [Vector2(0.5040916, 0.9999999), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_qxmy2"]
-curve = SubResource("Curve_kpgen")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cgl0l"]
-particle_flag_disable_z = true
-angle_min = 1.0728835e-05
-angle_max = 720.0
-direction = Vector3(0, -1, 0)
-initial_velocity_min = 1.0
-initial_velocity_max = 10.0
-gravity = Vector3(0, 0, 0)
-alpha_curve = SubResource("CurveTexture_qxmy2")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpgen"]
 content_margin_left = 2.0
@@ -89,14 +68,6 @@ position = Vector2(0, -3)
 lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_qxmy2")
 
-[node name="WalkParticles" type="GPUParticles2D" parent="."]
-emitting = false
-amount = 6
-texture = ExtResource("3_kpgen")
-trail_enabled = true
-trail_sections = 4
-process_material = SubResource("ParticleProcessMaterial_cgl0l")
-
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.5, -3)
 sprite_frames = ExtResource("4_kpgen")
@@ -137,15 +108,3 @@ texture = ExtResource("3_ji1vg")
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_kpgen")
-
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("6_gfhuf")
-initial_state = NodePath("IdleState")
-
-[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("roaming_state")]
-script = ExtResource("7_cgl0l")
-roaming_state = NodePath("../RoamingState")
-
-[node name="RoamingState" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
-script = ExtResource("8_kpgen")
-idle_state = NodePath("../IdleState")

@@ -5,34 +5,75 @@ enum State { IDLE, ROAMING }
 
 @export var wing_scene: PackedScene
 
-#var state: State = State.IDLE
+var state: State = State.IDLE
 var chicken_type: ChickenType
 var health: int
 var dead: bool = false
 
-@onready var state_machine: StateMachine = $StateMachine
+var elapsed: float = 0.0
+var wait_time: float = 0.0
+var roam_radius: float = 20.0
+var target_position: Vector2
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var hit_particles: GPUParticles2D = $HitParticles
-@onready var walk_particles: GPUParticles2D = $WalkParticles
 @onready var death_particles: GPUParticles2D = $DeathParticles
 
 func _ready() -> void:
 	sprite.sprite_frames = chicken_type.sprite_frames
-	state_machine.init(self, sprite)
 	health = chicken_type.max_health
 	play_spawn_animation()
-	#GameManager.add_chicken(1)
-
-#func _unhandled_input(event: InputEvent) -> void:
-	#state_machine.process_input(event)
-
-func _physics_process(delta: float) -> void:
-	state_machine.process_physics(delta)
+	_enter_idle()
 
 func _process(delta: float) -> void:
 	$Sprite/HealthBar.value = health / float(chicken_type.max_health)
-	state_machine.process_frame(delta)
+	match state:
+		State.IDLE:
+			_process_idle(delta)
+		State.ROAMING:
+			_process_roaming(delta)
+
+# ================
+#      STATES
+# ================
+func _enter_idle() -> void:
+	state = State.IDLE
+	if sprite.animation == "walk_right":
+		sprite.play("idle_right")
+	elif sprite.animation == "walk_left":
+		sprite.play("idle_left")
+	else:
+		sprite.play("default")
+	elapsed = 0.0
+	wait_time = randf_range(0.5, 1.5)
+
+func _process_idle(delta) -> void:
+	elapsed += delta
+	if elapsed >= wait_time:
+		_enter_roaming()
+
+func _enter_roaming() -> void:
+	state = State.ROAMING
+	var angle: float = randf() * TAU
+	var radius: float = randf() * roam_radius
+	target_position = global_position + Vector2(cos(angle), sin(angle)) * radius
+	target_position = clamp_to_arena(target_position)
+	
+	if target_position.x > global_position.x:
+		sprite.play("walk_right")
+	else:
+		sprite.play("walk_left")
+
+func _process_roaming(delta) -> void:
+	var to_target: Vector2 = target_position - global_position
+	var distance: float = to_target.length()
+	
+	if distance < 0.2:
+		self.global_position = target_position
+		_enter_idle()
+		return
+	
+	global_position += to_target.normalized() * chicken_type.speed * delta
 
 # ===================
 #       Damage
@@ -41,11 +82,10 @@ func take_damage(amount: int) -> void:
 	if dead:
 		return
 	health -= amount
-	#GameEffects.frame_freeze(0.1, .05)
+	flash()
 	if health <= 0:
 		die() #call_deferred("die") !!!
 		return
-	flash()
 	hit_particles.restart()
 
 
@@ -53,13 +93,15 @@ func die() -> void:
 	if dead:
 		return
 	dead = true
+	drop_wing()
+	
 	GameEffects.shake_screen(1, 0.2)
 	sprite.visible = false
 	monitorable = false
 	AudioManager.play_chicken_death()
-	drop_wing()
 	death_particles.restart()
 	await get_tree().create_timer(death_particles.lifetime).timeout
+	
 	GameManager.remove_chicken()
 	queue_free()
 
@@ -84,3 +126,15 @@ func flash() -> void:
 	sprite.modulate = Color.ORANGE_RED
 	await get_tree().create_timer(flash_time).timeout
 	sprite.modulate = Color(1, 1, 1)
+
+# ================
+#      Other
+# ================
+func clamp_to_arena(pos: Vector2) -> Vector2:
+	var margin_x: float = 44.0
+	var margin_y: float = 24
+	var bottom_margin: float = 6.0
+	var viewport_rect = self.get_viewport_rect()
+	pos.x = clamp(pos.x, margin_x, viewport_rect.size.x - margin_x)
+	pos.y = clamp(pos.y, margin_y, viewport_rect.size.y - margin_y - bottom_margin)
+	return pos
