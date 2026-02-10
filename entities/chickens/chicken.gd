@@ -132,7 +132,7 @@ func flash() -> void:
 # ================
 func clamp_to_arena(pos: Vector2) -> Vector2:
 	var margin_x: float = 44.0
-	var margin_y: float = 24
+	var margin_y: float = 26
 	var bottom_margin: float = 6.0
 	var viewport_rect = self.get_viewport_rect()
 	pos.x = clamp(pos.x, margin_x, viewport_rect.size.x - margin_x)

@@ -3,7 +3,7 @@ extends Node
 
 @export var chicken_scene: PackedScene
 @export var chicken_container: Node2D
-@export var spawn_area: Rect2 = Rect2(44, 24, 232, 128)
+@export var spawn_area: Rect2 = Rect2(44, 26, 232, 128)
 
 var chicken_types: Dictionary = {
 	"basic": preload("res://entities/chickens/types/basic_chicken.tres"),

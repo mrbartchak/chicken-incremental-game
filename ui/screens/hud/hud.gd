@@ -1,8 +1,8 @@
 class_name Hud
 extends Control
 
-@onready var wing_count_group: HBoxContainer = $MarginContainer/TopBar/RightGroup
-@onready var wing_count_label: Label = $MarginContainer/TopBar/RightGroup/WingCount
+@onready var top_bar: HBoxContainer = $HudMargin/TopBar
+@onready var wing_count_label: Label = $HudMargin/TopBar/WingCount
 @onready var shop: ShopMenu = $ShopMenu
 @onready var ingame_settings: IngameSettings = $IngameSettings
 
@@ -24,4 +24,4 @@ func _on_shop_button_pressed() -> void:
 
 func update_wing_count_label(amount: int) -> void:
 	wing_count_label.text = str(amount)
-	GameEffects.pop(wing_count_group)
+	GameEffects.pop(top_bar)

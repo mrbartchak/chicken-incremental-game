@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://h4s3cmuvmsoj" path="res://ui/screens/hud/assets/shop_icon.png" id="6_264po"]
 [ext_resource type="Script" uid="uid://di770m57wej6y" path="res://systems/spawners/chicken_spawner.gd" id="6_rysoc"]
 [ext_resource type="Texture2D" uid="uid://bcomh5ilvduxg" path="res://ui/screens/hud/assets/shop_icon_outlined.png" id="7_1kice"]
-[ext_resource type="Texture2D" uid="uid://b5gosdqun7tnj" path="res://ui/screens/hud/assets/wing_count_logo_outlined.png" id="8_5newe"]
+[ext_resource type="Texture2D" uid="uid://ctxgv3qramxgc" path="res://entities/drops/wings/assets/wing_outline.png" id="7_rysoc"]
 [ext_resource type="FontFile" uid="uid://r6bebwqfqoxw" path="res://ui/theme/fonts/GrapeSoda.ttf" id="9_37s47"]
 [ext_resource type="PackedScene" uid="uid://bs3h83ewc4e0q" path="res://ui/screens/shop_menu/shop_menu.tscn" id="10_bt5mj"]
 [ext_resource type="PackedScene" uid="uid://bfbjwecn2ug34" path="res://ui/screens/ingame_settings/ingame_settings.tscn" id="11_e1j6l"]
@@ -27,6 +27,7 @@ shader_parameter/y_speed = 0.0
 font = ExtResource("9_37s47")
 
 [node name="Game" type="Node2D"]
+metadata/_edit_vertical_guides_ = [160.0]
 
 [node name="CustomCamera" parent="." instance=ExtResource("1_trtic")]
 anchor_mode = 0
@@ -46,7 +47,7 @@ position = Vector2(160, 90)
 texture = ExtResource("2_ir15t")
 
 [node name="Platform" type="Sprite2D" parent="GameWorld"]
-position = Vector2(160, 94)
+position = Vector2(160, 96)
 texture = ExtResource("5_rysoc")
 
 [node name="ChickenContainer" type="Node2D" parent="GameWorld"]
@@ -62,72 +63,62 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_ca42v")
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+[node name="HudMargin" type="MarginContainer" parent="HUD"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 16.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-theme_override_constants/margin_left = 4
+grow_vertical = 2
+theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 6
 
-[node name="TopBar" type="HBoxContainer" parent="HUD/MarginContainer"]
+[node name="TopBar" type="HBoxContainer" parent="HUD/HudMargin"]
 layout_mode = 2
-
-[node name="LeftGroup" type="HBoxContainer" parent="HUD/MarginContainer/TopBar" groups=["interactive_ui"]]
-layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 theme_override_constants/separation = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="HUD/MarginContainer/TopBar/LeftGroup"]
+[node name="WingIcon" type="TextureRect" parent="HUD/HudMargin/TopBar"]
+custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_rysoc")
+stretch_mode = 2
 
-[node name="SettingsButton" type="TextureButton" parent="HUD/MarginContainer/TopBar/LeftGroup/CenterContainer" groups=["interactive_ui"]]
+[node name="WingCount" type="Label" parent="HUD/HudMargin/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "000000"
+label_settings = SubResource("LabelSettings_cjuek")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="SideButtons" type="VBoxContainer" parent="HUD/HudMargin"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 2
+
+[node name="SettingsButton" type="TextureButton" parent="HUD/HudMargin/SideButtons" groups=["interactive_ui"]]
 custom_minimum_size = Vector2(14, 14)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = ExtResource("4_rysoc")
 texture_pressed = ExtResource("4_rysoc")
 texture_hover = ExtResource("5_ssvqc")
 texture_focused = ExtResource("4_rysoc")
 
-[node name="CenterContainer2" type="CenterContainer" parent="HUD/MarginContainer/TopBar/LeftGroup"]
+[node name="ShopButton" type="TextureButton" parent="HUD/HudMargin/SideButtons" groups=["interactive_ui"]]
 layout_mode = 2
-
-[node name="ShopButton" type="TextureButton" parent="HUD/MarginContainer/TopBar/LeftGroup/CenterContainer2" groups=["interactive_ui"]]
-layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = ExtResource("6_264po")
 texture_pressed = ExtResource("6_264po")
 texture_hover = ExtResource("7_1kice")
 texture_focused = ExtResource("6_264po")
-
-[node name="Spacer" type="Control" parent="HUD/MarginContainer/TopBar"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="RightGroup" type="HBoxContainer" parent="HUD/MarginContainer/TopBar"]
-layout_mode = 2
-theme_override_constants/separation = 1
-alignment = 1
-
-[node name="CenterContainer" type="CenterContainer" parent="HUD/MarginContainer/TopBar/RightGroup"]
-layout_mode = 2
-
-[node name="WingIcon" type="TextureRect" parent="HUD/MarginContainer/TopBar/RightGroup/CenterContainer"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 2
-texture = ExtResource("8_5newe")
-stretch_mode = 2
-
-[node name="Spacer" type="Control" parent="HUD/MarginContainer/TopBar/RightGroup"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="WingCount" type="Label" parent="HUD/MarginContainer/TopBar/RightGroup"]
-layout_mode = 2
-text = "0"
-label_settings = SubResource("LabelSettings_cjuek")
-horizontal_alignment = 2
-vertical_alignment = 2
 
 [node name="ShopMenu" parent="HUD" instance=ExtResource("10_bt5mj")]
 visible = false
@@ -145,5 +136,5 @@ script = ExtResource("6_rysoc")
 chicken_scene = ExtResource("13_bhx41")
 chicken_container = NodePath("../GameWorld/ChickenContainer")
 
-[connection signal="pressed" from="HUD/MarginContainer/TopBar/LeftGroup/CenterContainer/SettingsButton" to="HUD" method="_on_settings_button_pressed"]
-[connection signal="pressed" from="HUD/MarginContainer/TopBar/LeftGroup/CenterContainer2/ShopButton" to="HUD" method="_on_shop_button_pressed"]
+[connection signal="pressed" from="HUD/HudMargin/SideButtons/SettingsButton" to="HUD" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="HUD/HudMargin/SideButtons/ShopButton" to="HUD" method="_on_shop_button_pressed"]

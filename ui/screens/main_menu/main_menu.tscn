@@ -22,8 +22,8 @@ angle_min = 1.0728835e-05
 angle_max = 1.0728835e-05
 direction = Vector3(0, 1, 0)
 spread = 0.0
-initial_velocity_min = 30.0
-initial_velocity_max = 40.0
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
 angular_velocity_min = -20.000015
 angular_velocity_max = 19.999983
 gravity = Vector3(0, 0, 0)
@@ -66,9 +66,10 @@ stretch_mode = 1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(160, -18)
-amount = 300
+amount = 250
 texture = ExtResource("4_jp7xi")
-lifetime = 7.0
+lifetime = 10.0
+preprocess = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_vlit4")
 
