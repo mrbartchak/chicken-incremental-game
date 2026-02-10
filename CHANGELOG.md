@@ -1,6 +1,22 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
+## [v0.3.0] - 2026-02-09
+
+### Added
+- Silver chickens!
+- Silver chickens will drop silver wings (higher base value)
+- Upgrade track to increase silver chicken spawn rate
+
+### Changed
+- Chickens now spawn on floating island
+- Reduce the spawn/game area size
+- Spawner and Drops are now resource driven
+
+### Fixed
+- Chicken state management
+- Some bugs with nodes not reading loaded state
+
 ## [v0.2.2] - 2026-02-08
 
 ### Added

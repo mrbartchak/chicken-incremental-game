@@ -1,10 +1,10 @@
 extends Node
 
 const MAJOR = 0
-const MINOR = 2
-const PATCH = 2
+const MINOR = 3
+const PATCH = 0
 
-const VERSION_STRING = "0.2.2"
+const VERSION_STRING = "0.3.0"
 
 func get_version() -> String:
 	return VERSION_STRING
