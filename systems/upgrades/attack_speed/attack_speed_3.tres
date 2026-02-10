@@ -8,5 +8,6 @@ script = ExtResource("2_h16ia")
 id = "attack_speed_3"
 cost = 100
 icon = ExtResource("1_ecblm")
+effect_type = "attack_speed"
 effect_value = 0.2
 metadata/_custom_type_script = "uid://dakr2yr8ekswl"

@@ -18,6 +18,7 @@ func _ready() -> void:
 	GameManager.stats_changed.connect(_update_attack_radius)
 	cooldown_bar.value = 1.0
 	attack_hitbox.shape.radius = attack_radius
+	attack_cooldown = GameManager.attack_speed
 
 func _process(delta):
 	var target := get_global_mouse_position()
