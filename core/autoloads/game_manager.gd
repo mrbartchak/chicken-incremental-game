@@ -158,7 +158,8 @@ func _load_upgrade_tracks() -> void:
 		load("res://systems/upgrades/wing_value/wing_value_upgrade_track.tres"),
 		load("res://systems/upgrades/max_population/max_population_upgrade_track.tres"),
 		load("res://systems/upgrades/spawn_rate/spawn_rate_upgrade_track.tres"),
-		load("res://systems/upgrades/attack_speed/attack_speed_upgrade_track.tres")
+		load("res://systems/upgrades/attack_speed/attack_speed_upgrade_track.tres"),
+		load("res://systems/upgrades/silver_spawn_chance/silver_spawn_chance_track.tres")
 	]
 	for track: UpgradeTrack in tracks:
 		_upgrade_tracks[track.id] = track
