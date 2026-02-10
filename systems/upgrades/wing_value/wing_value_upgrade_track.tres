@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeTrack" load_steps=8 format=3 uid="uid://fkhry764wp8f"]
 
-[ext_resource type="Texture2D" uid="uid://df1g6w2t6nea" path="res://systems/upgrades/assets/wing_price_upgrade_icon_lg.png" id="1_cqgdj"]
+[ext_resource type="Texture2D" uid="uid://dlcf06p3youya" path="res://systems/upgrades/assets/wing_value_icon.png" id="1_cqgdj"]
 [ext_resource type="Script" uid="uid://qfkdktxtx8hw" path="res://systems/upgrades/upgrade_track.gd" id="1_ul6sg"]
 [ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="2_tp2an"]
 [ext_resource type="Resource" uid="uid://b5lo8wwx5ia3g" path="res://systems/upgrades/wing_value/wing_value_1.tres" id="3_mu6qo"]

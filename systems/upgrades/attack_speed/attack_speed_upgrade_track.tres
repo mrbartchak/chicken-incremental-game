@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UpgradeTrack" load_steps=8 format=3 uid="uid://bhwyy1m68tvq1"]
 
 [ext_resource type="Script" uid="uid://qfkdktxtx8hw" path="res://systems/upgrades/upgrade_track.gd" id="1_28u2m"]
-[ext_resource type="Texture2D" uid="uid://cd6kqoyamj8u6" path="res://systems/upgrades/assets/attack_speed_upgrade_icon_lg.png" id="1_fcu23"]
+[ext_resource type="Texture2D" uid="uid://btt6yaogympa2" path="res://systems/upgrades/assets/attack_speed_icon.png" id="1_fcu23"]
 [ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="2_a1myr"]
 [ext_resource type="Resource" uid="uid://qvndwnjfubsx" path="res://systems/upgrades/attack_speed/attack_speed_1.tres" id="3_ubatb"]
 [ext_resource type="Resource" uid="uid://ykr75g04soes" path="res://systems/upgrades/attack_speed/attack_speed_2.tres" id="4_fcu23"]

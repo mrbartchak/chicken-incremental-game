@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bntyr0xn8ui0c" path="res://ui/screens/shop_menu/assets/upgrade_tier_icon.png" id="2_dyvvi"]
 [ext_resource type="Texture2D" uid="uid://c7uhqdoarndb5" path="res://ui/screens/shop_menu/assets/upgrade_tier_icon_empty.png" id="3_m02ym"]
 [ext_resource type="Texture2D" uid="uid://dkexwtmywpi4n" path="res://ui/screens/shop_menu/assets/shop_price_buttons.png" id="4_pwric"]
-[ext_resource type="Texture2D" uid="uid://namfaod84lyr" path="res://systems/upgrades/assets/max_population_upgrade_icon_lg.png" id="4_uotk2"]
+[ext_resource type="Texture2D" uid="uid://dlcf06p3youya" path="res://systems/upgrades/assets/wing_value_icon.png" id="4_ysbbh"]
 [ext_resource type="Texture2D" uid="uid://lienbp28u3ar" path="res://ui/screens/shop_menu/assets/max_upgrade_button.png" id="5_dyvvi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ttsph"]
@@ -18,17 +18,26 @@ region = Rect2(0, 14, 32, 14)
 [sub_resource type="LabelSettings" id="LabelSettings_jn3yi"]
 font_size = 8
 
-[node name="UpgradeTrackUI" type="VBoxContainer"]
-offset_right = 32.0
-offset_bottom = 44.0
-theme_override_constants/separation = 1
-alignment = 1
+[node name="UpgradeTrackUI" type="HBoxContainer"]
+custom_minimum_size = Vector2(77, 14)
+offset_right = 77.0
+offset_bottom = 14.0
+theme_override_constants/separation = 3
 script = ExtResource("1_m02ym")
 tier_filled = ExtResource("2_dyvvi")
 tier_empty = ExtResource("3_m02ym")
 
+[node name="UpgradeIcon" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("4_ysbbh")
+stretch_mode = 2
+
 [node name="UpgradeTiers" type="HBoxContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 theme_override_constants/separation = 1
 alignment = 1
 
@@ -48,14 +57,29 @@ texture = ExtResource("2_dyvvi")
 layout_mode = 2
 texture = ExtResource("2_dyvvi")
 
-[node name="CenterIcon" type="CenterContainer" parent="."]
+[node name="Tier5" type="TextureRect" parent="UpgradeTiers"]
 layout_mode = 2
+texture = ExtResource("2_dyvvi")
 
-[node name="UpgradeIcon" type="TextureRect" parent="CenterIcon"]
-custom_minimum_size = Vector2(30, 22)
+[node name="Tier6" type="TextureRect" parent="UpgradeTiers"]
 layout_mode = 2
-texture = ExtResource("4_uotk2")
-stretch_mode = 2
+texture = ExtResource("2_dyvvi")
+
+[node name="Tier7" type="TextureRect" parent="UpgradeTiers"]
+layout_mode = 2
+texture = ExtResource("2_dyvvi")
+
+[node name="Tier8" type="TextureRect" parent="UpgradeTiers"]
+layout_mode = 2
+texture = ExtResource("2_dyvvi")
+
+[node name="Tier9" type="TextureRect" parent="UpgradeTiers"]
+layout_mode = 2
+texture = ExtResource("2_dyvvi")
+
+[node name="Tier10" type="TextureRect" parent="UpgradeTiers"]
+layout_mode = 2
+texture = ExtResource("2_dyvvi")
 
 [node name="PurchaseButton" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(32, 14)
@@ -85,5 +109,7 @@ horizontal_alignment = 2
 [node name="MaxedLogo" type="TextureRect" parent="."]
 visible = false
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 texture = ExtResource("5_dyvvi")
 stretch_mode = 2

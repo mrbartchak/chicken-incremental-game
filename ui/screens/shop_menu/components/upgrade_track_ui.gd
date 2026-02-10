@@ -1,12 +1,12 @@
 class_name UpgradeTrackUI
-extends VBoxContainer
+extends HBoxContainer
 
 @export var track_id: String
 @export var tier_filled: Texture2D
 @export var tier_empty: Texture2D
 
 @onready var tier_container: HBoxContainer = $UpgradeTiers
-@onready var upgrade_icon: TextureRect = $CenterIcon/UpgradeIcon
+@onready var upgrade_icon: TextureRect = $UpgradeIcon
 @onready var cost_label: Label = $PurchaseButton/CostLabel
 @onready var purchase_button: TextureButton = $PurchaseButton
 @onready var maxed_logo: TextureRect = $MaxedLogo
