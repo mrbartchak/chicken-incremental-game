@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeTrack" load_steps=7 format=3 uid="uid://df52tjgkdxkkc"]
+
+[ext_resource type="Script" uid="uid://qfkdktxtx8hw" path="res://systems/upgrades/upgrade_track.gd" id="1_huoy4"]
+[ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="2_a7v7t"]
+[ext_resource type="Resource" uid="uid://dvmyr1rnpbqxd" path="res://systems/upgrades/silver_spawn_chance/silver_spawn_chance_1.tres" id="3_rbkgp"]
+[ext_resource type="Resource" uid="uid://doryk43vj6nnv" path="res://systems/upgrades/silver_spawn_chance/silver_spawn_chance_2.tres" id="4_pmcfe"]
+[ext_resource type="Resource" uid="uid://e7snkynl21uo" path="res://systems/upgrades/silver_spawn_chance/silver_spawn_chance_3.tres" id="5_hge00"]
+[ext_resource type="Resource" uid="uid://deafhiweik6qe" path="res://systems/upgrades/silver_spawn_chance/silver_spawn_chance_4.tres" id="6_3voxr"]
+
+[resource]
+script = ExtResource("1_huoy4")
+id = "silver_spawn_chance_track"
+display_name = "Silver Spawn Chance"
+upgrades = Array[ExtResource("2_a7v7t")]([ExtResource("3_rbkgp"), ExtResource("4_pmcfe"), ExtResource("5_hge00"), ExtResource("6_3voxr")])
+metadata/_custom_type_script = "uid://qfkdktxtx8hw"

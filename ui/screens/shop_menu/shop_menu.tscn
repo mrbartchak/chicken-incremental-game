@@ -118,3 +118,7 @@ track_id = "spawn_rate_upgrade_track"
 [node name="UpgradeTrackUI4" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow" instance=ExtResource("7_ttsph")]
 layout_mode = 2
 track_id = "attack_speed_upgrade_track"
+
+[node name="UpgradeTrackUI5" parent="ShopPanel/ShopMargin/ShopMenuStack/UpgradesRow" instance=ExtResource("7_ttsph")]
+layout_mode = 2
+track_id = "silver_spawn_chance_track"

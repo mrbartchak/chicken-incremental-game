@@ -4,19 +4,26 @@ signal wings_changed(amount: int)
 signal chicken_count_changed(amount: int)
 signal stats_changed()
 
-const BASE_WING_VALUE: int = 1
+const BASE_WING_VALUE_BONUS: int = 0
 const BASE_MAX_POPULATION: int = 1
 const BASE_SPAWN_RATE: float = 2.0
 const BASE_ATTACK_SPEED: float = 1.0
+const BASE_CHICKEN_SPAWN_CHANCES: Dictionary = {
+	"basic": 1.0,
+	"silver": 0.0,
+	"gold": 0.0
+}
+const SPAWN_ORDER: Array[String] = ["gold", "silver", "basic"]
 
 var _state: GameState
 var _upgrade_tracks: Dictionary = {}
 
 # Computed Stats (derived from state)
-var wing_value: int = BASE_WING_VALUE
+var wing_value_bonus: int = BASE_WING_VALUE_BONUS
 var max_population: int = BASE_MAX_POPULATION
 var spawn_rate: float = BASE_SPAWN_RATE
 var attack_speed: float = BASE_ATTACK_SPEED
+var chicken_spawn_chances: Dictionary = {}
 
 func _ready() -> void:
 	_load_upgrade_tracks()
@@ -24,6 +31,12 @@ func _ready() -> void:
 # ============ Queries ============
 func get_wings() -> int:
 	return _state.wings
+
+func get_chicken_count() -> int:
+	return _state.chicken_count
+
+func get_chicken_spawn_chance(id: String) -> float:
+	return chicken_spawn_chances.get(id, 0.0)
 
 func get_upgrade_track(track_id: String) -> UpgradeTrack:
 	return _upgrade_tracks.get(track_id)
@@ -53,10 +66,11 @@ func can_afford_next_upgrade(track_id: String) -> bool:
 	return can_afford(upgrade.cost)
 
 # ============ Actions ============
-func collect_wing(base_value: int = 1) -> void:
-	var final_value: int = base_value * wing_value
+func collect_wing(base_value: int, at: Vector2) -> void:
+	var final_value: int = base_value + wing_value_bonus
 	_state.wings += final_value
 	_state.total_wings_collected += final_value
+	GameEffects.spawn_floating_number(final_value, at)
 	wings_changed.emit(_state.wings)
 
 func spend_wings(amount: int) -> void:
@@ -103,10 +117,11 @@ func load_state_dict(data: Dictionary) -> void:
 
 # ============ Reducer ============
 func _recalculate_stats() -> void:
-	wing_value = BASE_WING_VALUE
+	wing_value_bonus = BASE_WING_VALUE_BONUS
 	max_population = BASE_MAX_POPULATION
 	spawn_rate = BASE_SPAWN_RATE
 	attack_speed = BASE_ATTACK_SPEED
+	chicken_spawn_chances = BASE_CHICKEN_SPAWN_CHANCES.duplicate()
 	
 	for track_id: String in _upgrade_tracks:
 		var track: UpgradeTrack = _upgrade_tracks[track_id]
@@ -116,17 +131,21 @@ func _recalculate_stats() -> void:
 			var upgrade: Upgrade = track.get_upgrade_at(i)
 			if upgrade:
 				_apply_upgrade_effect(upgrade)
+	stats_changed.emit()
 
 func _apply_upgrade_effect(upgrade: Upgrade) -> void:
 	match upgrade.effect_type:
 		"wing_value":
-			wing_value += int(upgrade.effect_value)
+			wing_value_bonus += int(upgrade.effect_value)
 		"max_population":
 			max_population += int(upgrade.effect_value)
 		"spawn_rate":
 			spawn_rate -= upgrade.effect_value
 		"attack_speed":
 			attack_speed -= upgrade.effect_value
+		"silver_spawn_chance":
+			chicken_spawn_chances["silver"] += upgrade.effect_value
+			chicken_spawn_chances["basic"] -= upgrade.effect_value
 
 # ============ Internal ============
 func _emit_all() -> void:
@@ -139,7 +158,8 @@ func _load_upgrade_tracks() -> void:
 		load("res://systems/upgrades/wing_value/wing_value_upgrade_track.tres"),
 		load("res://systems/upgrades/max_population/max_population_upgrade_track.tres"),
 		load("res://systems/upgrades/spawn_rate/spawn_rate_upgrade_track.tres"),
-		load("res://systems/upgrades/attack_speed/attack_speed_upgrade_track.tres")
+		load("res://systems/upgrades/attack_speed/attack_speed_upgrade_track.tres"),
+		load("res://systems/upgrades/silver_spawn_chance/silver_spawn_chance_track.tres")
 	]
 	for track: UpgradeTrack in tracks:
 		_upgrade_tracks[track.id] = track

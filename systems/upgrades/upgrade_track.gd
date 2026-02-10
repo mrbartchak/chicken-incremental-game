@@ -6,7 +6,7 @@ extends Resource
 @export var upgrades: Array[Upgrade]
 
 func get_upgrade_at(index: int) -> Upgrade:
-	if index < 0 or index > upgrades.size():
+	if index < 0 or index >= upgrades.size():
 		return null
 	return upgrades[index]
 
