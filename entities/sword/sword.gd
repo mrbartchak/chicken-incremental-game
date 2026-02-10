@@ -1,7 +1,7 @@
 class_name Sword
 extends Area2D
 
-var attack_damage: int = 1
+var attack_damage: int = 5
 var attack_radius: int = 7
 var follow_speed: float = 32.0
 var attack_cooldown: float = 1.0
@@ -11,7 +11,6 @@ var cooldown_ready: bool = true
 var over_ui: bool = false
 
 @onready var sword_sprite: Sprite2D = $SwordSprite
-@onready var cursor_sprite: Sprite2D = $CursorSprite
 @onready var cooldown_bar: ProgressBar = $CooldownBar
 @onready var attack_hitbox: CollisionShape2D = $AttackHitbox
 
@@ -22,16 +21,16 @@ func _ready() -> void:
 	attack_hitbox.shape.radius = attack_radius
 	attack_cooldown = GameManager.attack_speed
 	sword_sprite.show()
-	cursor_sprite.hide()
+	Cursor.hide_cursor()
 
 func _process(delta):
 	over_ui = is_mouse_over_ui()
 	if over_ui:
 		sword_sprite.hide()
-		cursor_sprite.show()
+		Cursor.show_cursor()
 	else:
 		sword_sprite.show()
-		cursor_sprite.hide()
+		Cursor.hide_cursor()
 	var target := get_global_mouse_position()
 	global_position = global_position.lerp(target, follow_speed * delta)
 	collect_wings()

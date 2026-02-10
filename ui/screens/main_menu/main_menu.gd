@@ -14,7 +14,7 @@ func _ready() -> void:
 	else:
 		continue_button.hide()
 		new_game_button.show()
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	Cursor.show_cursor()
 	_connect_button_sounds()
 	_update_version_label()
 

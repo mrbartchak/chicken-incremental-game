@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cejp7ef2wbuhh"]
+
+[ext_resource type="Texture2D" uid="uid://dtwu8al6en1da" path="res://ui/assets/kenny_hand.png" id="1_uwpfl"]
+[ext_resource type="Script" uid="uid://vmcnkg15n5tk" path="res://ui/cursor/cursor.gd" id="2_gfgph"]
+
+[node name="Cursor" type="CanvasLayer"]
+script = ExtResource("2_gfgph")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_uwpfl")
