@@ -45,7 +45,7 @@ func _enter_idle() -> void:
 	else:
 		sprite.play("default")
 	elapsed = 0.0
-	wait_time = randf_range(0.5, 1.5)
+	wait_time = randf_range(0.75, 1.5)
 
 func _process_idle(delta) -> void:
 	elapsed += delta

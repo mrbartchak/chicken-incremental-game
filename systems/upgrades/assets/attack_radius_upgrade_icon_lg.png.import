@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://namfaod84lyr"
-path="res://.godot/imported/max_population_upgrade_icon.png-5ad0876683e636dcc0b811dcd7a31040.ctex"
+uid="uid://dtmqp6a7pcqul"
+path="res://.godot/imported/attack_radius_upgrade_icon_lg.png-39f422b79b56b31868eaee81d01a01c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://systems/upgrades/assets/max_population_upgrade_icon.png"
-dest_files=["res://.godot/imported/max_population_upgrade_icon.png-5ad0876683e636dcc0b811dcd7a31040.ctex"]
+source_file="res://systems/upgrades/assets/attack_radius_upgrade_icon_lg.png"
+dest_files=["res://.godot/imported/attack_radius_upgrade_icon_lg.png-39f422b79b56b31868eaee81d01a01c7.ctex"]
 
 [params]
 

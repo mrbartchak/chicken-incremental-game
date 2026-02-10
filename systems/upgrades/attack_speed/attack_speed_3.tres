@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://b10yv8cnvf1pl"]
 
-[ext_resource type="Texture2D" uid="uid://cd6kqoyamj8u6" path="res://systems/upgrades/assets/attack_speed_upgrade_icon.png" id="1_ecblm"]
+[ext_resource type="Texture2D" uid="uid://cd6kqoyamj8u6" path="res://systems/upgrades/assets/attack_speed_upgrade_icon_lg.png" id="1_ecblm"]
 [ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="2_h16ia"]
 
 [resource]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgtl57hbmevj4"
-path="res://.godot/imported/double_drop_upgrade_icon.png-b919fb389c1935ae0308d589b1472d24.ctex"
+uid="uid://df1g6w2t6nea"
+path="res://.godot/imported/wing_price_upgrade_icon_lg.png-aa3912a37dd92553f4efc842801668c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://systems/upgrades/assets/double_drop_upgrade_icon.png"
-dest_files=["res://.godot/imported/double_drop_upgrade_icon.png-b919fb389c1935ae0308d589b1472d24.ctex"]
+source_file="res://systems/upgrades/assets/wing_price_upgrade_icon_lg.png"
+dest_files=["res://.godot/imported/wing_price_upgrade_icon_lg.png-aa3912a37dd92553f4efc842801668c1.ctex"]
 
 [params]
 

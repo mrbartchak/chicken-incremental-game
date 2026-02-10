@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df1g6w2t6nea"
-path="res://.godot/imported/wing_price_upgrade_icon.png-2c45382580f9932c92144d05fee11f31.ctex"
+uid="uid://bn55421islje1"
+path="res://.godot/imported/silver_spawn_chance_icon_lg.png-571f656f70f8aced36fc591cc9202269.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://systems/upgrades/assets/wing_price_upgrade_icon.png"
-dest_files=["res://.godot/imported/wing_price_upgrade_icon.png-2c45382580f9932c92144d05fee11f31.ctex"]
+source_file="res://systems/upgrades/assets/silver_spawn_chance_icon_lg.png"
+dest_files=["res://.godot/imported/silver_spawn_chance_icon_lg.png-571f656f70f8aced36fc591cc9202269.ctex"]
 
 [params]
 

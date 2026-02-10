@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bac1tj0f4xyu3"
-path="res://.godot/imported/spawn_rate_upgrade_icon.png-52ebcd91966ba3f26d68ceb7c40e61a5.ctex"
+uid="uid://namfaod84lyr"
+path="res://.godot/imported/max_population_upgrade_icon_lg.png-0bf1c1de0a98c598a04196793cd10141.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://systems/upgrades/assets/spawn_rate_upgrade_icon.png"
-dest_files=["res://.godot/imported/spawn_rate_upgrade_icon.png-52ebcd91966ba3f26d68ceb7c40e61a5.ctex"]
+source_file="res://systems/upgrades/assets/max_population_upgrade_icon_lg.png"
+dest_files=["res://.godot/imported/max_population_upgrade_icon_lg.png-0bf1c1de0a98c598a04196793cd10141.ctex"]
 
 [params]
 

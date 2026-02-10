@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn55421islje1"
-path="res://.godot/imported/silver_spawn_chance_icon.png-cf1f27637aa277fbdf072ccd200f804f.ctex"
+uid="uid://bac1tj0f4xyu3"
+path="res://.godot/imported/spawn_rate_upgrade_icon_lg.png-d78a7becf1fda2284159c3380689c842.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://systems/upgrades/assets/silver_spawn_chance_icon.png"
-dest_files=["res://.godot/imported/silver_spawn_chance_icon.png-cf1f27637aa277fbdf072ccd200f804f.ctex"]
+source_file="res://systems/upgrades/assets/spawn_rate_upgrade_icon_lg.png"
+dest_files=["res://.godot/imported/spawn_rate_upgrade_icon_lg.png-d78a7becf1fda2284159c3380689c842.ctex"]
 
 [params]
 
