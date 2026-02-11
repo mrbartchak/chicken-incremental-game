@@ -7,8 +7,8 @@ func _ready() -> void:
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
-func update_wing_count(amount) -> void:
-	$WingLabel.text = str(amount)
+func update_wing_count() -> void:
+	$WingLabel.text = str(GameManager.get_wings())
 
 func update_chicken_count(amount) -> void:
 	$ChickenCount.text = str(amount)

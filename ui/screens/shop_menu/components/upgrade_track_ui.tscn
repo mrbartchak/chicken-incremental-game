@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4yp75834n5ji"]
+[gd_scene load_steps=11 format=3 uid="uid://c4yp75834n5ji"]
 
 [ext_resource type="Script" uid="uid://cbx3f068sgghh" path="res://ui/screens/shop_menu/components/upgrade_track_ui.gd" id="1_m02ym"]
 [ext_resource type="Texture2D" uid="uid://bntyr0xn8ui0c" path="res://ui/screens/shop_menu/assets/upgrade_tier_icon.png" id="2_dyvvi"]
@@ -9,20 +9,25 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ttsph"]
 atlas = ExtResource("4_pwric")
-region = Rect2(0, 0, 32, 14)
+region = Rect2(0, 0, 29, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_okyqw"]
 atlas = ExtResource("4_pwric")
-region = Rect2(0, 14, 32, 14)
+region = Rect2(0, 13, 29, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysbbh"]
+atlas = ExtResource("4_pwric")
+region = Rect2(0, 26, 29, 13)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jn3yi"]
 font_size = 8
+font_color = Color(0.14509805, 0.16862746, 0.26666668, 1)
 
 [node name="UpgradeTrackUI" type="HBoxContainer"]
 custom_minimum_size = Vector2(77, 14)
 offset_right = 77.0
 offset_bottom = 14.0
-theme_override_constants/separation = 3
+theme_override_constants/separation = 2
 script = ExtResource("1_m02ym")
 tier_filled = ExtResource("2_dyvvi")
 tier_empty = ExtResource("3_m02ym")
@@ -82,13 +87,14 @@ layout_mode = 2
 texture = ExtResource("2_dyvvi")
 
 [node name="PurchaseButton" type="TextureButton" parent="."]
-custom_minimum_size = Vector2(32, 14)
+custom_minimum_size = Vector2(29, 13)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = SubResource("AtlasTexture_ttsph")
 texture_pressed = SubResource("AtlasTexture_ttsph")
 texture_hover = SubResource("AtlasTexture_okyqw")
+texture_disabled = SubResource("AtlasTexture_ysbbh")
 texture_focused = SubResource("AtlasTexture_ttsph")
 
 [node name="CostLabel" type="Label" parent="PurchaseButton"]
@@ -96,13 +102,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
+offset_left = 4.0
 offset_top = 3.0
 offset_right = -3.0
-offset_bottom = -3.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "O"
+text = "OOOO"
 label_settings = SubResource("LabelSettings_jn3yi")
 horizontal_alignment = 2
 

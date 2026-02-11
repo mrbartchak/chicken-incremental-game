@@ -8,7 +8,7 @@ extends Control
 
 func _ready() -> void:
 	connect_signals()
-	update_wing_count_label(GameManager.get_wings())
+	update_wing_count_label()
 
 func connect_signals() -> void:
 	GameManager.wings_changed.connect(update_wing_count_label)
@@ -22,6 +22,6 @@ func _on_settings_button_pressed() -> void:
 func _on_shop_button_pressed() -> void:
 	shop.open()
 
-func update_wing_count_label(amount: int) -> void:
-	wing_count_label.text = str(amount)
+func update_wing_count_label() -> void:
+	wing_count_label.text = str(GameManager.get_wings())
 	GameEffects.pop(top_bar)

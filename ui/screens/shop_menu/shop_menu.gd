@@ -11,7 +11,7 @@ func _ready() -> void:
 	close()
 
 func open() -> void:
-	_update_wing_count(GameManager.get_wings())
+	_update_wing_count()
 	visible = true
 
 func close() -> void:
@@ -28,8 +28,8 @@ func _connect_signals() -> void:
 		GameEffects.scale_out(exit_button)
 	)
 
-func _update_wing_count(amount: int) -> void:
-	wing_count_label.text = str(amount)
+func _update_wing_count() -> void:
+	wing_count_label.text = str(GameManager.get_wings())
 
 func _add_group_recursive(node: Node) -> void:
 	if node is Control:

@@ -7,5 +7,5 @@ script = ExtResource("1_5jlb7")
 id = "spawn_rate_10"
 cost = 2000
 effect_type = "spawn_rate"
-effect_value = 0.2
+effect_value = 0.1
 metadata/_custom_type_script = "uid://dakr2yr8ekswl"

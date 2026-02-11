@@ -1,12 +1,12 @@
 extends Node
 
-signal wings_changed(amount: int)
+signal wings_changed()
 signal chicken_count_changed(amount: int)
 signal stats_changed()
 
 const BASE_WING_VALUE_BONUS: int = 0
 const BASE_MAX_POPULATION: int = 1
-const BASE_SPAWN_RATE: float = 2.0
+const BASE_SPAWN_RATE: float = 1.5
 const BASE_ATTACK_SPEED: float = 1.0
 const BASE_CHICKEN_SPAWN_CHANCES: Dictionary = {
 	"basic": 1.0,
@@ -71,11 +71,11 @@ func collect_wing(base_value: int, at: Vector2) -> void:
 	_state.wings += final_value
 	_state.total_wings_collected += final_value
 	GameEffects.spawn_floating_number(final_value, at)
-	wings_changed.emit(_state.wings)
+	wings_changed.emit()
 
 func spend_wings(amount: int) -> void:
 	_state.wings = max(0, _state.wings - amount)
-	wings_changed.emit(_state.wings)
+	wings_changed.emit()
 
 func add_chicken(amount: int = 1) -> void:
 	_state.chicken_count += amount
@@ -149,7 +149,7 @@ func _apply_upgrade_effect(upgrade: Upgrade) -> void:
 
 # ============ Internal ============
 func _emit_all() -> void:
-	wings_changed.emit(_state.wings)
+	wings_changed.emit()
 	chicken_count_changed.emit(_state.chicken_count)
 	stats_changed.emit()
 

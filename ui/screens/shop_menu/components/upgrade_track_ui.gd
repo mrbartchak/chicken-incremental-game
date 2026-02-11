@@ -13,11 +13,13 @@ extends HBoxContainer
 
 func _ready() -> void:
 	GameManager.stats_changed.connect(_update_display)
+	GameManager.wings_changed.connect(_update_purchase_button)
 	_init_purchase_button()
 	_update_display()
 
 func _init_purchase_button() -> void:
 	purchase_button.pivot_offset = Vector2(15, 0)
+	purchase_button.focus_mode = Control.FOCUS_NONE
 	purchase_button.pressed.connect(func():
 		GameManager.purchase_upgrade(track_id))
 	
@@ -35,29 +37,23 @@ func _update_display() -> void:
 		return
 	upgrade_icon.texture = track.icon
 	_update_tiers(GameManager.get_upgrade_progress(track_id))
+	_update_purchase_button()
+
+func _update_purchase_button() -> void:
 	var upgrade: Upgrade = GameManager.get_next_upgrade(track_id)
 	if not upgrade:
-		purchase_button.visible = false
-		maxed_logo.visible = true
+		purchase_button.hide()
+		maxed_logo.show()
 		return
 	cost_label.text = replace_zeros_with_o(str(upgrade.cost))
-
-#func _init_tiers(current_tier: int, total_tiers: int) -> void:
-	#pass
-	#for i in range(total_tiers):
-		#var tier_icon: TextureRect = TextureRect.new()
-		#
-	##highlight <= current
-	##blank the rest
+	if upgrade.cost > GameManager.get_wings():
+		purchase_button.disabled = true
+		return
+	purchase_button.disabled = false
 
 func _update_tiers(next_tier: int) -> void:
 	for tier: TextureRect in tier_container.get_children():
 		tier.texture = tier_filled if tier.get_index() < next_tier else tier_empty
-
-# for popping the newly purchased tier
-#func _on_upgrade_purchased(purchased_track_id: String) -> void:
-	#var animate = purchased_track_id == track_id
-	#_update_display(animate)
 
 func replace_zeros_with_o(text: String) -> String:
 	return text.replace("0", "o")
