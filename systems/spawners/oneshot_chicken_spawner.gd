@@ -17,7 +17,7 @@ var chicken_types: Dictionary = {
 }
 
 func _ready() -> void:
-	await get_tree().create_timer(10.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	_spawn_all()
 
 func _spawn_all() -> void:

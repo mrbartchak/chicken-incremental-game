@@ -49,4 +49,4 @@ texture = ExtResource("5_wm6m6")
 script = ExtResource("16_j30dx")
 chicken_scene = ExtResource("3_6i40u")
 chicken_container = NodePath("../GameWorld/ChickenContainer")
-spawn_count = 1
+spawn_count = 100
