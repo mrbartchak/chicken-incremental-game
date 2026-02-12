@@ -26,6 +26,8 @@ var attack_speed: float = BASE_ATTACK_SPEED
 var chicken_spawn_chances: Dictionary = {}
 
 func _ready() -> void:
+	if not _state:
+		_state = GameState.new()
 	_load_upgrade_tracks()
 
 # ============ Queries ============
