@@ -4,6 +4,7 @@ extends Node
 @export var chicken_scene: PackedScene
 @export var chicken_container: Node2D
 @export var spawn_area: Rect2 = Rect2(44, 26, 232, 128)
+@export var active: bool = true
 
 var chicken_types: Dictionary = {
 	"basic": preload("res://entities/chickens/types/basic_chicken.tres"),
@@ -16,6 +17,8 @@ func _ready() -> void:
 	spawn_timer = 0.0
 
 func _process(delta: float) -> void:
+	if not active:
+		return
 	if GameManager.get_chicken_count() >= GameManager.max_population:
 		return
 	spawn_timer += delta
