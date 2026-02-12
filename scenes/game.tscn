@@ -96,9 +96,10 @@ label_settings = SubResource("LabelSettings_cjuek")
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="SideButtons" type="VBoxContainer" parent="HUD/HudMargin"]
+[node name="SideButtons" type="VBoxContainer" parent="HUD/HudMargin" groups=["interactive_ui"]]
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_constants/separation = 2
 
 [node name="SettingsButton" type="TextureButton" parent="HUD/HudMargin/SideButtons" groups=["interactive_ui"]]

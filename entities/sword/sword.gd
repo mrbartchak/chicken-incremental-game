@@ -2,12 +2,12 @@ class_name Sword
 extends Area2D
 
 var attack_damage: int = 5
-var attack_radius: int = 7
-var follow_speed: float = 32.0
+var attack_radius: int = 8
+
 var attack_cooldown: float = 1.0
 var cooldown_timer: float = 0.0
-
 var cooldown_ready: bool = true
+
 var over_ui: bool = false
 
 @onready var sword_sprite: Sprite2D = $SwordSprite
@@ -24,17 +24,19 @@ func _ready() -> void:
 	Cursor.hide_cursor()
 
 func _process(delta):
-	over_ui = is_mouse_over_ui()
+	if not cooldown_ready:
+		cooldown_timer += delta
+	over_ui = _is_mouse_over_ui()
 	if over_ui:
 		sword_sprite.hide()
 		Cursor.show_cursor()
 	else:
 		sword_sprite.show()
 		Cursor.hide_cursor()
-	var target := get_global_mouse_position()
-	global_position = global_position.lerp(target, follow_speed * delta)
-	collect_wings()
-	update_cooldown_bar(delta)
+	_handle_cursor_follow(delta)
+	_collect_wings()
+	queue_redraw()
+	#_update_cooldown_bar(delta)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -48,33 +50,34 @@ func _update_stats() -> void:
 func try_attack() -> void:
 	if !cooldown_ready or over_ui:
 		return
-	attack()
+	_attack()
 
-func attack() -> void:
+func _attack() -> void:
 	cooldown_ready = false
 	cooldown_timer = 0.0
 	var areas: Array[Area2D] = get_overlapping_areas()
 	for area: Area2D in areas:
 		if area.has_method("take_damage"):
 			area.take_damage(attack_damage)
-	play_swing()
+	_play_swing()
 	await get_tree().create_timer(attack_cooldown).timeout
 	cooldown_ready = true
 
-func auto_attack(area: Area2D) -> void:
-	if area.has_method("take_damage"):
-		area.take_damage(attack_damage)
-
-func collect_wings() -> void:
+func _collect_wings() -> void:
 	var areas: Array[Area2D] = get_overlapping_areas()
 	for area: Area2D in areas:
 		if area.has_method("collect"):
 			area.collect()
 
 # ===================
-#       Effects
+#      Visuals
 # ===================
-func play_swing() -> void:
+func _handle_cursor_follow(delta: float) -> void:
+	var follow_speed: float = 32.0
+	var target := get_global_mouse_position()
+	global_position = global_position.lerp(target, follow_speed * delta)
+
+func _play_swing() -> void:
 	$SwingSound.pitch_scale = randf_range(0.6, 1.4)
 	$SwingSound.play()
 	var tween := create_tween()
@@ -83,21 +86,22 @@ func play_swing() -> void:
 	tween.tween_property(sword_sprite, "scale", Vector2.ONE, 0.1)
 	tween.parallel().tween_property(sword_sprite, "rotation_degrees", 0.0, 0.1)
 
-func update_cooldown_bar(delta) -> void:
-	if !cooldown_ready:
-		cooldown_timer += delta
-		cooldown_bar.value = cooldown_timer / attack_cooldown
-	else:
-		cooldown_bar.value = 1.0
-
-
-#func _on_area_entered(area: Area2D) -> void:
-	#auto_attack(area)
+#func _update_cooldown_bar(delta) -> void:
+	#if !cooldown_ready:
+		#cooldown_timer += delta
+		#cooldown_bar.value = cooldown_timer / attack_cooldown
+	#else:
+		#cooldown_bar.value = 1.0
 
 func _draw() -> void:
-	#draw_circle(Vector2.ZERO, attack_radius, Color(1, 1, 1, 0.1))
-	draw_arc(Vector2.ZERO, attack_radius, 0, TAU, 32, Color(1, 1, 1, 0.15), 1.0)
+	if over_ui:
+		return
+	var fill_percent: float = minf(cooldown_timer / attack_cooldown, 1.0)
+	var outline_thickness: float = 1.0
+	draw_arc(Vector2.ZERO, attack_radius, 0, TAU, 60, Color(1, 1, 1, 0.05), outline_thickness)
+	if fill_percent > 0:
+		draw_circle(Vector2.ZERO, (attack_radius - outline_thickness / 2 ) * fill_percent, Color(1, 1, 1, 0.05))
 
-func is_mouse_over_ui() -> bool:
+func _is_mouse_over_ui() -> bool:
 	var hovered: Control = get_viewport().gui_get_hovered_control()
 	return hovered != null and hovered.is_in_group("interactive_ui")
