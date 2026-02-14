@@ -45,6 +45,7 @@ interactive_ui=""
 
 [gui]
 
+common/snap_controls_to_pixels=false
 theme/custom_font="uid://dc64gsq8ochws"
 
 [input]

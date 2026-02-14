@@ -12,11 +12,11 @@ font_size = 8
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ttsph"]
 atlas = ExtResource("4_pwric")
-region = Rect2(0, 0, 29, 13)
+region = Rect2(0, 0, 27, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_okyqw"]
 atlas = ExtResource("4_pwric")
-region = Rect2(0, 13, 29, 13)
+region = Rect2(0, 13, 27, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ysbbh"]
 atlas = ExtResource("4_pwric")
@@ -27,8 +27,8 @@ font_size = 8
 font_color = Color(0.14509805, 0.16862746, 0.26666668, 1)
 
 [node name="UpgradeTrackUI" type="HBoxContainer"]
-custom_minimum_size = Vector2(67, 14)
-offset_right = 67.0
+custom_minimum_size = Vector2(66, 14)
+offset_right = 64.0
 offset_bottom = 14.0
 theme_override_constants/separation = 1
 script = ExtResource("1_m02ym")
@@ -96,7 +96,6 @@ text = "00/10"
 label_settings = SubResource("LabelSettings_ysbbh")
 
 [node name="PurchaseButton" type="TextureButton" parent="."]
-custom_minimum_size = Vector2(29, 13)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
@@ -111,9 +110,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
+offset_left = 9.0
 offset_top = 3.0
-offset_right = -3.0
+offset_right = -2.0
 offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -123,7 +122,6 @@ horizontal_alignment = 2
 
 [node name="MaxedLogo" type="TextureRect" parent="."]
 visible = false
-custom_minimum_size = Vector2(29, 13)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
