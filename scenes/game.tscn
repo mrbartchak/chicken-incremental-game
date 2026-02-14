@@ -137,3 +137,4 @@ layout_mode = 1
 [node name="MouseLayer" type="CanvasLayer" parent="."]
 
 [node name="Sword" parent="MouseLayer" instance=ExtResource("14_qnb83")]
+position = Vector2(122, 89)
