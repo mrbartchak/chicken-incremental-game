@@ -24,7 +24,6 @@ shader_parameter/y_speed = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trtic"]
 size = Vector2(188, 100)
 
-shader_parameter/height = 1.0
 [sub_resource type="LabelSettings" id="LabelSettings_cjuek"]
 font = ExtResource("9_37s47")
 
