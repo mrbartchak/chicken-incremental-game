@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://yhgewolbme6j"]
+
+[ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="1_cevd3"]
+
+[resource]
+script = ExtResource("1_cevd3")
+id = "attack_radius_5"
+cost = 500
+effect_type = "attack_radius"
+effect_value = 1.0
+metadata/_custom_type_script = "uid://dakr2yr8ekswl"
