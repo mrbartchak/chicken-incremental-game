@@ -35,9 +35,11 @@ func _handle_settings() -> void:
 	var menu_button: Button = $MarginContainer/VBoxContainer/SettingsPanel/SettingsMargin/VBoxContainer/MenuButton
 	var quit_button: Button = $MarginContainer/VBoxContainer/SettingsPanel/SettingsMargin/VBoxContainer/QuitButton
 	menu_button.pressed.connect(func(): 
+		SaveManager.save_game()
 		get_tree().change_scene_to_file("res://ui/screens/main_menu/main_menu.tscn")
 	)
 	quit_button.pressed.connect(func():
+		SaveManager.save_game()
 		get_tree().quit()
 	)
 
