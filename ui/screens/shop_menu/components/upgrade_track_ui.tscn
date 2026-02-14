@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4yp75834n5ji"]
+[gd_scene load_steps=12 format=3 uid="uid://c4yp75834n5ji"]
 
 [ext_resource type="Script" uid="uid://cbx3f068sgghh" path="res://ui/screens/shop_menu/components/upgrade_track_ui.gd" id="1_m02ym"]
 [ext_resource type="Texture2D" uid="uid://bntyr0xn8ui0c" path="res://ui/screens/shop_menu/assets/upgrade_tier_icon.png" id="2_dyvvi"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dkexwtmywpi4n" path="res://ui/screens/shop_menu/assets/shop_price_buttons.png" id="4_pwric"]
 [ext_resource type="Texture2D" uid="uid://dlcf06p3youya" path="res://systems/upgrades/assets/wing_value_icon.png" id="4_ysbbh"]
 [ext_resource type="Texture2D" uid="uid://lienbp28u3ar" path="res://ui/screens/shop_menu/assets/max_upgrade_button.png" id="5_dyvvi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ysbbh"]
+font_size = 8
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ttsph"]
 atlas = ExtResource("4_pwric")
@@ -24,10 +27,9 @@ font_size = 8
 font_color = Color(0.14509805, 0.16862746, 0.26666668, 1)
 
 [node name="UpgradeTrackUI" type="HBoxContainer"]
-custom_minimum_size = Vector2(77, 14)
-offset_right = 77.0
+offset_right = 63.0
 offset_bottom = 14.0
-theme_override_constants/separation = 2
+theme_override_constants/separation = 4
 script = ExtResource("1_m02ym")
 tier_filled = ExtResource("2_dyvvi")
 tier_empty = ExtResource("3_m02ym")
@@ -40,6 +42,7 @@ texture = ExtResource("4_ysbbh")
 stretch_mode = 2
 
 [node name="UpgradeTiers" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -85,6 +88,11 @@ texture = ExtResource("2_dyvvi")
 [node name="Tier10" type="TextureRect" parent="UpgradeTiers"]
 layout_mode = 2
 texture = ExtResource("2_dyvvi")
+
+[node name="TierLabel" type="Label" parent="."]
+layout_mode = 2
+text = "0/10"
+label_settings = SubResource("LabelSettings_ysbbh")
 
 [node name="PurchaseButton" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(29, 13)
