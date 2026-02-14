@@ -6,6 +6,7 @@ extends HBoxContainer
 @export var tier_empty: Texture2D
 
 @onready var tier_container: HBoxContainer = $UpgradeTiers
+@onready var tier_label: Label = $TierLabel
 @onready var upgrade_icon: TextureRect = $UpgradeIcon
 @onready var cost_label: Label = $PurchaseButton/CostLabel
 @onready var purchase_button: TextureButton = $PurchaseButton
@@ -37,6 +38,7 @@ func _update_display() -> void:
 		return
 	upgrade_icon.texture = track.icon
 	_update_tiers(GameManager.get_upgrade_progress(track_id))
+	_update_tier_label(track)
 	_update_purchase_button()
 
 func _update_purchase_button() -> void:
@@ -54,6 +56,9 @@ func _update_purchase_button() -> void:
 func _update_tiers(next_tier: int) -> void:
 	for tier: TextureRect in tier_container.get_children():
 		tier.texture = tier_filled if tier.get_index() < next_tier else tier_empty
+
+func _update_tier_label(track: UpgradeTrack) -> void:
+	tier_label.text = str(GameManager.get_upgrade_progress(track.id)) + "/" + str(track.get_max_upgrades())
 
 func replace_zeros_with_o(text: String) -> String:
 	return text.replace("0", "o")
