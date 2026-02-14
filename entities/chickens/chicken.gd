@@ -18,7 +18,6 @@ var target_position: Vector2
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var hit_particles: GPUParticles2D = $HitParticles
-@onready var death_particles: GPUParticles2D = $DeathParticles
 
 func _ready() -> void:
 	sprite.sprite_frames = chicken_type.sprite_frames
@@ -100,8 +99,8 @@ func die() -> void:
 	sprite.visible = false
 	monitorable = false
 	AudioManager.play_chicken_death()
-	death_particles.restart()
-	await get_tree().create_timer(death_particles.lifetime).timeout
+	hit_particles.restart()
+	await get_tree().create_timer(hit_particles.lifetime).timeout
 	
 	GameManager.remove_chicken()
 	queue_free()

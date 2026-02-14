@@ -3,8 +3,8 @@ extends Area2D
 
 @export var wing_type: WingType
 
-var magnetic_range: float = 20.0
-var magnetic_strength: float = 15.0
+var magnetic_range: float = 25.0
+var magnetic_strength: float = 20.0
 
 var pop_velocity: Vector2 = Vector2(0, -60)
 var drop_gravity: float = 200.0
