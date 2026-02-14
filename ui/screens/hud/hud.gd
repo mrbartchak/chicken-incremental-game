@@ -1,10 +1,8 @@
 class_name Hud
 extends Control
 
-@onready var top_bar: HBoxContainer = $HudMargin/TopBar
-@onready var wing_count_label: Label = $HudMargin/TopBar/WingCount
-@onready var shop: ShopMenu = $ShopMenu
-@onready var ingame_settings: IngameSettings = $IngameSettings
+@onready var top_bar: HBoxContainer = %TopBar
+@onready var wing_count_label: Label = $HudMargin/HBoxContainer/GameplayOverlay/TopBar/WingCount
 
 func _ready() -> void:
 	connect_signals()
@@ -16,11 +14,6 @@ func connect_signals() -> void:
 # ================
 #    Callbacks
 # ================
-func _on_settings_button_pressed() -> void:
-	ingame_settings.open()
-
-func _on_shop_button_pressed() -> void:
-	shop.open()
 
 func update_wing_count_label() -> void:
 	wing_count_label.text = str(GameManager.get_wings())
