@@ -57,24 +57,24 @@ func _enter_roaming() -> void:
 	state = State.ROAMING
 	var angle: float = randf() * TAU
 	var radius: float = randf() * roam_radius
-	target_position = global_position + Vector2(cos(angle), sin(angle)) * radius
+	target_position = position + Vector2(cos(angle), sin(angle)) * radius
 	target_position = _clamp_to_arena(target_position)
 	
-	if target_position.x > global_position.x:
+	if target_position.x > position.x:
 		sprite.play("walk_right")
 	else:
 		sprite.play("walk_left")
 
 func _process_roaming(delta) -> void:
-	var to_target: Vector2 = target_position - global_position
+	var to_target: Vector2 = target_position - position
 	var distance: float = to_target.length()
 	
 	if distance < 0.2:
-		self.global_position = target_position
+		self.position = target_position
 		_enter_idle()
 		return
 	
-	global_position += to_target.normalized() * chicken_type.speed * delta
+	position += to_target.normalized() * chicken_type.speed * delta
 
 # ===================
 #       Damage
@@ -144,10 +144,18 @@ func _clamp_to_arena(pos: Vector2) -> Vector2:
 	var shape = roam_area.shape as RectangleShape2D
 	var extents = shape.size / 2
 	#var pos = roam_area.global_position
-	var min_arena: Vector2 = roam_area.global_position - Vector2(extents.x, extents.y)
-	var max_arena: Vector2 = roam_area.global_position + Vector2(extents.x, extents.y)
+	var min_arena: Vector2 = roam_area.position - Vector2(extents.x, extents.y)
+	var max_arena: Vector2 = roam_area.position + Vector2(extents.x, extents.y)
 	
 	return Vector2(
 		clamp(pos.x, min_arena.x, max_arena.x),
 		clamp(pos.y, min_arena.y, max_arena.y)
 	)
+
+#func _get_random_roam_target() -> Vector2:
+	#var shape = roam_area.shape as RectangleShape2D
+	#var extents: Vector2 = shape.size / 2
+	#return Vector2(
+		#randf_range(-extents.x, extents.x),
+		#randf_range(-extents.y, extents.y)
+	#)

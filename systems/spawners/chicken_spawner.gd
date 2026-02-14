@@ -47,7 +47,7 @@ func _get_random_chicken_type() -> ChickenType:
 func _get_spawn_position() -> Vector2:
 	var shape = spawn_area.shape as RectangleShape2D
 	var extents = shape.size / 2
-	var pos = spawn_area.global_position
+	var pos = spawn_area.position
 	return Vector2(
 		randf_range(pos.x - extents.x, pos.x + extents.x),
 		randf_range(pos.y - extents.y, pos.y + extents.y)

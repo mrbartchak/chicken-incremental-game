@@ -22,7 +22,7 @@ shader_parameter/x_speed = -0.01
 shader_parameter/y_speed = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trtic"]
-size = Vector2(188, 103)
+size = Vector2(188, 100)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cjuek"]
 font = ExtResource("9_37s47")
@@ -52,15 +52,14 @@ texture = ExtResource("5_rysoc")
 script = ExtResource("6_ir15t")
 
 [node name="SpawnArea" type="Area2D" parent="GameWorld/Platform"]
-position = Vector2(0, -7)
 monitoring = false
 monitorable = false
 
 [node name="SpawnAreaShape" type="CollisionShape2D" parent="GameWorld/Platform/SpawnArea"]
+position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_trtic")
 
 [node name="ChickenContainer" type="Node2D" parent="GameWorld/Platform"]
-position = Vector2(-121, -89)
 
 [node name="ChickenSpawner" type="Node" parent="GameWorld" node_paths=PackedStringArray("chicken_container", "spawn_area")]
 script = ExtResource("6_rysoc")
