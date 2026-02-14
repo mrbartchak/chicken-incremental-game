@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsh1fk0p45qui"]
+
+[ext_resource type="Script" uid="uid://ci7ud3s3o64qn" path="res://ui/screens/side_panel/components/chicken_row.gd" id="1_1k2p1"]
+[ext_resource type="FontFile" uid="uid://r6bebwqfqoxw" path="res://ui/theme/fonts/GrapeSoda.ttf" id="2_1k2p1"]
+[ext_resource type="Texture2D" uid="uid://bynldrp7lo0gh" path="res://ui/screens/side_panel/assets/locked_chicken_badge.png" id="2_gbv2y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gbv2y"]
+font = ExtResource("2_1k2p1")
+font_color = Color(0.14901961, 0.16862746, 0.26666668, 1)
+
+[node name="ChickenRow" type="HBoxContainer"]
+custom_minimum_size = Vector2(66, 16)
+offset_right = 66.0
+offset_bottom = 16.0
+script = ExtResource("1_1k2p1")
+
+[node name="Badge" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_gbv2y")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "???"
+label_settings = SubResource("LabelSettings_gbv2y")

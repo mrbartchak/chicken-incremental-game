@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://1x2nbl64reui"]
+[gd_scene load_steps=23 format=3 uid="uid://1x2nbl64reui"]
 
 [ext_resource type="ButtonGroup" uid="uid://crvposc2sv7r4" path="res://ui/screens/side_panel/side_panel_button_group.tres" id="1_kph5r"]
 [ext_resource type="Texture2D" uid="uid://cl70c5tgntmip" path="res://ui/screens/side_panel/assets/side_panel.png" id="1_ltl2k"]
@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://c4yp75834n5ji" path="res://ui/screens/shop_menu/components/upgrade_track_ui.tscn" id="12_n2avm"]
 [ext_resource type="Texture2D" uid="uid://cfpmqnm3v8jgx" path="res://ui/screens/side_panel/assets/settings_button_hover.png" id="15_l0cc5"]
 [ext_resource type="FontFile" uid="uid://r6bebwqfqoxw" path="res://ui/theme/fonts/GrapeSoda.ttf" id="16_qj8ee"]
+[ext_resource type="PackedScene" uid="uid://bsh1fk0p45qui" path="res://ui/screens/side_panel/components/chicken_row.tscn" id="18_upulg"]
+[ext_resource type="Resource" uid="uid://dysbita1w72n3" path="res://entities/chickens/types/basic_chicken.tres" id="19_3jf7f"]
+[ext_resource type="Resource" uid="uid://do8icirsuvl60" path="res://entities/chickens/types/silver_chicken.tres" id="20_gls1q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_upulg"]
 font = ExtResource("16_qj8ee")
@@ -113,6 +116,7 @@ texture_focused = ExtResource("11_020xo")
 
 [node name="UpgradePanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
@@ -162,10 +166,31 @@ track_id = "silver_spawn_chance_track"
 
 [node name="ChickensPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
-modulate = Color(0.23921569, 0.3019608, 1, 1)
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="ChickensMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer/ChickensPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+
+[node name="ChickensList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ChickensPanel/ChickensMargin"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ChickenRow" parent="MarginContainer/VBoxContainer/ChickensPanel/ChickensMargin/ChickensList" instance=ExtResource("18_upulg")]
+layout_mode = 2
+chicken_type = ExtResource("19_3jf7f")
+
+[node name="ChickenRow2" parent="MarginContainer/VBoxContainer/ChickensPanel/ChickensMargin/ChickensList" instance=ExtResource("18_upulg")]
+layout_mode = 2
+chicken_type = ExtResource("20_gls1q")
+
+[node name="ChickenRow3" parent="MarginContainer/VBoxContainer/ChickensPanel/ChickensMargin/ChickensList" instance=ExtResource("18_upulg")]
+layout_mode = 2
+
+[node name="ChickenRow4" parent="MarginContainer/VBoxContainer/ChickensPanel/ChickensMargin/ChickensList" instance=ExtResource("18_upulg")]
+layout_mode = 2
 
 [node name="ShopPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
