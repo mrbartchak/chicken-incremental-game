@@ -1,0 +1,132 @@
+[gd_scene load_steps=12 format=3 uid="uid://1x2nbl64reui"]
+
+[ext_resource type="ButtonGroup" uid="uid://crvposc2sv7r4" path="res://ui/screens/side_panel/side_panel_button_group.tres" id="1_kph5r"]
+[ext_resource type="Texture2D" uid="uid://cl70c5tgntmip" path="res://ui/screens/side_panel/assets/side_panel.png" id="1_ltl2k"]
+[ext_resource type="Script" uid="uid://bv3kevmexyr8l" path="res://ui/screens/side_panel/side_panel.gd" id="2_ixksb"]
+[ext_resource type="Texture2D" uid="uid://byfsspsllwio1" path="res://ui/screens/side_panel/assets/upgrade_button.png" id="4_ltl2k"]
+[ext_resource type="Texture2D" uid="uid://s8oa4kueqk2q" path="res://ui/screens/side_panel/assets/upgrade_button_toggled.png" id="5_ha6qv"]
+[ext_resource type="Texture2D" uid="uid://bdk8iegp45geh" path="res://ui/screens/side_panel/assets/chickens_button.png" id="5_ic3j7"]
+[ext_resource type="Texture2D" uid="uid://dnl5n3bobqolb" path="res://ui/screens/side_panel/assets/shop_button.png" id="6_ic3j7"]
+[ext_resource type="Texture2D" uid="uid://cfpmqnm3v8jgx" path="res://ui/screens/side_panel/assets/settings_button.png" id="7_fjtcs"]
+[ext_resource type="Texture2D" uid="uid://bsl6fcfpsn5qq" path="res://ui/screens/side_panel/assets/chickens_button_toggled.png" id="7_vfkos"]
+[ext_resource type="Texture2D" uid="uid://ctkgrncr5fyp0" path="res://ui/screens/side_panel/assets/shop_button_toggled.png" id="9_k2l0a"]
+[ext_resource type="Texture2D" uid="uid://d0quqt4wj784e" path="res://ui/screens/side_panel/assets/settings_button_toggled.png" id="11_020xo"]
+
+[node name="SidePanel" type="NinePatchRect"]
+custom_minimum_size = Vector2(74, 156)
+offset_right = 74.0
+offset_bottom = 156.0
+texture = ExtResource("1_ltl2k")
+region_rect = Rect2(0, 0, 74, 163)
+patch_margin_left = 3
+patch_margin_top = 19
+patch_margin_right = 3
+patch_margin_bottom = 3
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+script = ExtResource("2_ixksb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TabButtons" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="UpgradesButton" type="TextureButton" parent="MarginContainer/VBoxContainer/TabButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("1_kph5r")
+texture_normal = ExtResource("4_ltl2k")
+texture_pressed = ExtResource("5_ha6qv")
+texture_focused = ExtResource("5_ha6qv")
+
+[node name="ChickensButton" type="TextureButton" parent="MarginContainer/VBoxContainer/TabButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("1_kph5r")
+texture_normal = ExtResource("5_ic3j7")
+texture_pressed = ExtResource("7_vfkos")
+
+[node name="ShopButton" type="TextureButton" parent="MarginContainer/VBoxContainer/TabButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("1_kph5r")
+texture_normal = ExtResource("6_ic3j7")
+texture_pressed = ExtResource("9_k2l0a")
+
+[node name="SettingsButton" type="TextureButton" parent="MarginContainer/VBoxContainer/TabButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("1_kph5r")
+texture_normal = ExtResource("7_fjtcs")
+texture_pressed = ExtResource("11_020xo")
+
+[node name="UpgradePanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(0, 0.96862745, 0.10980392, 1)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ChickensPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.23921569, 0.3019608, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShopPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 0, 0.09019608, 1)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SettingsPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SettingsMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer/SettingsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/SettingsPanel/SettingsMargin"]
+layout_mode = 2
+
+[node name="MenuButton" type="Button" parent="MarginContainer/VBoxContainer/SettingsPanel/SettingsMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "menu"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/SettingsPanel/SettingsMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "quit"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
