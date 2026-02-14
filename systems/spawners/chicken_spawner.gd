@@ -3,7 +3,7 @@ extends Node
 
 @export var chicken_scene: PackedScene
 @export var chicken_container: Node2D
-@export var spawn_area: Rect2 = Rect2(44, 26, 232, 128)
+@export var spawn_area: CollisionShape2D
 @export var active: bool = true
 
 var chicken_types: Dictionary = {
@@ -44,8 +44,10 @@ func _get_random_chicken_type() -> ChickenType:
 	return chicken_types["basic"]
 
 func _get_spawn_position() -> Vector2:
-	var pos = Vector2(
-		randf_range(spawn_area.position.x, spawn_area.position.x + spawn_area.size.x),
-		randf_range(spawn_area.position.y, spawn_area.position.y + spawn_area.size.y)
+	var shape = spawn_area.shape as RectangleShape2D
+	var extents = shape.size / 2
+	var pos = spawn_area.global_position
+	return Vector2(
+		randf_range(pos.x - extents.x, pos.x + extents.x),
+		randf_range(pos.y - extents.y, pos.y + extents.y)
 	)
-	return pos

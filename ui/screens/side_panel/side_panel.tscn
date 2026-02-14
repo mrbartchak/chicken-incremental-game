@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://d0quqt4wj784e" path="res://ui/screens/side_panel/assets/settings_button_toggled.png" id="11_020xo"]
 [ext_resource type="PackedScene" uid="uid://c4yp75834n5ji" path="res://ui/screens/shop_menu/components/upgrade_track_ui.tscn" id="12_n2avm"]
 
-[node name="SidePanel" type="NinePatchRect"]
+[node name="SidePanel" type="NinePatchRect" groups=["interactive_ui"]]
 custom_minimum_size = Vector2(74, 156)
 offset_right = 74.0
 offset_bottom = 156.0

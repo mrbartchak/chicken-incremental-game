@@ -8,6 +8,7 @@ var panels: Array[PanelContainer] = []
 @onready var settings_button: TextureButton = %SettingsButton
 
 func _ready() -> void:
+	_add_children_to_interactive_ui_group(self)
 	panels = [
 		%UpgradePanel,
 		%ChickensPanel,
@@ -39,3 +40,9 @@ func _handle_settings() -> void:
 	quit_button.pressed.connect(func():
 		get_tree().quit()
 	)
+
+func _add_children_to_interactive_ui_group(node: Node) -> void:
+	if node is Control:
+		node.add_to_group("interactive_ui")
+	for child in node.get_children():
+		_add_children_to_interactive_ui_group(child)
