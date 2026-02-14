@@ -58,7 +58,13 @@ func _update_tiers(next_tier: int) -> void:
 		tier.texture = tier_filled if tier.get_index() < next_tier else tier_empty
 
 func _update_tier_label(track: UpgradeTrack) -> void:
-	tier_label.text = str(GameManager.get_upgrade_progress(track.id)) + "/" + str(track.get_max_upgrades())
+	var max_upgrades: int = track.get_max_upgrades()
+	var upgrade_progress: int = GameManager.get_upgrade_progress(track.id)
+	tier_label.text = str(upgrade_progress) + "/" + str(max_upgrades)
+	if upgrade_progress == max_upgrades:
+		tier_label.self_modulate = Color("#feae34")
+	else: 
+		tier_label.self_modulate = Color.WHITE
 
 func replace_zeros_with_o(text: String) -> String:
 	return text.replace("0", "o")

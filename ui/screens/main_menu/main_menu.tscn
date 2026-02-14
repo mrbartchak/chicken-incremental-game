@@ -66,10 +66,9 @@ stretch_mode = 1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(160, -18)
-amount = 250
+amount = 100
 texture = ExtResource("4_jp7xi")
-lifetime = 10.0
-preprocess = 1.0
+lifetime = 9.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_vlit4")
 
