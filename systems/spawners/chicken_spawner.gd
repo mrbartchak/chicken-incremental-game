@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 func _spawn_chicken() -> void:
 	var chicken: Chicken = chicken_scene.instantiate()
 	chicken.chicken_type = _get_random_chicken_type()
+	chicken.roam_area = spawn_area
 	chicken_container.add_child(chicken)
 	chicken.position = _get_spawn_position()
 	GameManager.add_chicken()

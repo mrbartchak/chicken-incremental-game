@@ -10,6 +10,7 @@ var chicken_type: ChickenType
 var health: int
 var dead: bool = false
 
+var roam_area: CollisionShape2D
 var elapsed: float = 0.0
 var wait_time: float = 0.0
 var roam_radius: float = 20.0
@@ -57,7 +58,7 @@ func _enter_roaming() -> void:
 	var angle: float = randf() * TAU
 	var radius: float = randf() * roam_radius
 	target_position = global_position + Vector2(cos(angle), sin(angle)) * radius
-	target_position = clamp_to_arena(target_position)
+	target_position = _clamp_to_arena(target_position)
 	
 	if target_position.x > global_position.x:
 		sprite.play("walk_right")
@@ -130,11 +131,23 @@ func flash() -> void:
 # ================
 #      Other
 # ================
-func clamp_to_arena(pos: Vector2) -> Vector2:
-	var margin_x: float = 44.0
-	var margin_y: float = 26
-	var bottom_margin: float = 6.0
-	var viewport_rect = self.get_viewport_rect()
-	pos.x = clamp(pos.x, margin_x, viewport_rect.size.x - margin_x)
-	pos.y = clamp(pos.y, margin_y, viewport_rect.size.y - margin_y - bottom_margin)
-	return pos
+#func clamp_to_arena(pos: Vector2) -> Vector2:
+	#var margin_x: float = 44.0
+	#var margin_y: float = 26
+	#var bottom_margin: float = 6.0
+	#var viewport_rect = self.get_viewport_rect()
+	#pos.x = clamp(pos.x, margin_x, viewport_rect.size.x - margin_x)
+	#pos.y = clamp(pos.y, margin_y, viewport_rect.size.y - margin_y - bottom_margin)
+	#return pos
+
+func _clamp_to_arena(pos: Vector2) -> Vector2:
+	var shape = roam_area.shape as RectangleShape2D
+	var extents = shape.size / 2
+	#var pos = roam_area.global_position
+	var min_arena: Vector2 = roam_area.global_position - Vector2(extents.x, extents.y)
+	var max_arena: Vector2 = roam_area.global_position + Vector2(extents.x, extents.y)
+	
+	return Vector2(
+		clamp(pos.x, min_arena.x, max_arena.x),
+		clamp(pos.y, min_arena.y, max_arena.y)
+	)
