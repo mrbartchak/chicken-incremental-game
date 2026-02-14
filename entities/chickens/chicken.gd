@@ -112,7 +112,7 @@ func die() -> void:
 func drop_wing() -> void:
 	var wing: Wing = wing_scene.instantiate()
 	wing.wing_type = chicken_type.wing_type
-	wing.global_position = global_position
+	wing.global_position = position
 	get_parent().add_child(wing)
 
 # ===================
