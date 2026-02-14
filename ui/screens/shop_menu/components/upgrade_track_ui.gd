@@ -25,12 +25,13 @@ func _init_purchase_button() -> void:
 		GameManager.purchase_upgrade(track_id))
 	
 	purchase_button.mouse_entered.connect(func():
+		if purchase_button.disabled: return
 		GameEffects.scale_in(purchase_button)
 		AudioManager.play_button_hover())
 	
 	purchase_button.mouse_exited.connect(func():
-		GameEffects.scale_out(purchase_button)
-		AudioManager.play_button_hover())
+		if purchase_button.disabled: return
+		GameEffects.scale_out(purchase_button))
 
 func _update_display() -> void:
 	var track: UpgradeTrack = GameManager.get_upgrade_track(track_id)
