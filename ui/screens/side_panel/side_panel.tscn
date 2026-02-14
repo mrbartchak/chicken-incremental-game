@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://1x2nbl64reui"]
+[gd_scene load_steps=24 format=3 uid="uid://1x2nbl64reui"]
 
 [ext_resource type="ButtonGroup" uid="uid://crvposc2sv7r4" path="res://ui/screens/side_panel/side_panel_button_group.tres" id="1_kph5r"]
 [ext_resource type="Texture2D" uid="uid://cl70c5tgntmip" path="res://ui/screens/side_panel/assets/side_panel.png" id="1_ltl2k"]
@@ -33,6 +33,10 @@ content_margin_bottom = 0.0
 color = Color(0.14901961, 0.16862746, 0.26666668, 1)
 grow_begin = 0.0
 grow_end = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_3jf7f"]
+font = ExtResource("16_qj8ee")
+font_color = Color(0.22745098, 0.26666668, 0.4, 1)
 
 [node name="SidePanel" type="NinePatchRect" groups=["interactive_ui"]]
 custom_minimum_size = Vector2(74, 156)
@@ -166,6 +170,7 @@ track_id = "silver_spawn_chance_track"
 
 [node name="ChickensPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
@@ -194,10 +199,19 @@ layout_mode = 2
 
 [node name="ShopPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
-modulate = Color(1, 0, 0.09019608, 1)
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="ShopMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer/ShopPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ShopPanel/ShopMargin"]
+layout_mode = 2
+text = "coming
+soon..."
+label_settings = SubResource("LabelSettings_3jf7f")
+horizontal_alignment = 1
 
 [node name="SettingsPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
