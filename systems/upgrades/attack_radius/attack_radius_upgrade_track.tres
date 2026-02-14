@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeTrack" load_steps=7 format=3 uid="uid://bi4b5acoep5qs"]
+
+[ext_resource type="Script" uid="uid://qfkdktxtx8hw" path="res://systems/upgrades/upgrade_track.gd" id="1_65ytt"]
+[ext_resource type="Texture2D" uid="uid://d0s5tj1l6ea7e" path="res://systems/upgrades/assets/attack_radius_icon.png" id="1_gqqds"]
+[ext_resource type="Script" uid="uid://dakr2yr8ekswl" path="res://systems/upgrades/upgrade.gd" id="2_t2mli"]
+[ext_resource type="Resource" uid="uid://c7twwj04ud4w6" path="res://systems/upgrades/attack_radius/attack_radius_1.tres" id="4_4qugl"]
+[ext_resource type="Resource" uid="uid://7qf0lg332y5q" path="res://systems/upgrades/attack_radius/attack_radius_2.tres" id="5_g5srg"]
+[ext_resource type="Resource" uid="uid://cqvfor2ymbaua" path="res://systems/upgrades/attack_radius/attack_radius_3.tres" id="6_6jfgc"]
+
+[resource]
+script = ExtResource("1_65ytt")
+id = "attack_radius_upgrade_track"
+icon = ExtResource("1_gqqds")
+upgrades = Array[ExtResource("2_t2mli")]([ExtResource("4_4qugl"), ExtResource("5_g5srg"), ExtResource("6_6jfgc")])
+metadata/_custom_type_script = "uid://qfkdktxtx8hw"

@@ -2,8 +2,7 @@ class_name Sword
 extends Area2D
 
 var attack_damage: int = 5
-var attack_radius: int = 10
-
+var attack_radius: int
 var attack_cooldown: float = 1.0
 var cooldown_timer: float = 0.0
 var cooldown_ready: bool = true
@@ -17,10 +16,10 @@ var over_ui: bool = false
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	GameManager.stats_changed.connect(_update_stats)
-	cooldown_bar.value = 1.0
+	_update_stats()
+	#cooldown_bar.value = 1.0
 	cooldown_timer = attack_cooldown
 	attack_hitbox.shape.radius = attack_radius
-	attack_cooldown = GameManager.attack_speed
 	sword_sprite.show()
 	Cursor.hide_cursor()
 
@@ -46,6 +45,7 @@ func _input(event: InputEvent) -> void:
 
 func _update_stats() -> void:
 	attack_cooldown = GameManager.attack_speed
+	attack_radius = GameManager.attack_radius
 	queue_redraw()
 
 func try_attack() -> void:

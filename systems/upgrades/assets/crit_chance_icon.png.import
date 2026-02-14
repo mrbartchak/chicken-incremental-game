@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://namfaod84lyr"
-path="res://.godot/imported/max_population_upgrade_icon_lg.png-0bf1c1de0a98c598a04196793cd10141.ctex"
+uid="uid://cpk4y1mksahto"
+path="res://.godot/imported/crit_chance_icon.png-6ab64f36ecbd52f66341c8fe61f1bdd3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://systems/upgrades/assets/max_population_upgrade_icon_lg.png"
-dest_files=["res://.godot/imported/max_population_upgrade_icon_lg.png-0bf1c1de0a98c598a04196793cd10141.ctex"]
+source_file="res://systems/upgrades/assets/crit_chance_icon.png"
+dest_files=["res://.godot/imported/crit_chance_icon.png-6ab64f36ecbd52f66341c8fe61f1bdd3.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df1g6w2t6nea"
-path="res://.godot/imported/wing_price_upgrade_icon_lg.png-aa3912a37dd92553f4efc842801668c1.ctex"
+uid="uid://d0s5tj1l6ea7e"
+path="res://.godot/imported/attack_radius_icon.png-b74793a78020bedeb32f4cc8825e2166.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://systems/upgrades/assets/wing_price_upgrade_icon_lg.png"
-dest_files=["res://.godot/imported/wing_price_upgrade_icon_lg.png-aa3912a37dd92553f4efc842801668c1.ctex"]
+source_file="res://systems/upgrades/assets/attack_radius_icon.png"
+dest_files=["res://.godot/imported/attack_radius_icon.png-b74793a78020bedeb32f4cc8825e2166.ctex"]
 
 [params]
 

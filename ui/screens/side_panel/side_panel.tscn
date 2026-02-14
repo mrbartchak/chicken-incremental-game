@@ -148,23 +148,27 @@ layout_mode = 2
 theme_override_constants/separation = 3
 theme_override_styles/separator = SubResource("StyleBoxLine_qj8ee")
 
-[node name="UpgradeTrackUI" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList" instance=ExtResource("12_n2avm")]
+[node name="WingValueTrackUI" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList" instance=ExtResource("12_n2avm")]
 layout_mode = 2
 track_id = "wing_value_upgrade_track"
 
-[node name="UpgradeTrackUI2" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList" instance=ExtResource("12_n2avm")]
+[node name="MaxPopulationTrackUI" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList" instance=ExtResource("12_n2avm")]
 layout_mode = 2
 track_id = "max_population_upgrade_track"
 
-[node name="UpgradeTrackUI3" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList" instance=ExtResource("12_n2avm")]
+[node name="SpawnRateTrackUI" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList" instance=ExtResource("12_n2avm")]
 layout_mode = 2
 track_id = "spawn_rate_upgrade_track"
 
-[node name="UpgradeTrackUI4" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList" instance=ExtResource("12_n2avm")]
+[node name="AttackSpeedTrackUI" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList" instance=ExtResource("12_n2avm")]
 layout_mode = 2
 track_id = "attack_speed_upgrade_track"
 
-[node name="UpgradeTrackUI5" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList" instance=ExtResource("12_n2avm")]
+[node name="AttackRadiusTrackUI" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList" instance=ExtResource("12_n2avm")]
+layout_mode = 2
+track_id = "attack_radius_upgrade_track"
+
+[node name="SilverSpawnTrackUI" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList" instance=ExtResource("12_n2avm")]
 layout_mode = 2
 track_id = "silver_spawn_chance_track"
 
