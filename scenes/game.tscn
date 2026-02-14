@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://blfrx5arorllp"]
+[gd_scene load_steps=19 format=3 uid="uid://blfrx5arorllp"]
 
 [ext_resource type="PackedScene" uid="uid://dfti5fcwt8h23" path="res://systems/camera/custom_camera.tscn" id="1_trtic"]
 [ext_resource type="Texture2D" uid="uid://rpj22vbh14xu" path="res://ui/assets/cloud_tile.png" id="2_ca42v"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://c5bskyqsddk1g" path="res://core/shaders/background_scroll.gdshader" id="2_rysoc"]
 [ext_resource type="Script" uid="uid://r8mqryo2epy5" path="res://ui/screens/hud/hud.gd" id="3_ca42v"]
 [ext_resource type="Texture2D" uid="uid://dmveo4pck8loh" path="res://ui/assets/small_grass_island.png" id="5_rysoc"]
+[ext_resource type="Script" uid="uid://dho1shgshtxmn" path="res://entities/platforms/platform.gd" id="6_ir15t"]
 [ext_resource type="Script" uid="uid://di770m57wej6y" path="res://systems/spawners/chicken_spawner.gd" id="6_rysoc"]
 [ext_resource type="Texture2D" uid="uid://ctxgv3qramxgc" path="res://entities/drops/wings/assets/wing_outline.png" id="7_rysoc"]
 [ext_resource type="FontFile" uid="uid://r6bebwqfqoxw" path="res://ui/theme/fonts/GrapeSoda.ttf" id="9_37s47"]
@@ -48,6 +49,7 @@ texture = ExtResource("2_ir15t")
 [node name="Platform" type="Sprite2D" parent="GameWorld"]
 position = Vector2(121, 89)
 texture = ExtResource("5_rysoc")
+script = ExtResource("6_ir15t")
 
 [node name="SpawnArea" type="Area2D" parent="GameWorld/Platform"]
 position = Vector2(0, -7)
@@ -57,12 +59,13 @@ monitorable = false
 [node name="SpawnAreaShape" type="CollisionShape2D" parent="GameWorld/Platform/SpawnArea"]
 shape = SubResource("RectangleShape2D_trtic")
 
-[node name="ChickenContainer" type="Node2D" parent="GameWorld"]
+[node name="ChickenContainer" type="Node2D" parent="GameWorld/Platform"]
+position = Vector2(-121, -89)
 
 [node name="ChickenSpawner" type="Node" parent="GameWorld" node_paths=PackedStringArray("chicken_container", "spawn_area")]
 script = ExtResource("6_rysoc")
 chicken_scene = ExtResource("13_bhx41")
-chicken_container = NodePath("../ChickenContainer")
+chicken_container = NodePath("../Platform/ChickenContainer")
 spawn_area = NodePath("../Platform/SpawnArea/SpawnAreaShape")
 
 [node name="HUD" type="Control" parent="."]
