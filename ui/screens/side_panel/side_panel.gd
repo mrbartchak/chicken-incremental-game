@@ -19,6 +19,8 @@ func _ready() -> void:
 	shop_button.pressed.connect(_show_panel.bind(panels[2]))
 	settings_button.pressed.connect(_show_panel.bind(panels[3]))
 	
+	
+	
 	_show_panel(panels[0])
 	upgrades_button.grab_focus()
 

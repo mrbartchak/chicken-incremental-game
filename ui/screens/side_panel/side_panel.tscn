@@ -51,6 +51,7 @@ theme_override_constants/separation = 0
 unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
+action_mode = 0
 button_group = ExtResource("1_kph5r")
 texture_normal = ExtResource("4_ltl2k")
 texture_pressed = ExtResource("5_ha6qv")
@@ -60,25 +61,31 @@ texture_focused = ExtResource("5_ha6qv")
 unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
+action_mode = 0
 button_group = ExtResource("1_kph5r")
 texture_normal = ExtResource("5_ic3j7")
 texture_pressed = ExtResource("7_vfkos")
+texture_focused = ExtResource("7_vfkos")
 
 [node name="ShopButton" type="TextureButton" parent="MarginContainer/VBoxContainer/TabButtons"]
 unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
+action_mode = 0
 button_group = ExtResource("1_kph5r")
 texture_normal = ExtResource("6_ic3j7")
 texture_pressed = ExtResource("9_k2l0a")
+texture_focused = ExtResource("9_k2l0a")
 
 [node name="SettingsButton" type="TextureButton" parent="MarginContainer/VBoxContainer/TabButtons"]
 unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
+action_mode = 0
 button_group = ExtResource("1_kph5r")
 texture_normal = ExtResource("7_fjtcs")
 texture_pressed = ExtResource("11_020xo")
+texture_focused = ExtResource("11_020xo")
 
 [node name="UpgradePanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
