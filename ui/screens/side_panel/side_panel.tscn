@@ -1,17 +1,21 @@
-[gd_scene load_steps=13 format=3 uid="uid://1x2nbl64reui"]
+[gd_scene load_steps=17 format=3 uid="uid://1x2nbl64reui"]
 
 [ext_resource type="ButtonGroup" uid="uid://crvposc2sv7r4" path="res://ui/screens/side_panel/side_panel_button_group.tres" id="1_kph5r"]
 [ext_resource type="Texture2D" uid="uid://cl70c5tgntmip" path="res://ui/screens/side_panel/assets/side_panel.png" id="1_ltl2k"]
 [ext_resource type="Script" uid="uid://bv3kevmexyr8l" path="res://ui/screens/side_panel/side_panel.gd" id="2_ixksb"]
-[ext_resource type="Texture2D" uid="uid://byfsspsllwio1" path="res://ui/screens/side_panel/assets/upgrade_button.png" id="4_ltl2k"]
+[ext_resource type="Texture2D" uid="uid://bm6ao1354wqw3" path="res://ui/screens/side_panel/assets/upgrade_button.png" id="4_ltl2k"]
 [ext_resource type="Texture2D" uid="uid://s8oa4kueqk2q" path="res://ui/screens/side_panel/assets/upgrade_button_toggled.png" id="5_ha6qv"]
-[ext_resource type="Texture2D" uid="uid://bdk8iegp45geh" path="res://ui/screens/side_panel/assets/chickens_button.png" id="5_ic3j7"]
-[ext_resource type="Texture2D" uid="uid://dnl5n3bobqolb" path="res://ui/screens/side_panel/assets/shop_button.png" id="6_ic3j7"]
-[ext_resource type="Texture2D" uid="uid://cfpmqnm3v8jgx" path="res://ui/screens/side_panel/assets/settings_button.png" id="7_fjtcs"]
+[ext_resource type="Texture2D" uid="uid://b1df6qj6dgxiy" path="res://ui/screens/side_panel/assets/chickens_button.png" id="5_ic3j7"]
+[ext_resource type="Texture2D" uid="uid://byfsspsllwio1" path="res://ui/screens/side_panel/assets/upgrade_button_hover.png" id="6_8sm7e"]
+[ext_resource type="Texture2D" uid="uid://50fq7r2cpe1p" path="res://ui/screens/side_panel/assets/shop_button.png" id="6_ic3j7"]
+[ext_resource type="Texture2D" uid="uid://dchxw04srirn6" path="res://ui/screens/side_panel/assets/settings_button.png" id="7_fjtcs"]
 [ext_resource type="Texture2D" uid="uid://bsl6fcfpsn5qq" path="res://ui/screens/side_panel/assets/chickens_button_toggled.png" id="7_vfkos"]
+[ext_resource type="Texture2D" uid="uid://bdk8iegp45geh" path="res://ui/screens/side_panel/assets/chickens_button_hover.png" id="9_hfc8f"]
 [ext_resource type="Texture2D" uid="uid://ctkgrncr5fyp0" path="res://ui/screens/side_panel/assets/shop_button_toggled.png" id="9_k2l0a"]
 [ext_resource type="Texture2D" uid="uid://d0quqt4wj784e" path="res://ui/screens/side_panel/assets/settings_button_toggled.png" id="11_020xo"]
+[ext_resource type="Texture2D" uid="uid://dnl5n3bobqolb" path="res://ui/screens/side_panel/assets/shop_button_hover.png" id="12_a3lyl"]
 [ext_resource type="PackedScene" uid="uid://c4yp75834n5ji" path="res://ui/screens/shop_menu/components/upgrade_track_ui.tscn" id="12_n2avm"]
+[ext_resource type="Texture2D" uid="uid://cfpmqnm3v8jgx" path="res://ui/screens/side_panel/assets/settings_button_hover.png" id="15_l0cc5"]
 
 [node name="SidePanel" type="NinePatchRect" groups=["interactive_ui"]]
 custom_minimum_size = Vector2(74, 156)
@@ -58,6 +62,7 @@ action_mode = 0
 button_group = ExtResource("1_kph5r")
 texture_normal = ExtResource("4_ltl2k")
 texture_pressed = ExtResource("5_ha6qv")
+texture_hover = ExtResource("6_8sm7e")
 texture_focused = ExtResource("5_ha6qv")
 
 [node name="ChickensButton" type="TextureButton" parent="MarginContainer/VBoxContainer/TabButtons"]
@@ -68,6 +73,7 @@ action_mode = 0
 button_group = ExtResource("1_kph5r")
 texture_normal = ExtResource("5_ic3j7")
 texture_pressed = ExtResource("7_vfkos")
+texture_hover = ExtResource("9_hfc8f")
 texture_focused = ExtResource("7_vfkos")
 
 [node name="ShopButton" type="TextureButton" parent="MarginContainer/VBoxContainer/TabButtons"]
@@ -78,6 +84,7 @@ action_mode = 0
 button_group = ExtResource("1_kph5r")
 texture_normal = ExtResource("6_ic3j7")
 texture_pressed = ExtResource("9_k2l0a")
+texture_hover = ExtResource("12_a3lyl")
 texture_focused = ExtResource("9_k2l0a")
 
 [node name="SettingsButton" type="TextureButton" parent="MarginContainer/VBoxContainer/TabButtons"]
@@ -88,6 +95,7 @@ action_mode = 0
 button_group = ExtResource("1_kph5r")
 texture_normal = ExtResource("7_fjtcs")
 texture_pressed = ExtResource("11_020xo")
+texture_hover = ExtResource("15_l0cc5")
 texture_focused = ExtResource("11_020xo")
 
 [node name="UpgradePanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
