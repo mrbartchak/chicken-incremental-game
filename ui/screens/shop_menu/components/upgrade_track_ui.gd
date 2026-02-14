@@ -19,7 +19,7 @@ func _ready() -> void:
 	_update_display()
 
 func _init_purchase_button() -> void:
-	purchase_button.pivot_offset = Vector2(15, 0)
+	#purchase_button.pivot_offset = Vector2(15, 0)
 	purchase_button.focus_mode = Control.FOCUS_NONE
 	purchase_button.pressed.connect(func():
 		GameManager.purchase_upgrade(track_id))
