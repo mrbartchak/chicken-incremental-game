@@ -19,4 +19,7 @@ func hide_cursor() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
-		GameEffects.pop(sprite, 1.5)
+		#GameEffects.pop(sprite, 1.5)
+		GameEffects.pop_up(sprite)
+	elif event.is_action_released("click"):
+		GameEffects.pop_back(sprite)

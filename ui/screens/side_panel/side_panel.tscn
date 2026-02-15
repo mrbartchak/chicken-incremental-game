@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://1x2nbl64reui"]
+[gd_scene load_steps=22 format=3 uid="uid://1x2nbl64reui"]
 
 [ext_resource type="ButtonGroup" uid="uid://crvposc2sv7r4" path="res://ui/screens/side_panel/side_panel_button_group.tres" id="1_kph5r"]
 [ext_resource type="Texture2D" uid="uid://cl70c5tgntmip" path="res://ui/screens/side_panel/assets/side_panel.png" id="1_ltl2k"]
@@ -14,25 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://ctkgrncr5fyp0" path="res://ui/screens/side_panel/assets/shop_button_toggled.png" id="9_k2l0a"]
 [ext_resource type="Texture2D" uid="uid://d0quqt4wj784e" path="res://ui/screens/side_panel/assets/settings_button_toggled.png" id="11_020xo"]
 [ext_resource type="Texture2D" uid="uid://dnl5n3bobqolb" path="res://ui/screens/side_panel/assets/shop_button_hover.png" id="12_a3lyl"]
-[ext_resource type="PackedScene" uid="uid://c4yp75834n5ji" path="res://ui/screens/shop_menu/components/upgrade_track_ui.tscn" id="12_n2avm"]
 [ext_resource type="Texture2D" uid="uid://cfpmqnm3v8jgx" path="res://ui/screens/side_panel/assets/settings_button_hover.png" id="15_l0cc5"]
+[ext_resource type="PackedScene" uid="uid://bh6k3u3o3oagf" path="res://ui/screens/side_panel/components/upgrade_panel.tscn" id="16_3jf7f"]
 [ext_resource type="FontFile" uid="uid://r6bebwqfqoxw" path="res://ui/theme/fonts/GrapeSoda.ttf" id="16_qj8ee"]
 [ext_resource type="PackedScene" uid="uid://bsh1fk0p45qui" path="res://ui/screens/side_panel/components/chicken_row.tscn" id="18_upulg"]
 [ext_resource type="Resource" uid="uid://dysbita1w72n3" path="res://entities/chickens/types/basic_chicken.tres" id="19_3jf7f"]
 [ext_resource type="Resource" uid="uid://do8icirsuvl60" path="res://entities/chickens/types/silver_chicken.tres" id="20_gls1q"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_upulg"]
-font = ExtResource("16_qj8ee")
-font_color = Color(0.14901961, 0.16862746, 0.26666668, 1)
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_qj8ee"]
-content_margin_left = 4.0
-content_margin_top = 0.0
-content_margin_right = 4.0
-content_margin_bottom = 0.0
-color = Color(0.14901961, 0.16862746, 0.26666668, 1)
-grow_begin = 0.0
-grow_end = 0.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_3jf7f"]
 font = ExtResource("16_qj8ee")
@@ -118,59 +105,9 @@ texture_pressed = ExtResource("11_020xo")
 texture_hover = ExtResource("15_l0cc5")
 texture_focused = ExtResource("11_020xo")
 
-[node name="UpgradePanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="UpgradePanel" parent="MarginContainer/VBoxContainer" instance=ExtResource("16_3jf7f")]
 unique_name_in_owner = true
-visible = false
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-size_flags_vertical = 3
-
-[node name="UpgradeMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer/UpgradePanel"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = -1
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
-
-[node name="UpgradeList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="UpgradesTitle" type="Label" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList"]
-layout_mode = 2
-text = "UPGRADES"
-label_settings = SubResource("LabelSettings_upulg")
-horizontal_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList"]
-layout_mode = 2
-theme_override_constants/separation = 3
-theme_override_styles/separator = SubResource("StyleBoxLine_qj8ee")
-
-[node name="WingValueTrackUI" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList" instance=ExtResource("12_n2avm")]
-layout_mode = 2
-track_id = "wing_value_upgrade_track"
-
-[node name="MaxPopulationTrackUI" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList" instance=ExtResource("12_n2avm")]
-layout_mode = 2
-track_id = "max_population_upgrade_track"
-
-[node name="SpawnRateTrackUI" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList" instance=ExtResource("12_n2avm")]
-layout_mode = 2
-track_id = "spawn_rate_upgrade_track"
-
-[node name="AttackSpeedTrackUI" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList" instance=ExtResource("12_n2avm")]
-layout_mode = 2
-track_id = "attack_speed_upgrade_track"
-
-[node name="AttackRadiusTrackUI" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList" instance=ExtResource("12_n2avm")]
-layout_mode = 2
-track_id = "attack_radius_upgrade_track"
-
-[node name="SilverSpawnTrackUI" parent="MarginContainer/VBoxContainer/UpgradePanel/UpgradeMargin/UpgradeList" instance=ExtResource("12_n2avm")]
-layout_mode = 2
-track_id = "silver_spawn_chance_track"
 
 [node name="ChickensPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true

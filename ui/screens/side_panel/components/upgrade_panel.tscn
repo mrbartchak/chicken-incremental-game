@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh6k3u3o3oagf"]
+
+[ext_resource type="FontFile" uid="uid://r6bebwqfqoxw" path="res://ui/theme/fonts/GrapeSoda.ttf" id="1_8iytx"]
+[ext_resource type="PackedScene" uid="uid://c4yp75834n5ji" path="res://ui/screens/shop_menu/components/upgrade_track_ui.tscn" id="2_0jqsy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_upulg"]
+font = ExtResource("1_8iytx")
+font_color = Color(0.14901961, 0.16862746, 0.26666668, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_qj8ee"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+color = Color(0.14901961, 0.16862746, 0.26666668, 1)
+grow_begin = 0.0
+grow_end = 0.0
+
+[node name="UpgradePanel" type="PanelContainer"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+size_flags_vertical = 3
+
+[node name="UpgradeMargin" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = -1
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="UpgradeList" type="VBoxContainer" parent="UpgradeMargin"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="UpgradesTitle" type="Label" parent="UpgradeMargin/UpgradeList"]
+layout_mode = 2
+text = "UPGRADES"
+label_settings = SubResource("LabelSettings_upulg")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="UpgradeMargin/UpgradeList"]
+layout_mode = 2
+theme_override_constants/separation = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_qj8ee")
+
+[node name="WingValueTrackUI" parent="UpgradeMargin/UpgradeList" instance=ExtResource("2_0jqsy")]
+layout_mode = 2
+track_id = "wing_value_upgrade_track"
+
+[node name="MaxPopulationTrackUI" parent="UpgradeMargin/UpgradeList" instance=ExtResource("2_0jqsy")]
+layout_mode = 2
+track_id = "max_population_upgrade_track"
+
+[node name="SpawnRateTrackUI" parent="UpgradeMargin/UpgradeList" instance=ExtResource("2_0jqsy")]
+layout_mode = 2
+track_id = "spawn_rate_upgrade_track"
+
+[node name="AttackSpeedTrackUI" parent="UpgradeMargin/UpgradeList" instance=ExtResource("2_0jqsy")]
+layout_mode = 2
+track_id = "attack_speed_upgrade_track"
+
+[node name="AttackRadiusTrackUI" parent="UpgradeMargin/UpgradeList" instance=ExtResource("2_0jqsy")]
+layout_mode = 2
+track_id = "attack_radius_upgrade_track"
+
+[node name="SilverSpawnTrackUI" parent="UpgradeMargin/UpgradeList" instance=ExtResource("2_0jqsy")]
+layout_mode = 2
+track_id = "silver_spawn_chance_track"

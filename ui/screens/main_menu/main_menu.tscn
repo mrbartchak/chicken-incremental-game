@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://73d71fc5ulh"]
+[gd_scene load_steps=17 format=3 uid="uid://73d71fc5ulh"]
 
 [ext_resource type="Script" uid="uid://c45nlbkvcabkd" path="res://ui/screens/main_menu/main_menu.gd" id="1_i8qw8"]
 [ext_resource type="Shader" uid="uid://c5bskyqsddk1g" path="res://core/shaders/background_scroll.gdshader" id="2_77una"]
@@ -38,8 +38,13 @@ alpha_curve = SubResource("CurveTexture_xvp6o")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8facs"]
 shader = ExtResource("5_xvp6o")
-shader_parameter/speed = 1.0
-shader_parameter/height = 3.0
+shader_parameter/speed = 1.5
+shader_parameter/height = 6.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uck36"]
+shader = ExtResource("5_xvp6o")
+shader_parameter/speed = 1.45
+shader_parameter/height = 7.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvp6o"]
 content_margin_left = 0.0
@@ -86,6 +91,14 @@ process_material = SubResource("ParticleProcessMaterial_vlit4")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_8facs")
 position = Vector2(81, 34)
+texture = ExtResource("5_uck36")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+visible = false
+self_modulate = Color(0, 0, 0, 0.4392157)
+show_behind_parent = true
+material = SubResource("ShaderMaterial_uck36")
+position = Vector2(-2, 0)
 texture = ExtResource("5_uck36")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
