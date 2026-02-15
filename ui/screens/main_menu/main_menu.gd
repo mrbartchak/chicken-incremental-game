@@ -1,10 +1,10 @@
 class_name MainMenu
 extends Control
 
-@onready var continue_button: TextureButton = $CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ContinueButton
-@onready var new_game_button: TextureButton = $CenterContainer/VBoxContainer/CenterContainer/MenuButtons/NewGameButton
-@onready var settings_button: TextureButton = $CenterContainer/VBoxContainer/CenterContainer/MenuButtons/SettingsButton
-@onready var exit_button: TextureButton = $CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ExitButton
+@onready var continue_button: Button = $CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ContinueButton
+@onready var new_game_button: Button = $CenterContainer/VBoxContainer/CenterContainer/MenuButtons/NewGameButton
+@onready var settings_button: Button = $CenterContainer/VBoxContainer/CenterContainer/MenuButtons/SettingsButton
+@onready var exit_button: Button = $CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ExitButton
 @onready var version_label: Label = $VersionLabel
 
 func _ready() -> void:

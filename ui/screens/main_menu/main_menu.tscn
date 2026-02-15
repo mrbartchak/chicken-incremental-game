@@ -1,12 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://73d71fc5ulh"]
+[gd_scene load_steps=15 format=3 uid="uid://73d71fc5ulh"]
 
 [ext_resource type="Script" uid="uid://c45nlbkvcabkd" path="res://ui/screens/main_menu/main_menu.gd" id="1_i8qw8"]
 [ext_resource type="Shader" uid="uid://c5bskyqsddk1g" path="res://core/shaders/background_scroll.gdshader" id="2_77una"]
 [ext_resource type="Texture2D" uid="uid://rpj22vbh14xu" path="res://ui/assets/cloud_tile.png" id="3_uck36"]
 [ext_resource type="Texture2D" uid="uid://ctxgv3qramxgc" path="res://entities/drops/wings/assets/wing_outline.png" id="4_jp7xi"]
-[ext_resource type="Texture2D" uid="uid://bu2tjuvrgvop7" path="res://ui/screens/main_menu/assets/menu_logo-sword.png" id="5_porbc"]
-[ext_resource type="Texture2D" uid="uid://bir1m82ky4crj" path="res://ui/screens/main_menu/assets/buttons/menu_button_normal.png" id="6_cv2ih"]
-[ext_resource type="Texture2D" uid="uid://7n216m334cyb" path="res://ui/screens/main_menu/assets/buttons/menu_button_hover.png" id="7_k15dw"]
+[ext_resource type="Texture2D" uid="uid://cqjfhhb4w1nn2" path="res://ui/assets/wingcremental_logo.png" id="5_uck36"]
+[ext_resource type="FontFile" uid="uid://r6bebwqfqoxw" path="res://ui/theme/fonts/GrapeSoda.ttf" id="6_xvp6o"]
 [ext_resource type="FontFile" uid="uid://dclbxgjjmtenh" path="res://ui/theme/fonts/Picopixel.ttf" id="8_uck36"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_trkij"]
@@ -39,14 +38,15 @@ alpha_curve = SubResource("CurveTexture_xvp6o")
 [sub_resource type="LabelSettings" id="LabelSettings_vlit4"]
 font_size = 32
 
-[sub_resource type="LabelSettings" id="LabelSettings_trkij"]
-font_size = 8
-
-[sub_resource type="LabelSettings" id="LabelSettings_ygv2v"]
-font_size = 8
-
-[sub_resource type="LabelSettings" id="LabelSettings_pjjyy"]
-font_size = 8
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvp6o"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="LabelSettings" id="LabelSettings_77una"]
 font = ExtResource("8_uck36")
@@ -82,10 +82,9 @@ process_material = SubResource("ParticleProcessMaterial_vlit4")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-grow_horizontal = 2
+offset_right = 159.0
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
@@ -95,17 +94,18 @@ alignment = 1
 
 [node name="TitleLogo" type="TextureRect" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("5_porbc")
+texture = ExtResource("5_uck36")
 
 [node name="TitleLogoShadow" type="TextureRect" parent="CenterContainer/VBoxContainer/TitleLogo"]
 self_modulate = Color(0, 0, 0, 0.5882353)
 show_behind_parent = true
 layout_mode = 0
-offset_left = -4.0
-offset_top = 4.0
-offset_right = 228.0
-offset_bottom = 66.0
-texture = ExtResource("5_porbc")
+offset_left = -3.0
+offset_top = 2.0
+offset_right = 115.0
+offset_bottom = 20.0
+scale = Vector2(1.025, 1)
+texture = ExtResource("5_uck36")
 
 [node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 visible = false
@@ -125,77 +125,49 @@ layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="ContinueButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons"]
+[node name="ContinueButton" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons"]
 layout_mode = 2
-texture_normal = ExtResource("6_cv2ih")
-texture_pressed = ExtResource("6_cv2ih")
-texture_hover = ExtResource("7_k15dw")
-texture_focused = ExtResource("6_cv2ih")
+theme_override_colors/font_color = Color(0.22745098, 0.26666668, 0.4, 1)
+theme_override_fonts/font = ExtResource("6_xvp6o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xvp6o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xvp6o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xvp6o")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xvp6o")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xvp6o")
+text = "CONTINUE"
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ContinueButton"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 4.0
-offset_right = 95.0
-offset_bottom = 12.0
-text = "Continue"
-label_settings = SubResource("LabelSettings_trkij")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="NewGameButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons"]
+[node name="NewGameButton" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons"]
 layout_mode = 2
-texture_normal = ExtResource("6_cv2ih")
-texture_pressed = ExtResource("6_cv2ih")
-texture_hover = ExtResource("7_k15dw")
-texture_focused = ExtResource("6_cv2ih")
-
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/NewGameButton"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 4.0
-offset_right = 97.0
-offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.22745098, 0.26666668, 0.4, 1)
+theme_override_fonts/font = ExtResource("6_xvp6o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xvp6o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xvp6o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xvp6o")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xvp6o")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xvp6o")
 text = "NEW GAME"
-label_settings = SubResource("LabelSettings_trkij")
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="SettingsButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons"]
+[node name="SettingsButton" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons"]
 layout_mode = 2
-texture_normal = ExtResource("6_cv2ih")
-texture_pressed = ExtResource("6_cv2ih")
-texture_hover = ExtResource("7_k15dw")
-texture_focused = ExtResource("6_cv2ih")
-
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/SettingsButton"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 4.0
-offset_right = 97.0
-offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.22745098, 0.26666668, 0.4, 1)
+theme_override_fonts/font = ExtResource("6_xvp6o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xvp6o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xvp6o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xvp6o")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xvp6o")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xvp6o")
 text = "SETTINGS"
-label_settings = SubResource("LabelSettings_ygv2v")
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="ExitButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons"]
+[node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons"]
 layout_mode = 2
-texture_normal = ExtResource("6_cv2ih")
-texture_pressed = ExtResource("6_cv2ih")
-texture_hover = ExtResource("7_k15dw")
-texture_focused = ExtResource("6_cv2ih")
-
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/MenuButtons/ExitButton"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 4.0
-offset_right = 97.0
-offset_bottom = 12.0
-text = "Quit"
-label_settings = SubResource("LabelSettings_pjjyy")
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_colors/font_color = Color(0.22745098, 0.26666668, 0.4, 1)
+theme_override_fonts/font = ExtResource("6_xvp6o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xvp6o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xvp6o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xvp6o")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xvp6o")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xvp6o")
+text = "QUIT"
 
 [node name="VersionLabel" type="Label" parent="."]
 layout_mode = 1
