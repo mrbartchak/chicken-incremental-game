@@ -18,6 +18,7 @@ const SPAWN_ORDER: Array[String] = ["gold", "silver", "basic"]
 
 var _state: GameState
 var _upgrade_tracks: Dictionary = {}
+var _chicken_types: Dictionary = {}
 
 # Computed Stats (derived from state)
 var wing_value_bonus: int = BASE_WING_VALUE_BONUS
@@ -26,11 +27,13 @@ var spawn_rate: float = BASE_SPAWN_RATE
 var attack_speed: float = BASE_ATTACK_SPEED
 var attack_radius: int = BASE_ATTACK_RADIUS
 var chicken_spawn_chances: Dictionary = {}
+var _unlocked_chicken_types: Array[String] = []
 
 func _ready() -> void:
 	if not _state:
 		_state = GameState.new()
 	_load_upgrade_tracks()
+	_load_chicken_types()
 
 # ============ Queries ============
 func get_wings() -> int:
@@ -68,6 +71,23 @@ func can_afford_next_upgrade(track_id: String) -> bool:
 	if not upgrade:
 		return false
 	return can_afford(upgrade.cost)
+
+func get_random_chicken_type() -> ChickenType:
+	if _unlocked_chicken_types.is_empty():
+		return null
+	var total_weight: float = 0.0
+	for type_id: String in _unlocked_chicken_types:
+		var type: ChickenType = _chicken_types.get(type_id)
+		total_weight += type.spawn_weight
+	
+	var roll: float = randf() * total_weight
+	for type_id: String in _unlocked_chicken_types:
+		var type: ChickenType = _chicken_types.get(type_id)
+		roll -= type.spawn_weight
+		if roll <= 0:
+			return type
+	
+	return _chicken_types.get(_unlocked_chicken_types[-1])
 
 # ============ Actions ============
 func collect_wing(base_value: int, at: Vector2) -> void:
@@ -107,6 +127,7 @@ func purchase_upgrade(track_id: String) -> bool:
 func new_game() -> void:
 	_state = GameState.new()
 	_init_track_progress()
+	_init_unlocked_chicken_types()
 	_recalculate_stats()
 	_emit_all()
 
@@ -116,6 +137,7 @@ func get_state_dict() -> Dictionary:
 func load_state_dict(data: Dictionary) -> void:
 	_state = GameState.from_dict(data)
 	_init_track_progress()
+	_init_unlocked_chicken_types()
 	_recalculate_stats()
 	_emit_all()
 
@@ -176,3 +198,17 @@ func _init_track_progress() -> void:
 	for track_id: String in _upgrade_tracks:
 		if not _state.upgrade_progress.has(track_id):
 			_state.upgrade_progress[track_id] = 0
+
+func _load_chicken_types() -> void:
+	var types: Array = [
+		load("res://entities/chickens/types/basic_chicken.tres"),
+		load("res://entities/chickens/types/silver_chicken.tres")
+	]
+	for type: ChickenType in types:
+		_chicken_types[type.id] = type
+
+func _init_unlocked_chicken_types() -> void:
+	for type_id: String in _chicken_types:
+		var type: ChickenType = _chicken_types.get(type_id)
+		if _state.total_wings_collected >= type.unlock_milestone:
+			_unlocked_chicken_types.append(type_id)

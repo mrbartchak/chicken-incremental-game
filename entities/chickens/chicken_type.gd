@@ -8,3 +8,5 @@ extends Resource
 @export var speed: float = 50.0
 @export var max_health: int = 1
 @export var wing_type: WingType
+@export var unlock_milestone: int
+@export var spawn_weight: float

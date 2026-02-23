@@ -14,4 +14,6 @@ badge_icon = ExtResource("1_udx60")
 speed = 20.0
 max_health = 5
 wing_type = ExtResource("2_ksfpc")
+unlock_milestone = 10000
+spawn_weight = 4.0
 metadata/_custom_type_script = "uid://0ic7vuhhcb2t"
