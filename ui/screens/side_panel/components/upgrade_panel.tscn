@@ -63,7 +63,3 @@ track_id = "attack_speed_upgrade_track"
 [node name="AttackRadiusTrackUI" parent="UpgradeMargin/UpgradeList" instance=ExtResource("2_0jqsy")]
 layout_mode = 2
 track_id = "attack_radius_upgrade_track"
-
-[node name="SilverSpawnTrackUI" parent="UpgradeMargin/UpgradeList" instance=ExtResource("2_0jqsy")]
-layout_mode = 2
-track_id = "silver_spawn_chance_track"

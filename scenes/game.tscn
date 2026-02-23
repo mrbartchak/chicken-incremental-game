@@ -144,6 +144,14 @@ visible = false
 visible = false
 layout_mode = 1
 
+[node name="TotalWingsCollected" type="Label" parent="HUD"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 39.0
+offset_top = 4.0
+offset_right = 79.0
+offset_bottom = 20.0
+
 [node name="MouseLayer" type="CanvasLayer" parent="."]
 
 [node name="Sword" parent="MouseLayer" instance=ExtResource("14_qnb83")]

@@ -18,3 +18,4 @@ func connect_signals() -> void:
 func update_wing_count_label() -> void:
 	wing_count_label.text = str(GameManager.get_wings())
 	GameEffects.pop(top_bar)
+	%TotalWingsCollected.text = str(GameManager.get_total_wings_collected())

@@ -9,16 +9,11 @@ const BASE_MAX_POPULATION: int = 1
 const BASE_SPAWN_RATE: float = 1.5
 const BASE_ATTACK_SPEED: float = 1.0
 const BASE_ATTACK_RADIUS: int = 8
-const BASE_CHICKEN_SPAWN_CHANCES: Dictionary = {
-	"basic": 1.0,
-	"silver": 0.0,
-	"gold": 0.0
-}
-const SPAWN_ORDER: Array[String] = ["gold", "silver", "basic"]
 
 var _state: GameState
 var _upgrade_tracks: Dictionary = {}
 var _chicken_types: Dictionary = {}
+var _unlocked_chicken_types: Array[String] = []
 
 # Computed Stats (derived from state)
 var wing_value_bonus: int = BASE_WING_VALUE_BONUS
@@ -26,8 +21,6 @@ var max_population: int = BASE_MAX_POPULATION
 var spawn_rate: float = BASE_SPAWN_RATE
 var attack_speed: float = BASE_ATTACK_SPEED
 var attack_radius: int = BASE_ATTACK_RADIUS
-var chicken_spawn_chances: Dictionary = {}
-var _unlocked_chicken_types: Array[String] = []
 
 func _ready() -> void:
 	if not _state:
@@ -39,11 +32,11 @@ func _ready() -> void:
 func get_wings() -> int:
 	return _state.wings
 
+func get_total_wings_collected() -> int:
+	return _state.total_wings_collected
+
 func get_chicken_count() -> int:
 	return _state.chicken_count
-
-func get_chicken_spawn_chance(id: String) -> float:
-	return chicken_spawn_chances.get(id, 0.0)
 
 func get_upgrade_track(track_id: String) -> UpgradeTrack:
 	return _upgrade_tracks.get(track_id)
@@ -96,6 +89,7 @@ func collect_wing(base_value: int, at: Vector2) -> void:
 	_state.total_wings_collected += final_value
 	GameEffects.spawn_floating_number(final_value, at)
 	wings_changed.emit()
+	_update_unlocked_chicken_types()
 
 func spend_wings(amount: int) -> void:
 	_state.wings = max(0, _state.wings - amount)
@@ -127,7 +121,7 @@ func purchase_upgrade(track_id: String) -> bool:
 func new_game() -> void:
 	_state = GameState.new()
 	_init_track_progress()
-	_init_unlocked_chicken_types()
+	_update_unlocked_chicken_types()
 	_recalculate_stats()
 	_emit_all()
 
@@ -137,7 +131,7 @@ func get_state_dict() -> Dictionary:
 func load_state_dict(data: Dictionary) -> void:
 	_state = GameState.from_dict(data)
 	_init_track_progress()
-	_init_unlocked_chicken_types()
+	_update_unlocked_chicken_types()
 	_recalculate_stats()
 	_emit_all()
 
@@ -148,7 +142,6 @@ func _recalculate_stats() -> void:
 	spawn_rate = BASE_SPAWN_RATE
 	attack_speed = BASE_ATTACK_SPEED
 	attack_radius = BASE_ATTACK_RADIUS
-	chicken_spawn_chances = BASE_CHICKEN_SPAWN_CHANCES.duplicate()
 	
 	for track_id: String in _upgrade_tracks:
 		var track: UpgradeTrack = _upgrade_tracks[track_id]
@@ -172,9 +165,6 @@ func _apply_upgrade_effect(upgrade: Upgrade) -> void:
 			attack_speed -= upgrade.effect_value
 		"attack_radius":
 			attack_radius += int(upgrade.effect_value)
-		"silver_spawn_chance":
-			chicken_spawn_chances["silver"] += upgrade.effect_value
-			chicken_spawn_chances["basic"] -= upgrade.effect_value
 
 # ============ Internal ============
 func _emit_all() -> void:
@@ -188,8 +178,7 @@ func _load_upgrade_tracks() -> void:
 		load("res://systems/upgrades/max_population/max_population_upgrade_track.tres"),
 		load("res://systems/upgrades/spawn_rate/spawn_rate_upgrade_track.tres"),
 		load("res://systems/upgrades/attack_speed/attack_speed_upgrade_track.tres"),
-		load("res://systems/upgrades/attack_radius/attack_radius_upgrade_track.tres"),
-		load("res://systems/upgrades/silver_spawn_chance/silver_spawn_chance_track.tres")
+		load("res://systems/upgrades/attack_radius/attack_radius_upgrade_track.tres")
 	]
 	for track: UpgradeTrack in tracks:
 		_upgrade_tracks[track.id] = track
@@ -207,8 +196,10 @@ func _load_chicken_types() -> void:
 	for type: ChickenType in types:
 		_chicken_types[type.id] = type
 
-func _init_unlocked_chicken_types() -> void:
+func _update_unlocked_chicken_types() -> void:
 	for type_id: String in _chicken_types:
+		if type_id in _unlocked_chicken_types:
+			continue
 		var type: ChickenType = _chicken_types.get(type_id)
 		if _state.total_wings_collected >= type.unlock_milestone:
 			_unlocked_chicken_types.append(type_id)
