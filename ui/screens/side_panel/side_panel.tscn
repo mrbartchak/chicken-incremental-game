@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://1x2nbl64reui"]
+[gd_scene load_steps=26 format=3 uid="uid://1x2nbl64reui"]
 
 [ext_resource type="ButtonGroup" uid="uid://crvposc2sv7r4" path="res://ui/screens/side_panel/side_panel_button_group.tres" id="1_kph5r"]
 [ext_resource type="Texture2D" uid="uid://cl70c5tgntmip" path="res://ui/screens/side_panel/assets/side_panel.png" id="1_ltl2k"]
@@ -22,9 +22,31 @@
 [ext_resource type="Resource" uid="uid://ds1i3be2tcg6q" path="res://entities/chickens/types/gold_chicken.tres" id="20_d3x0d"]
 [ext_resource type="Resource" uid="uid://do8icirsuvl60" path="res://entities/chickens/types/silver_chicken.tres" id="20_gls1q"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_gls1q"]
+font = ExtResource("16_qj8ee")
+font_color = Color(0.14901961, 0.16862746, 0.26666668, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_d3x0d"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+color = Color(0.14901961, 0.16862746, 0.26666668, 1)
+grow_begin = 0.0
+grow_end = 0.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_3jf7f"]
 font = ExtResource("16_qj8ee")
 font_color = Color(0.22745098, 0.26666668, 0.4, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_gls1q"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+color = Color(0.14901961, 0.16862746, 0.26666668, 1)
+grow_begin = 0.0
+grow_end = 0.0
 
 [node name="SidePanel" type="NinePatchRect" groups=["interactive_ui"]]
 custom_minimum_size = Vector2(74, 156)
@@ -120,10 +142,24 @@ size_flags_vertical = 3
 [node name="ChickensMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer/ChickensPanel"]
 layout_mode = 2
 theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = -1
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
 
 [node name="ChickensList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ChickensPanel/ChickensMargin"]
 layout_mode = 2
 theme_override_constants/separation = 0
+
+[node name="ChickensTitle" type="Label" parent="MarginContainer/VBoxContainer/ChickensPanel/ChickensMargin/ChickensList"]
+layout_mode = 2
+text = "CHICKENS"
+label_settings = SubResource("LabelSettings_gls1q")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/ChickensPanel/ChickensMargin/ChickensList"]
+layout_mode = 2
+theme_override_constants/separation = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_d3x0d")
 
 [node name="ChickenRow" parent="MarginContainer/VBoxContainer/ChickensPanel/ChickensMargin/ChickensList" instance=ExtResource("18_upulg")]
 layout_mode = 2
@@ -142,6 +178,7 @@ layout_mode = 2
 
 [node name="ShopPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
@@ -158,7 +195,6 @@ horizontal_alignment = 1
 
 [node name="SettingsPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
@@ -166,19 +202,33 @@ size_flags_vertical = 3
 [node name="SettingsMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer/SettingsPanel"]
 layout_mode = 2
 theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
+theme_override_constants/margin_top = -1
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/SettingsPanel/SettingsMargin"]
+[node name="SettingsList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/SettingsPanel/SettingsMargin"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="MenuButton" type="Button" parent="MarginContainer/VBoxContainer/SettingsPanel/SettingsMargin/VBoxContainer"]
+[node name="SettingsTitle" type="Label" parent="MarginContainer/VBoxContainer/SettingsPanel/SettingsMargin/SettingsList"]
+layout_mode = 2
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_gls1q")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/SettingsPanel/SettingsMargin/SettingsList"]
+layout_mode = 2
+theme_override_constants/separation = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_gls1q")
+
+[node name="MenuButton" type="Button" parent="MarginContainer/VBoxContainer/SettingsPanel/SettingsMargin/SettingsList"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "menu"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/SettingsPanel/SettingsMargin/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/SettingsPanel/SettingsMargin/SettingsList"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "quit"

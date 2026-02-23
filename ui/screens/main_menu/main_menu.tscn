@@ -90,7 +90,7 @@ process_material = SubResource("ParticleProcessMaterial_vlit4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_8facs")
-position = Vector2(81, 34)
+position = Vector2(81, 45)
 texture = ExtResource("5_uck36")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
