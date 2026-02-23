@@ -81,6 +81,11 @@ func get_random_chicken_type() -> ChickenType:
 			return type
 	
 	return _chicken_types.get(_unlocked_chicken_types[-1])
+	
+func is_chicken_type_unlocked(type: ChickenType) -> bool:
+	if get_total_wings_collected() >= type.unlock_milestone:
+		return true
+	return false
 
 # ============ Actions ============
 func collect_wing(base_value: int, at: Vector2) -> void:
@@ -191,7 +196,8 @@ func _init_track_progress() -> void:
 func _load_chicken_types() -> void:
 	var types: Array = [
 		load("res://entities/chickens/types/basic_chicken.tres"),
-		load("res://entities/chickens/types/silver_chicken.tres")
+		load("res://entities/chickens/types/silver_chicken.tres"),
+		load("res://entities/chickens/types/gold_chicken.tres")
 	]
 	for type: ChickenType in types:
 		_chicken_types[type.id] = type

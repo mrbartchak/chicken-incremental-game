@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://1x2nbl64reui"]
+[gd_scene load_steps=23 format=3 uid="uid://1x2nbl64reui"]
 
 [ext_resource type="ButtonGroup" uid="uid://crvposc2sv7r4" path="res://ui/screens/side_panel/side_panel_button_group.tres" id="1_kph5r"]
 [ext_resource type="Texture2D" uid="uid://cl70c5tgntmip" path="res://ui/screens/side_panel/assets/side_panel.png" id="1_ltl2k"]
@@ -19,6 +19,7 @@
 [ext_resource type="FontFile" uid="uid://r6bebwqfqoxw" path="res://ui/theme/fonts/GrapeSoda.ttf" id="16_qj8ee"]
 [ext_resource type="PackedScene" uid="uid://bsh1fk0p45qui" path="res://ui/screens/side_panel/components/chicken_row.tscn" id="18_upulg"]
 [ext_resource type="Resource" uid="uid://dysbita1w72n3" path="res://entities/chickens/types/basic_chicken.tres" id="19_3jf7f"]
+[ext_resource type="Resource" uid="uid://ds1i3be2tcg6q" path="res://entities/chickens/types/gold_chicken.tres" id="20_d3x0d"]
 [ext_resource type="Resource" uid="uid://do8icirsuvl60" path="res://entities/chickens/types/silver_chicken.tres" id="20_gls1q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3jf7f"]
@@ -134,6 +135,7 @@ chicken_type = ExtResource("20_gls1q")
 
 [node name="ChickenRow3" parent="MarginContainer/VBoxContainer/ChickensPanel/ChickensMargin/ChickensList" instance=ExtResource("18_upulg")]
 layout_mode = 2
+chicken_type = ExtResource("20_d3x0d")
 
 [node name="ChickenRow4" parent="MarginContainer/VBoxContainer/ChickensPanel/ChickensMargin/ChickensList" instance=ExtResource("18_upulg")]
 layout_mode = 2

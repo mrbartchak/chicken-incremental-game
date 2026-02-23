@@ -1,41 +1,41 @@
-[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://bkgtv1aeyh70n"]
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://diqu7v5febt3w"]
 
-[ext_resource type="Texture2D" uid="uid://0pr7j4uesgvs" path="res://entities/chickens/assets/silver_chicken_sheet.png" id="1_b7f7e"]
+[ext_resource type="Texture2D" uid="uid://0pr7j4uesgvs" path="res://entities/chickens/assets/silver_chicken_sheet.png" id="1_prdk6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_om6w2"]
-atlas = ExtResource("1_b7f7e")
+atlas = ExtResource("1_prdk6")
 region = Rect2(0, 1, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7f7e"]
-atlas = ExtResource("1_b7f7e")
+atlas = ExtResource("1_prdk6")
 region = Rect2(30, 12, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4bktj"]
-atlas = ExtResource("1_b7f7e")
+atlas = ExtResource("1_prdk6")
 region = Rect2(20, 12, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0lii"]
-atlas = ExtResource("1_b7f7e")
+atlas = ExtResource("1_prdk6")
 region = Rect2(0, 1, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_27lr1"]
-atlas = ExtResource("1_b7f7e")
+atlas = ExtResource("1_prdk6")
 region = Rect2(10, 1, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ugtph"]
-atlas = ExtResource("1_b7f7e")
+atlas = ExtResource("1_prdk6")
 region = Rect2(10, 12, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi3a5"]
-atlas = ExtResource("1_b7f7e")
+atlas = ExtResource("1_prdk6")
 region = Rect2(0, 12, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qtfuk"]
-atlas = ExtResource("1_b7f7e")
+atlas = ExtResource("1_prdk6")
 region = Rect2(20, 1, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oxtmc"]
-atlas = ExtResource("1_b7f7e")
+atlas = ExtResource("1_prdk6")
 region = Rect2(30, 1, 10, 10)
 
 [resource]

@@ -6,6 +6,6 @@ extends HBoxContainer
 @onready var label: Label = $Label
 
 func _ready() -> void:
-	if chicken_type:
+	if chicken_type and GameManager.is_chicken_type_unlocked(chicken_type):
 		badge.texture = chicken_type.badge_icon
 		label.text = chicken_type.display_name

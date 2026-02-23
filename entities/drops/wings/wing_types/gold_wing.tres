@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WingType" load_steps=3 format=3 uid="uid://chco2br61msph"]
+
+[ext_resource type="Script" uid="uid://cwfxw1775mxs7" path="res://entities/drops/wings/wing_types/wing_type.gd" id="1_qolph"]
+[ext_resource type="Texture2D" uid="uid://ty4c6hlsw8g7" path="res://entities/drops/wings/assets/gold_wing.png" id="2_qolph"]
+
+[resource]
+script = ExtResource("1_qolph")
+id = "gold_wing"
+display_name = "Gold Wing"
+sprite = ExtResource("2_qolph")
+base_value = 101
+metadata/_custom_type_script = "uid://cwfxw1775mxs7"

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ChickenType" load_steps=5 format=3 uid="uid://ds1i3be2tcg6q"]
+
+[ext_resource type="Texture2D" uid="uid://bbocf77but1wt" path="res://ui/screens/side_panel/assets/gold_chicken_badge.png" id="1_j6hj3"]
+[ext_resource type="Script" uid="uid://0ic7vuhhcb2t" path="res://entities/chickens/chicken_type.gd" id="2_d6tbc"]
+[ext_resource type="Resource" uid="uid://chco2br61msph" path="res://entities/drops/wings/wing_types/gold_wing.tres" id="3_2y6gh"]
+[ext_resource type="SpriteFrames" uid="uid://bkgtv1aeyh70n" path="res://entities/chickens/assets/gold_chicken_sprite_frames.tres" id="3_dfly8"]
+
+[resource]
+script = ExtResource("2_d6tbc")
+id = "gold_chicken"
+display_name = "Gold"
+sprite_frames = ExtResource("3_dfly8")
+badge_icon = ExtResource("1_j6hj3")
+speed = 20.0
+max_health = 5
+wing_type = ExtResource("3_2y6gh")
+unlock_milestone = 35000
+spawn_weight = 1.0
+metadata/_custom_type_script = "uid://0ic7vuhhcb2t"
