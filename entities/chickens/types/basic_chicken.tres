@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="ChickenType" load_steps=5 format=3 uid="uid://dysbita1w72n3"]
+[gd_resource type="Resource" script_class="ChickenType" load_steps=6 format=3 uid="uid://dysbita1w72n3"]
 
 [ext_resource type="Script" uid="uid://0ic7vuhhcb2t" path="res://entities/chickens/chicken_type.gd" id="1_psnmj"]
 [ext_resource type="Texture2D" uid="uid://bkt8ufxfqlghd" path="res://ui/screens/side_panel/assets/basic_chicken_badge.png" id="1_ydnyr"]
+[ext_resource type="AudioStream" uid="uid://ce4ues1547dcu" path="res://core/audio/sfx/poof-80161.wav" id="2_uss16"]
 [ext_resource type="SpriteFrames" uid="uid://d2vso4gooyii8" path="res://entities/chickens/assets/basic_chicken_sprite_frames.tres" id="2_ydnyr"]
 [ext_resource type="Resource" uid="uid://dlofwcsq4agf3" path="res://entities/drops/wings/wing_types/basic_wing.tres" id="3_uss16"]
 
@@ -14,4 +15,6 @@ badge_icon = ExtResource("1_ydnyr")
 speed = 20.0
 wing_type = ExtResource("3_uss16")
 spawn_weight = 10.0
+hit_sound = ExtResource("2_uss16")
+death_sound = ExtResource("2_uss16")
 metadata/_custom_type_script = "uid://0ic7vuhhcb2t"

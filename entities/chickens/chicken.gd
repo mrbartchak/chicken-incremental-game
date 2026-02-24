@@ -83,9 +83,11 @@ func take_damage(amount: int) -> void:
 		return
 	health -= amount
 	flash()
+	AudioManager.play_sfx(chicken_type.hit_sound, 0.2, -10.0)
 	if health <= 0:
 		die() #call_deferred("die") !!!
 		return
+	GameEffects.shake_screen(1, 0.1)
 	hit_particles.restart()
 
 
@@ -98,7 +100,8 @@ func die() -> void:
 	GameEffects.shake_screen(1, 0.2)
 	sprite.visible = false
 	monitorable = false
-	AudioManager.play_chicken_death()
+	#AudioManager.play_chicken_death()
+	AudioManager.play_sfx(chicken_type.death_sound, 0.2, -10.0)
 	hit_particles.restart()
 	await get_tree().create_timer(hit_particles.lifetime).timeout
 	

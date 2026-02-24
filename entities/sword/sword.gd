@@ -1,7 +1,7 @@
 class_name Sword
 extends Area2D
 
-var attack_damage: int = 5
+var attack_damage: int = 1
 var attack_radius: int
 var attack_cooldown: float = 1.0
 var cooldown_timer: float = 0.0

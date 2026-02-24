@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="ChickenType" load_steps=5 format=3 uid="uid://do8icirsuvl60"]
+[gd_resource type="Resource" script_class="ChickenType" load_steps=7 format=3 uid="uid://do8icirsuvl60"]
 
 [ext_resource type="Script" uid="uid://0ic7vuhhcb2t" path="res://entities/chickens/chicken_type.gd" id="1_i8rsi"]
 [ext_resource type="Texture2D" uid="uid://fcmac1xh61wj" path="res://ui/screens/side_panel/assets/silver_chicken_badge.png" id="1_udx60"]
+[ext_resource type="AudioStream" uid="uid://di2aydacc4ly" path="res://core/audio/sfx/metallic_collect.wav" id="2_3dom6"]
 [ext_resource type="SpriteFrames" uid="uid://diqu7v5febt3w" path="res://entities/chickens/assets/silver_chicken_sprite_frames.tres" id="2_i8rsi"]
 [ext_resource type="Resource" uid="uid://c3b7vj7g0yvav" path="res://entities/drops/wings/wing_types/silver_wing.tres" id="2_ksfpc"]
+[ext_resource type="AudioStream" uid="uid://bxxrmjplxih3m" path="res://core/audio/sfx/metal_clang.wav" id="3_oxyhe"]
 
 [resource]
 script = ExtResource("1_i8rsi")
@@ -11,9 +13,11 @@ id = "silver_chicken"
 display_name = "Silver"
 sprite_frames = ExtResource("2_i8rsi")
 badge_icon = ExtResource("1_udx60")
-speed = 20.0
-max_health = 5
+speed = 15.0
+max_health = 3
 wing_type = ExtResource("2_ksfpc")
 unlock_milestone = 8000
 spawn_weight = 4.0
+hit_sound = ExtResource("3_oxyhe")
+death_sound = ExtResource("2_3dom6")
 metadata/_custom_type_script = "uid://0ic7vuhhcb2t"

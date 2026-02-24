@@ -10,3 +10,5 @@ extends Resource
 @export var wing_type: WingType
 @export var unlock_milestone: int
 @export var spawn_weight: float
+@export var hit_sound: AudioStream
+@export var death_sound: AudioStream
