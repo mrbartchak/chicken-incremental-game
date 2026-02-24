@@ -36,6 +36,7 @@ func _process(delta):
 	_handle_cursor_follow(delta)
 	_collect_wings()
 	queue_redraw()
+	try_attack()
 	#_update_cooldown_bar(delta)
 
 func _input(event: InputEvent) -> void:
@@ -46,6 +47,7 @@ func _input(event: InputEvent) -> void:
 func _update_stats() -> void:
 	attack_cooldown = GameManager.attack_speed
 	attack_radius = GameManager.attack_radius
+	attack_hitbox.shape.radius = attack_radius
 	queue_redraw()
 
 func try_attack() -> void:

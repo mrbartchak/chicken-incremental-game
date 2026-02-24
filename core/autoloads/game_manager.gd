@@ -7,7 +7,7 @@ signal stats_changed()
 const BASE_WING_VALUE_BONUS: int = 0
 const BASE_MAX_POPULATION: int = 1
 const BASE_SPAWN_RATE: float = 1.5
-const BASE_ATTACK_SPEED: float = 1.0
+const BASE_ATTACK_SPEED: float = 1.5
 const BASE_ATTACK_RADIUS: int = 8
 
 var _state: GameState
