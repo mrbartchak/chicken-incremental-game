@@ -22,6 +22,7 @@ var target_position: Vector2
 func _ready() -> void:
 	sprite.sprite_frames = chicken_type.sprite_frames
 	health = chicken_type.max_health
+	hit_particles.texture = chicken_type.hit_particles
 	play_spawn_animation()
 	_enter_idle()
 

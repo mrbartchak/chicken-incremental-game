@@ -12,3 +12,4 @@ extends Resource
 @export var spawn_weight: float
 @export var hit_sound: AudioStream
 @export var death_sound: AudioStream
+@export var hit_particles: Texture2D

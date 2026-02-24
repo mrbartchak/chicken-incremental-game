@@ -1,8 +1,8 @@
 class_name GameState
 extends RefCounted
 
-var wings: int = 0
-var total_wings_collected: int = 10000
+var wings: int = 1000000
+var total_wings_collected: int = 100000
 var chicken_count: int = 0
 var upgrade_progress: Dictionary = {}
 
